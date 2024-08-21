@@ -40,3 +40,18 @@ p.test-3 {
 p.test-4 {
   font-family: Lotr-4;
 }
+img {
+  max-width: 200px;
+}
+.rotate {
+  animation: rotation 30s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
