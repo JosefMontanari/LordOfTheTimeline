@@ -1,0 +1,80 @@
+.background-image-game {
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url(/game-page-background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height: 100vh;
+  width: 100vw;
+  position: absolute; /* or relative */
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -2;
+}
+
+.background-image-ring {
+  background-image: url(/ring-text-3.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height: 80%;
+  width: 40%;
+  opacity: 15%;
+  position: absolute; /* or relative */
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.lotr-game-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-title {
+  font-size: 100px;
+  margin-top: 120px;
+}
+
+.lotr-timeline {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(146, 96, 0, 0.4);
+  border: 1px solid #ffa800;
+  border-left: none;
+  border-right: none;
+  width: 99.9vw;
+  height: 55px;
+  margin-top: 230px;
+}
+
+.arrows {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 33px;
+  height: 80px;
+  width: 280px;
+}
+
+.arrow-right {
+  rotate: 180deg;
+  filter: drop-shadow(-1px -5px 0px rgba(0, 0, 0, 0.5));
+}
+
+.arrow-left,
+.arrow-dot {
+  filter: drop-shadow(1px 5px 0px rgba(0, 0, 0, 0.5));
+}
+
+.arrow-right:hover,
+.arrow-left:hover {
+  cursor: pointer;
+  filter: drop-shadow(0px 0px 10px #ffa800);
+}

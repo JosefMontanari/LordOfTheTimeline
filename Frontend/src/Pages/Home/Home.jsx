@@ -7,7 +7,7 @@ import LotrGame from "../LotrGame/LotrGame";
 function Home() {
   return (
     <div className="home-page">
-      <div className="background-image"></div>
+      <div className="background-image-home"></div>
       <h1 className="lotr-font main-title">Lord of The Timeline</h1>
       <div className="play-game-container">
         <img src={ringText} alt="" className="play-ring" />

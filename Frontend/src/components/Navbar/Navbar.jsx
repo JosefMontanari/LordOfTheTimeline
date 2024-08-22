@@ -1,11 +1,14 @@
 import React from "react";
 import "./Navbar.css";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
     <div className="navbar">
       <div>
-        <h3 className="navbar-link lotr-font">Home</h3>
+        <Link className="" to={"/"}>
+          <h3 className="navbar-link lotr-font">Home</h3>
+        </Link>
       </div>
       <div>
         <h3 className="navbar-link lotr-font">How to play</h3>

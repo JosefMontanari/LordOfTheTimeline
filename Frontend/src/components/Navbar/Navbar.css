@@ -6,7 +6,7 @@
 }
 
 .navbar-link {
-  font-size: 45px;
+  font-size: 45px !important;
   cursor: pointer;
 }
 
