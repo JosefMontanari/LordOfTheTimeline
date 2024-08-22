@@ -1,0 +1,57 @@
+@font-face {
+  font-family: "Lotr-1";
+  src: local("Aniron-7BaP"),
+    url("./assets/fonts/Aniron-7BaP.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Lotr-2";
+  src: local("AnironBold-mL9P"),
+    url("./assets/fonts/AnironBold-mL9P.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Lotr-3";
+  src: local("Anironc-d9DK"),
+    url("./assets/fonts/Anironc-d9DK.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Lotr-4";
+  src: local("AnironcBold-PKwr"),
+    url("./assets/fonts/AnironcBold-PKwr.ttf") format("truetype");
+}
+
+p {
+  font-size: 48px;
+}
+p.test-1 {
+  font-family: Lotr-1;
+}
+
+p.test-2 {
+  font-family: Lotr-2;
+}
+
+p.test-3 {
+  font-family: Lotr-3;
+}
+
+p.test-4 {
+  font-family: Lotr-4;
+}
+img {
+  max-width: 200px;
+}
+.rotate {
+  animation: rotation 30s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
