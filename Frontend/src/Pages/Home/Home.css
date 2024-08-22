@@ -1,4 +1,4 @@
-.background-image {
+.background-image-home {
   background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
     url(/landing-page-background-4.jpg);
   background-repeat: no-repeat;
@@ -34,7 +34,6 @@
   justify-content: center;
   align-items: center;
   margin-top: 100px;
-  margin-right: 120px;
 }
 
 .play-ring {
@@ -45,6 +44,7 @@
   animation: rotation 60s infinite linear;
   animation-play-state: paused; /* Startar i pausat läge */
   transform-origin: center;
+  overflow: visible;
 }
 
 .play-game-container:hover .play-ring {
