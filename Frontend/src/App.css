@@ -35,22 +35,16 @@
   text-decoration: none;
 }
 
+/* Gör så man inte kan scrolla */
+body,
+html {
+  overflow: hidden;
+  height: 100%;
+}
+
 .lotr-font {
   color: #ffa800;
   font-family: lotr-5;
   -webkit-text-stroke: 0.05px rgb(104, 91, 91);
   text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.57);
-}
-
-.rotate {
-  animation: rotation 60s infinite linear;
-}
-
-@keyframes rotation {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }

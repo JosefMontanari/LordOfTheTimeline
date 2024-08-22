@@ -11,7 +11,7 @@ function Navbar() {
         </Link>
       </div>
       <div>
-        <h3 className="navbar-link lotr-font">How to play</h3>
+        <h3 className="navbar-link lotr-font how-to-play">How to play</h3>
       </div>
       <div>
         <h3 className="navbar-link lotr-font">High Score</h3>
