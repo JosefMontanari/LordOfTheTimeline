@@ -7,4 +7,9 @@
 
 .navbar-link {
   font-size: 45px;
+  cursor: pointer;
+}
+
+.navbar-link:hover {
+  color: #2b2b2b;
 }

@@ -39,13 +39,9 @@
   color: #ffa800;
   font-family: lotr-5;
   -webkit-text-stroke: 0.05px rgb(104, 91, 91);
-  cursor: pointer;
   text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.57);
 }
 
-img {
-  max-width: 200px;
-}
 .rotate {
   animation: rotation 60s infinite linear;
 }
@@ -55,6 +51,6 @@ img {
     transform: rotate(0deg);
   }
   to {
-    transform: rotate(359deg);
+    transform: rotate(360deg);
   }
 }
