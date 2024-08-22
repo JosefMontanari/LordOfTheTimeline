@@ -14,7 +14,6 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/game" element={<LotrGame />} />
         </Routes>
-        <Footer />
       </div>
     </>
   );
