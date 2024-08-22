@@ -1,0 +1,60 @@
+.background-image {
+  background-image: url(/landing-page-background-4.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height: 100vh;
+  width: 100vw;
+  position: absolute; /* or relative */
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+.home-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-title {
+  font-size: 140px;
+  margin-top: 130px;
+}
+
+.play-game-container {
+  position: relative;
+  display: flex;
+  width: 100px;
+  height: 100px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  margin-right: 120px;
+}
+
+.play-ring {
+  position: absolute;
+  z-index: -1;
+  opacity: 1;
+}
+
+.play-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 40px;
+  text-align: center;
+  font-family: "libre baskerville";
+  color: #2b2b2b;
+  -webkit-text-stroke: 0.5px #ffa800; /* Add a thicker text outline */
+  text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.57); /* Optional shadow */
+}
+
+.play-button:hover {
+  color: #ffa800;
+  -webkit-text-stroke: 1px #2b2b2b; /* Add a thicker text outline */
+}

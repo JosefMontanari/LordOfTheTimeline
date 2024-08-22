@@ -3,7 +3,7 @@ import React from "react";
 import "./Footer.css";
 
 function Footer() {
-  return <></>;
+  return <>Footer</>;
 }
 
 export default Footer;
