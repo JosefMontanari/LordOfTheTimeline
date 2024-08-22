@@ -1,0 +1,80 @@
+.background-image {
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url(/landing-page-background-4.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height: 100vh;
+  width: 100vw;
+  position: absolute; /* or relative */
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -2;
+}
+
+.home-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-title {
+  font-size: 140px;
+  margin-top: 130px;
+}
+
+.play-game-container {
+  position: relative;
+  display: flex;
+  width: 100px;
+  height: 100px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  margin-right: 120px;
+}
+
+.play-ring {
+  position: absolute;
+  z-index: 1;
+  opacity: 1;
+  width: 240px;
+  animation: rotation 60s infinite linear;
+  animation-play-state: paused; /* Startar i pausat läge */
+  transform-origin: center;
+}
+
+.play-game-container:hover .play-ring {
+  animation-play-state: running;
+}
+
+.play-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 40px;
+  font-weight: 600;
+  text-align: center;
+  font-family: "libre baskerville";
+  color: #2b2b2b;
+  -webkit-text-stroke: 0.5px #ffa800; /* Add a thicker text outline */
+  text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.57); /* Optional shadow */
+  z-index: 2;
+}
+
+.play-button:hover {
+  color: #ffa800;
+  -webkit-text-stroke: 1px #2b2b2b; /* Add a thicker text outline */
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

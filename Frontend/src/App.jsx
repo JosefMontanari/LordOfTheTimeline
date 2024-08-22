@@ -1,14 +1,21 @@
 import { useState } from "react";
+import { Routes, Route, Link } from "react-router-dom";
 import "./App.css";
+import Navbar from "./components/Navbar/Navbar";
+import Home from "./Pages/Home/Home";
+import LotrGame from "./Pages/LotrGame/LotrGame";
+import Footer from "./components/Footer/Footer";
 function App() {
   return (
     <>
-      <p className="test-1">Lord of The Timeline</p>
-      <p className="test-2">Lord of The Timeline</p>
-      <p className="test-3">Lord of The Timeline</p>
-      <p className="test-4">Lord of The Timeline</p>
-
-      <img className="rotate" src="/ring-text.png" alt="bajs" />
+      <div className="app">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/game" element={<LotrGame />} />
+        </Routes>
+        <Footer />
+      </div>
     </>
   );
 }
