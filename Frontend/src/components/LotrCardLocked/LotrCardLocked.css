@@ -1,0 +1,43 @@
+.card-text-locked {
+  font-size: 11px;
+  top: 30px;
+  font-weight: 600;
+  margin: 0px 12px;
+  position: relative;
+  color: white;
+  font-family: "libre baskerville";
+}
+
+.card-image-locked {
+  position: absolute;
+  height: 100px;
+  width: 100px;
+  opacity: 0.6;
+  top: 25px;
+}
+.card-correct {
+  box-shadow: 0px 0px 15px 10px #2e7128;
+}
+.card-incorrect {
+  box-shadow: 0px 0px 15px 10px #830000;
+}
+.date-container {
+  position: relative;
+  height: 30px;
+  width: 100%;
+  top: 10px;
+}
+.date-text {
+  color: white;
+  position: relative;
+  top: 5px;
+  font-size: 16px;
+  text-align: center;
+}
+.time-frame {
+  position: absolute;
+  width: 130px;
+  top: 19px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
