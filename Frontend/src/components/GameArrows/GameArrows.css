@@ -21,4 +21,5 @@
 .arrow-left:hover {
   cursor: pointer;
   filter: drop-shadow(0px 0px 10px #ffa800);
+  transition: 20ms;
 }
