@@ -41,3 +41,12 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+.trivia-text {
+  font-size: 9px;
+}
+
+.trivia-text-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}

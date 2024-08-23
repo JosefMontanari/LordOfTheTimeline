@@ -6,12 +6,13 @@ import "./LotrGame.css";
 import LotrGameBackground from "../../components/LotrGameBackground/LotrGameBackground";
 import LotrGameTimeline from "../../components/LotrGameTimeline/LotrGameTimeline";
 import GameArrows from "../../components/GameArrows/GameArrows";
-import LotrCardTrivia from "../../components/LotrCardTrivia/LotrCardTrivia";
 
 function LotrGame({ allCards, setAllCards }) {
   // För att passa om korten är rätt eller fel när de ändrar state
   const [testList, setTestList] = useState([]);
   const [playerCards, setPlayerCards] = useState([]);
+  // Tre olika states, placing card, picking new/locking in, game over och won game
+  const [playState, setPlayState] = useState("new or lock");
 
   useEffect(() => {
     fetch("http://localhost:5266/api/Lotr")
@@ -45,6 +46,7 @@ function LotrGame({ allCards, setAllCards }) {
         ...c,
         isLockedIn: false,
         currentlyPlaying: true,
+        isConfirmed: false,
         cardIsCorrect: false,
       };
     });
@@ -52,53 +54,89 @@ function LotrGame({ allCards, setAllCards }) {
 
     //Förbereder första kortet
     let newPlayerList = [];
-    let firstCard = { ...updatedCards[0], IsLockedIn: true };
+    let firstCard = { ...updatedCards[0] };
+    firstCard.isLockedIn = true;
     newPlayerList.push(firstCard);
     console.log(newPlayerList);
     setPlayerCards(newPlayerList);
   }
 
-  function handleLeftArrowClick() {
+  function AddPlayerCard() {
+    // Skapa en helt ny lista som är en kopia av befintliga playercards
+    let newPlayerList = [...playerCards];
+
+    // Skapa en lista med alla existerande korts id
+    const existingCardIds = newPlayerList.map((card) => card.id);
+
+    // Skapa ett kort och se om kortets id redan finns i existerande kort
+    let newCard;
+    do {
+      newCard = allCards[Math.floor(Math.random() * allCards.length)];
+    } while (existingCardIds.includes(newCard.id)); // Kolla om kortet redan finns i listan (via ID)
+
+    newPlayerList.push(newCard);
+
+    setPlayerCards(newPlayerList);
+
+    setPlayState("placing card");
+  }
+
+  function Confirm() {
+    setPlayState("new or lock");
+  }
+
+  function HandleLeftArrowClick() {
     console.log("left clicked");
   }
 
-  function handleRightArrowClick() {
+  function HandleRightArrowClick() {
     console.log("Right clicked!");
   }
   return (
     <div className="lotr-game-page">
       <LotrGameBackground />
-      {/* <div className="cards-container">
-        {testList.map((t) => (
-          <LotrCardPlayable cardData={t} />
-        ))}
-      </div> */}
-
-      {playerCards.map((c) => {
-        if (c.isLockedIn === true) {
-          return (
-            <LotrCardLocked
-              cardData={c}
-              cardIsCorrect={c.cardIsCorrect}
-              key={c.id}
-            />
-          );
-        } else {
-          return <LotrCardPlayable cardData={c} key={c.id} />;
-        }
-      })}
+      <div className="cards-container">
+        {playerCards.map((c) => {
+          if (c.isLockedIn === true) {
+            return (
+              <LotrCardLocked
+                cardData={c}
+                cardIsCorrect={c.cardIsCorrect}
+                key={c.id}
+              />
+            );
+          } else {
+            return <LotrCardPlayable cardData={c} key={c.id} />;
+          }
+        })}
+      </div>
       {/* Null check, kolla om vi kan refaktorera denna i en useEffect senare? */}
       {/* {allCards && allCards.length > 0 && (
         <LotrCardLocked cardData={allCards[2]} cardIsCorrect={true} />
       )} */}
       <LotrGameTimeline />
       <GameArrows
-        clickLeft={() => handleLeftArrowClick()}
-        clickRight={handleRightArrowClick}
+        clickLeft={() => HandleLeftArrowClick()}
+        clickRight={() => HandleRightArrowClick()}
       />
-      <button>Confirm placement</button>
-      <button>New card</button>
-      <button>Lock in card</button>
+      {playState === "placing card" ? (
+        <button onClick={() => Confirm()}>Confirm placement</button>
+      ) : (
+        <></>
+      )}
+      {playState === "new or lock" ? (
+        <>
+          {playerCards.length < 10 ? (
+            <button onClick={() => AddPlayerCard()}>New card</button>
+          ) : (
+            <></>
+          )}
+          <button>Lock in cards</button>
+        </>
+      ) : (
+        <></>
+      )}
+      {playState === "game over" ? <button>New card</button> : <></>}
     </div>
   );
 }
