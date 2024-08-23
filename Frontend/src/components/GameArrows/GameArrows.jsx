@@ -1,4 +1,5 @@
 import React from "react";
+import "./GameArrows.css";
 
 function GameArrows({ clickLeft, clickRight }) {
   return (

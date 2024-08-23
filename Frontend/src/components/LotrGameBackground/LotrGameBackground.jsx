@@ -7,7 +7,7 @@ function LotrGameBackground() {
       <div className="background-image-game">
         <div className="background-image-ring"></div>
       </div>
-      <h1 className="lotr-font game-title">Lord of The Timeline</h1>
+      <h1 className="lotr-font game-title">lord of the timeline</h1>
     </>
   );
 }

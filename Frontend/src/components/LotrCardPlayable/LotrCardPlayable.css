@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-left: 50px;
   border: 10px solid #835700;
   max-height: 180px;
   max-width: 120px;
@@ -26,17 +25,25 @@
 
 .card-image {
   position: absolute;
-  height: 100px;
-  width: 100px;
-  opacity: 0.6;
-  top: 50px;
+  height: 125px;
+  width: 125px;
+  opacity: 0.35;
+  top: 15px;
 }
 .card-text-playable {
   font-size: 11px;
-  top: 50px;
+  top: 35px;
   font-weight: 600;
   margin: 0px 12px;
   position: relative;
   color: white;
   font-family: "libre baskerville";
+}
+
+.time-frame {
+  position: absolute;
+  width: 130px;
+  top: 19px;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
