@@ -76,6 +76,7 @@ function LotrGame({ allCards, setAllCards }) {
   }
 
   function Confirm() {
+    // Kolla om listan ligger rätt utifrån timeValue
     const correct = EvaluateCards();
 
     if (correct) {
@@ -148,23 +149,59 @@ function LotrGame({ allCards, setAllCards }) {
   }
 
   function HandleLeftArrowClick() {
-    console.log("left clicked");
+    // Skapa en kopia vi kan jobba med
+    let newPlayerList = [...playerCards];
 
-    // Hitta kortet som är isCurrentlyPlaying
+    // Hitta kortet som är isCurrentlyPlaying och dess index
+    let currentlyPlayingCard = newPlayerList.find((c) => c.isCurrentlyPlaying);
+    let index = newPlayerList.indexOf(currentlyPlayingCard);
 
     // Om det inte har index 0
+    if (index === 0) {
+      // TODO: Gör någon visuell feedback på att man redan är längst till vänster
+      return;
+    }
 
     // Flytta index -1
+    // Ta bort kortet vi använder från listan
+    let filteredPlayerList = newPlayerList.filter((c) => !c.isCurrentlyPlaying);
+
+    // Lägg in kortet på index - 1
+    let newFilteredPlayerList = [
+      ...filteredPlayerList.slice(0, index - 1), // Kopiera originallistan fram till index - 1
+      currentlyPlayingCard, // Lägg tillbaka kortet
+      ...filteredPlayerList.slice(index - 1), // Kopiera listan från och med index - 1
+    ];
+
+    setPlayerCards(newFilteredPlayerList);
   }
 
   function HandleRightArrowClick() {
-    console.log("Right clicked!");
+    // Skapa en kopia vi kan jobba med
+    let newPlayerList = [...playerCards];
 
-    // Hitta kortet som är isCurrentlyPlaying
+    // Hitta kortet som är isCurrentlyPlaying och dess index
+    let currentlyPlayingCard = newPlayerList.find((c) => c.isCurrentlyPlaying);
+    let index = newPlayerList.indexOf(currentlyPlayingCard);
 
-    // Om det inte har index playerCards.length
+    // Om det inte är längst till höger
+    if (index === newPlayerList.length - 1) {
+      // TODO: Gör någon visuell feedback på att man redan är längst till höger
+      return;
+    }
 
     // Flytta index +1
+    // Ta bort kortet vi använder från listan
+    let filteredPlayerList = newPlayerList.filter((c) => !c.isCurrentlyPlaying);
+
+    // Lägg in kortet på index - 1
+    let newFilteredPlayerList = [
+      ...filteredPlayerList.slice(0, index + 1), // Kopiera originallistan fram till index - 1
+      currentlyPlayingCard, // Lägg tillbaka kortet
+      ...filteredPlayerList.slice(index + 1), // Kopiera listan från och med index - 1
+    ];
+
+    setPlayerCards(newFilteredPlayerList);
   }
   return (
     <div className="lotr-game-page">
