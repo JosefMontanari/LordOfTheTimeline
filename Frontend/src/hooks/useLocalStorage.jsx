@@ -28,12 +28,16 @@ function useLocalStorage() {
         streakOfCards++;
       }
     });
+
     if (streakOfCards > 1) {
       streakMultiplier = 1 + streakOfCards * 0.15;
+    } else {
+      streakMultiplier = 1;
     }
 
     setLocalStorage("streakMultiplier", streakMultiplier);
   }
+
   function setTotalPoints() {
     let points = JSON.parse(localStorage.getItem("cardPoints"));
     let streakMultiplier = JSON.parse(localStorage.getItem("streakMultiplier"));
