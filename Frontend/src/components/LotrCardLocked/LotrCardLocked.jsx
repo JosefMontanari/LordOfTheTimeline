@@ -2,19 +2,14 @@ import React from "react";
 import { useState, useEffect } from "react";
 import ringText from "/ring-text.png";
 import timeFrame from "/time-frame.png";
-
 import "./LotrCardLocked.css";
 
 function LotrCardLocked({ cardData }) {
-  const [card, setCard] = useState({});
   const [showTrivia, setShowTrivia] = useState(false);
-
   return (
     <>
       <div
-        className={`card-container card-locked ${
-          cardData.isCorrect ? "card-correct" : "card-incorrect"
-        }`}
+        className="card-container card-locked"
         onClick={() => setShowTrivia(!showTrivia)}
       >
         <div className="date-container">
@@ -29,10 +24,7 @@ function LotrCardLocked({ cardData }) {
             {!showTrivia ? (
               <p>{cardData.question}</p>
             ) : (
-              <div className="trivia-text-container">
-                <p className="trivia-text">Did you know?</p>
-                <p className="trivia-text">{cardData.trivia}</p>
-              </div>
+              <p className="trivia-text">{`Did you know? ${cardData.trivia}`}</p>
             )}
           </div>
         </div>

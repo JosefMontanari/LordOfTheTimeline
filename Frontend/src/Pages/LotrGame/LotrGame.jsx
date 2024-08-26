@@ -1,13 +1,13 @@
 import React from "react";
 import LotrCardPlayable from "../../components/LotrCardPlayable/LotrCardPlayable";
-import LotrCardLocked from "../../components/LotrCardLocked/LotrCardLocked";
+import LotrCardConfirmed from "../../components/LotrCardConfirmed/LotrCardConfirmed";
 import { useState, useEffect } from "react";
 import "./LotrGame.css";
 import LotrGameBackground from "../../components/LotrGameBackground/LotrGameBackground";
 import LotrGameTimeline from "../../components/LotrGameTimeline/LotrGameTimeline";
 import GameArrows from "../../components/GameArrows/GameArrows";
-import LotrCardLockedIn from "../../components/LotrCardLockedIn/lotrCardLockedIn";
 import useLocalStorage from "../../hooks/useLocalStorage";
+import LotrCardLocked from "../../components/LotrCardLocked/LotrCardLocked";
 
 function LotrGame({ allCards, setAllCards }) {
   // För att passa om korten är rätt eller fel när de ändrar state
@@ -222,9 +222,9 @@ function LotrGame({ allCards, setAllCards }) {
         {playerCards.map((c) => {
           if (c.isCurrentlyPlaying === false) {
             if (c.isLockedIn === false) {
-              return <LotrCardLocked cardData={c} key={c.id} />;
+              return <LotrCardConfirmed cardData={c} key={c.id} />;
             } else {
-              return <LotrCardLockedIn cardData={c} key={c.id} />;
+              return <LotrCardLocked cardData={c} key={c.id} />;
             }
           } else {
             return <LotrCardPlayable cardData={c} key={c.id} />;
