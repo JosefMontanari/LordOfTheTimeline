@@ -6,14 +6,20 @@ import "./LotrGame.css";
 import LotrGameBackground from "../../components/LotrGameBackground/LotrGameBackground";
 import LotrGameTimeline from "../../components/LotrGameTimeline/LotrGameTimeline";
 import GameArrows from "../../components/GameArrows/GameArrows";
+import useLocalStorage from "../../hooks/useLocalStorage";
 import LotrCardLocked from "../../components/LotrCardLocked/LotrCardLocked";
 
 function LotrGame({ allCards, setAllCards }) {
   // För att passa om korten är rätt eller fel när de ändrar state
 
   const [playerCards, setPlayerCards] = useState([]);
+
+  const [currentCard, setCurrentCard] = useState({});
+
   // Tre olika states, placing card, picking new/locking in, game over och won game
   const [playState, setPlayState] = useState("new or lock");
+  const { setLocalStorage, setTotalPoints, setCardPoints, setStreakPoints } =
+    useLocalStorage();
 
   useEffect(() => {
     fetch("http://localhost:5266/api/Lotr")
@@ -72,6 +78,7 @@ function LotrGame({ allCards, setAllCards }) {
 
     newPlayerList.push(newCard);
 
+    setCurrentCard(newCard);
     setPlayerCards(newPlayerList);
   }
 
@@ -84,6 +91,10 @@ function LotrGame({ allCards, setAllCards }) {
     } else {
       setPlayState("game over");
     }
+
+    setCardPoints(currentCard);
+    setStreakPoints(playerCards);
+    setTotalPoints();
   }
 
   function EvaluateCards() {
@@ -145,6 +156,7 @@ function LotrGame({ allCards, setAllCards }) {
 
   function NewGame() {
     // Laddar om sidan för att starta om spelet
+    setLocalStorage("cardPoints", 0);
     window.location.reload();
   }
 
@@ -153,8 +165,8 @@ function LotrGame({ allCards, setAllCards }) {
     let newPlayerList = [...playerCards];
 
     // Hitta kortet som är isCurrentlyPlaying och dess index
-    let currentlyPlayingCard = newPlayerList.find((c) => c.isCurrentlyPlaying);
-    let index = newPlayerList.indexOf(currentlyPlayingCard);
+    //let currentlyPlayingCard = newPlayerList.find((c) => c.isCurrentlyPlaying);
+    let index = newPlayerList.indexOf(currentCard);
 
     // Om det inte har index 0
     if (index === 0) {
@@ -169,7 +181,7 @@ function LotrGame({ allCards, setAllCards }) {
     // Lägg in kortet på index - 1
     let newFilteredPlayerList = [
       ...filteredPlayerList.slice(0, index - 1), // Kopiera originallistan fram till index - 1
-      currentlyPlayingCard, // Lägg tillbaka kortet
+      currentCard, // Lägg tillbaka kortet
       ...filteredPlayerList.slice(index - 1), // Kopiera listan från och med index - 1
     ];
 
@@ -181,8 +193,8 @@ function LotrGame({ allCards, setAllCards }) {
     let newPlayerList = [...playerCards];
 
     // Hitta kortet som är isCurrentlyPlaying och dess index
-    let currentlyPlayingCard = newPlayerList.find((c) => c.isCurrentlyPlaying);
-    let index = newPlayerList.indexOf(currentlyPlayingCard);
+    //let currentlyPlayingCard = newPlayerList.find((c) => c.isCurrentlyPlaying);
+    let index = newPlayerList.indexOf(currentCard);
 
     // Om det inte är längst till höger
     if (index === newPlayerList.length - 1) {
@@ -197,7 +209,7 @@ function LotrGame({ allCards, setAllCards }) {
     // Lägg in kortet på index - 1
     let newFilteredPlayerList = [
       ...filteredPlayerList.slice(0, index + 1), // Kopiera originallistan fram till index - 1
-      currentlyPlayingCard, // Lägg tillbaka kortet
+      currentCard, // Lägg tillbaka kortet
       ...filteredPlayerList.slice(index + 1), // Kopiera listan från och med index - 1
     ];
 
