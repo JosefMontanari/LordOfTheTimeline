@@ -41,6 +41,7 @@ function LotrGame({ allCards, setAllCards }) {
     setAllCards(updatedCards);
 
     GetFirstCard(updatedCards);
+    setLocalStorage("cardPoints", 0);
   }
 
   function GetFirstCard(cards) {
