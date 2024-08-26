@@ -6,10 +6,11 @@ import "./LotrGame.css";
 import LotrGameBackground from "../../components/LotrGameBackground/LotrGameBackground";
 import LotrGameTimeline from "../../components/LotrGameTimeline/LotrGameTimeline";
 import GameArrows from "../../components/GameArrows/GameArrows";
+import LotrCardLockedIn from "../../components/LotrCardLockedIn/lotrCardLockedIn";
 
 function LotrGame({ allCards, setAllCards }) {
   // För att passa om korten är rätt eller fel när de ändrar state
-  const [testList, setTestList] = useState([]);
+
   const [playerCards, setPlayerCards] = useState([]);
   // Tre olika states, placing card, picking new/locking in, game over och won game
   const [playState, setPlayState] = useState("new or lock");
@@ -17,48 +18,43 @@ function LotrGame({ allCards, setAllCards }) {
   useEffect(() => {
     fetch("http://localhost:5266/api/Lotr")
       .then((res) => res.json())
-      .then((data) => ChangeToViewModels(data));
+      .then((data) => SetUpGame(data));
   }, []);
 
-  //Enbart för test. Ta bort sen
-  useEffect(() => {
-    const filteredList = allCards.slice(0, 4);
-    setTestList(filteredList);
-  }, [allCards]);
-
-  // Lägg till första kortet i playerCards och ändra så det är lockedIn
-  // useEffect(() => {
-  //   if (allCards.length > 0) {
-  //     let newPlayerList = [];
-
-  //     let firstCard = { ...allCards[0], IsLockedIn: true };
-
-  //     newPlayerList.push(firstCard);
-  //     console.log(newPlayerList);
-  //     setPlayerCards(newPlayerList);
-  //   }
-  // }, [allCards]);
-
-  function ChangeToViewModels(cardsToUpdate) {
+  function SetUpGame(cardsToUpdate) {
     // Här lägger jag in properties jag vill att min viewModel ska ha
     let updatedCards = cardsToUpdate.map((c) => {
       return {
         ...c,
         isLockedIn: false,
-        currentlyPlaying: true,
+        isCurrentlyPlaying: true,
         isConfirmed: false,
-        cardIsCorrect: false,
+        isCorrect: false,
       };
     });
     setAllCards(updatedCards);
 
+    GetFirstCard(updatedCards);
+  }
+
+  function GetFirstCard(cards) {
     //Förbereder första kortet
     let newPlayerList = [];
-    let firstCard = { ...updatedCards[0] };
+    let firstCard = cards[Math.floor(Math.random() * cards.length)];
+    firstCard.isCorrect = true;
+    firstCard.isCurrentlyPlaying = false;
     firstCard.isLockedIn = true;
     newPlayerList.push(firstCard);
-    console.log(newPlayerList);
+
     setPlayerCards(newPlayerList);
+  }
+
+  function NewCard() {
+    // Lägg till nytt kort som spelas
+    AddPlayerCard();
+
+    // Ändra knapparna så vi är i lägg-läge
+    setPlayState("placing card");
   }
 
   function AddPlayerCard() {
@@ -77,66 +73,189 @@ function LotrGame({ allCards, setAllCards }) {
     newPlayerList.push(newCard);
 
     setPlayerCards(newPlayerList);
-
-    setPlayState("placing card");
   }
 
   function Confirm() {
-    setPlayState("new or lock");
+    // Kolla om listan ligger rätt utifrån timeValue
+    const correct = EvaluateCards();
+
+    if (correct) {
+      setPlayState("new or lock");
+    } else {
+      setPlayState("game over");
+    }
+  }
+
+  function EvaluateCards() {
+    let cardsIsCorrect;
+
+    // Skapa en kopia vi jobbar med
+    let newPlayerList = [...playerCards];
+
+    // Skapa en kopia av listan som sorteras efter timeValue
+    let correctlySortedList = [...newPlayerList].sort(
+      (a, b) => a.timeValue - b.timeValue
+    );
+
+    // Kolla om listorna är lika
+    const correctAnswer = EvaluateLists(newPlayerList, correctlySortedList);
+
+    if (correctAnswer) {
+      // Spelet går vidare
+
+      // Ändra properties på det nya kortet till grönt
+      newPlayerList.forEach((c) => {
+        if (c.isCurrentlyPlaying) {
+          c.isConfirmed = true;
+          c.isCorrect = true;
+          c.isCurrentlyPlaying = false;
+        }
+      });
+
+      cardsIsCorrect = true;
+    } else {
+      // Game Over
+
+      // Ändra properties på det nya kortet till rött
+      newPlayerList.forEach((c) => {
+        if (c.isCurrentlyPlaying) {
+          c.isConfirmed = true;
+          c.isCorrect = false;
+          c.isCurrentlyPlaying = false;
+        }
+      });
+
+      cardsIsCorrect = false;
+    }
+
+    setPlayerCards(newPlayerList);
+    return cardsIsCorrect;
+  }
+
+  function EvaluateLists(arr1, arr2) {
+    // Inspirerat av chat gpt...
+    for (let i = 0; i < arr1.length; i++) {
+      // Kontrollera att varje element är lika
+      if (arr1[i].id !== arr2[i].id) {
+        return false; // Om något element är olika, returnera false
+      }
+    }
+    return true; // Arrayerna är lika
+  }
+
+  function NewGame() {
+    // Laddar om sidan för att starta om spelet
+    window.location.reload();
   }
 
   function HandleLeftArrowClick() {
-    console.log("left clicked");
+    // Skapa en kopia vi kan jobba med
+    let newPlayerList = [...playerCards];
+
+    // Hitta kortet som är isCurrentlyPlaying och dess index
+    let currentlyPlayingCard = newPlayerList.find((c) => c.isCurrentlyPlaying);
+    let index = newPlayerList.indexOf(currentlyPlayingCard);
+
+    // Om det inte har index 0
+    if (index === 0) {
+      // TODO: Gör någon visuell feedback på att man redan är längst till vänster
+      return;
+    }
+
+    // Flytta index -1
+    // Ta bort kortet vi använder från listan
+    let filteredPlayerList = newPlayerList.filter((c) => !c.isCurrentlyPlaying);
+
+    // Lägg in kortet på index - 1
+    let newFilteredPlayerList = [
+      ...filteredPlayerList.slice(0, index - 1), // Kopiera originallistan fram till index - 1
+      currentlyPlayingCard, // Lägg tillbaka kortet
+      ...filteredPlayerList.slice(index - 1), // Kopiera listan från och med index - 1
+    ];
+
+    setPlayerCards(newFilteredPlayerList);
   }
 
   function HandleRightArrowClick() {
-    console.log("Right clicked!");
+    // Skapa en kopia vi kan jobba med
+    let newPlayerList = [...playerCards];
+
+    // Hitta kortet som är isCurrentlyPlaying och dess index
+    let currentlyPlayingCard = newPlayerList.find((c) => c.isCurrentlyPlaying);
+    let index = newPlayerList.indexOf(currentlyPlayingCard);
+
+    // Om det inte är längst till höger
+    if (index === newPlayerList.length - 1) {
+      // TODO: Gör någon visuell feedback på att man redan är längst till höger
+      return;
+    }
+
+    // Flytta index +1
+    // Ta bort kortet vi använder från listan
+    let filteredPlayerList = newPlayerList.filter((c) => !c.isCurrentlyPlaying);
+
+    // Lägg in kortet på index - 1
+    let newFilteredPlayerList = [
+      ...filteredPlayerList.slice(0, index + 1), // Kopiera originallistan fram till index - 1
+      currentlyPlayingCard, // Lägg tillbaka kortet
+      ...filteredPlayerList.slice(index + 1), // Kopiera listan från och med index - 1
+    ];
+
+    setPlayerCards(newFilteredPlayerList);
   }
   return (
     <div className="lotr-game-page">
       <LotrGameBackground />
       <div className="cards-container">
         {playerCards.map((c) => {
-          if (c.isLockedIn === true) {
-            return (
-              <LotrCardLocked
-                cardData={c}
-                cardIsCorrect={c.cardIsCorrect}
-                key={c.id}
-              />
-            );
+          if (c.isCurrentlyPlaying === false) {
+            if (c.isLockedIn === false) {
+              return <LotrCardLocked cardData={c} key={c.id} />;
+            } else {
+              return <LotrCardLockedIn cardData={c} key={c.id} />;
+            }
           } else {
             return <LotrCardPlayable cardData={c} key={c.id} />;
           }
         })}
       </div>
-      {/* Null check, kolla om vi kan refaktorera denna i en useEffect senare? */}
-      {/* {allCards && allCards.length > 0 && (
-        <LotrCardLocked cardData={allCards[2]} cardIsCorrect={true} />
-      )} */}
       <LotrGameTimeline />
-      <GameArrows
-        clickLeft={() => HandleLeftArrowClick()}
-        clickRight={() => HandleRightArrowClick()}
-      />
-      {playState === "placing card" ? (
-        <button onClick={() => Confirm()}>Confirm placement</button>
-      ) : (
-        <></>
-      )}
-      {playState === "new or lock" ? (
-        <>
-          {playerCards.length < 10 ? (
-            <button onClick={() => AddPlayerCard()}>New card</button>
+      <div className="bottom-row">
+        <GameArrows
+          clickLeft={() => HandleLeftArrowClick()}
+          clickRight={() => HandleRightArrowClick()}
+        />
+        <div className="button-container">
+          {playState === "placing card" ? (
+            <button className="button" onClick={() => Confirm()}>
+              Confirm
+            </button>
           ) : (
             <></>
           )}
-          <button>Lock in cards</button>
-        </>
-      ) : (
-        <></>
-      )}
-      {playState === "game over" ? <button>New card</button> : <></>}
+          {playState === "new or lock" ? (
+            <>
+              {playerCards.length < 10 ? (
+                <button className="button" onClick={() => NewCard()}>
+                  New card
+                </button>
+              ) : (
+                <></>
+              )}
+              <button className="button">Lock in cards</button>
+            </>
+          ) : (
+            <></>
+          )}
+          {playState === "game over" ? (
+            <button className="button" onClick={() => NewGame()}>
+              New game
+            </button>
+          ) : (
+            <></>
+          )}
+        </div>
+      </div>
     </div>
   );
 }

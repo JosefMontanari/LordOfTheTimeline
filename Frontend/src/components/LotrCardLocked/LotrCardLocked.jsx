@@ -5,7 +5,7 @@ import timeFrame from "/time-frame.png";
 
 import "./LotrCardLocked.css";
 
-function LotrCardLocked({ cardIsCorrect, cardData }) {
+function LotrCardLocked({ cardData }) {
   const [card, setCard] = useState({});
   const [showTrivia, setShowTrivia] = useState(false);
 
@@ -13,7 +13,7 @@ function LotrCardLocked({ cardIsCorrect, cardData }) {
     <>
       <div
         className={`card-container card-locked ${
-          cardIsCorrect ? "card-correct" : "card-incorrect"
+          cardData.isCorrect ? "card-correct" : "card-incorrect"
         }`}
         onClick={() => setShowTrivia(!showTrivia)}
       >

@@ -8,11 +8,16 @@
   min-height: 180px;
   min-width: 120px;
   background-color: #000000;
+
+  overflow: hidden;
+}
+
+.card-playable {
   /* in order: x offset, y offset, blur size, spread size, color /
     / blur size and spread size are optional (they default to 0) */
   box-shadow: 0px 0px 15px 10px #ffa800;
-  overflow: hidden;
 }
+
 .card-body {
   position: relative;
   width: 100%;

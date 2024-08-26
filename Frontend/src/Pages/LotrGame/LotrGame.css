@@ -11,3 +11,39 @@
   align-items: center;
   gap: 50px;
 }
+
+.bottom-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 80%;
+  position: relative;
+  margin-top: 20px;
+}
+
+.button-container {
+  position: absolute;
+  right: 200px;
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  height: 50px;
+  width: 120px;
+  font-family: "libre baskerville";
+  border: 3px solid #ffa800;
+  background-color: #100a07;
+  color: #e7e7e7;
+  font-size: 13px;
+  padding: auto;
+}
+
+.button:hover {
+  cursor: pointer;
+  filter: drop-shadow(0px 0px 10px #ffa800);
+  font-size: 14px;
+  transition: 80ms;
+}
