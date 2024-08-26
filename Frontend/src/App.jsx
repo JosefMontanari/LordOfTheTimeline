@@ -4,7 +4,6 @@ import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./Pages/Home/Home";
 import LotrGame from "./Pages/LotrGame/LotrGame";
-import Footer from "./components/Footer/Footer";
 function App() {
   const [allCards, setAllCards] = useState([]);
 
