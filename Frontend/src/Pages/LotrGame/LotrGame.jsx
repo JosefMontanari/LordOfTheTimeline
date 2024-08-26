@@ -8,9 +8,13 @@ import LotrGameTimeline from "../../components/LotrGameTimeline/LotrGameTimeline
 import GameArrows from "../../components/GameArrows/GameArrows";
 import useLocalStorage from "../../hooks/useLocalStorage";
 import LotrCardLocked from "../../components/LotrCardLocked/LotrCardLocked";
+import PlayerModal from "../../Modals/PlayerModal/PlayerModal";
 
 function LotrGame({ allCards, setAllCards }) {
   // För att passa om korten är rätt eller fel när de ändrar state
+
+  const [isModalOpen, setIsModalOpen] = useState(true); // Börja med modalen öppen
+  const closeModal = () => setIsModalOpen(false);
 
   const [playerCards, setPlayerCards] = useState([]);
 
@@ -18,8 +22,13 @@ function LotrGame({ allCards, setAllCards }) {
 
   // Tre olika states, placing card, picking new/locking in, game over och won game
   const [playState, setPlayState] = useState("new or lock");
-  const { setLocalStorage, setTotalPoints, setCardPoints, setStreakPoints } =
-    useLocalStorage();
+  const {
+    setLocalStorage,
+    setTotalPoints,
+    setCardPoints,
+    setStreakPoints,
+    setPlayer,
+  } = useLocalStorage();
 
   useEffect(() => {
     fetch("http://localhost:5266/api/Lotr")
@@ -222,6 +231,13 @@ function LotrGame({ allCards, setAllCards }) {
   }
   return (
     <div className="lotr-game-page">
+      {/* Lägg till modalen och kontrollera om den ska vara öppen */}
+      <PlayerModal
+        isOpen={isModalOpen}
+        closeModal={closeModal}
+        setPlayer={setPlayer}
+      />
+
       <LotrGameBackground />
       <div className="cards-container">
         {playerCards.map((c) => {

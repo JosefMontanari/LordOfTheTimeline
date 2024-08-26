@@ -1,0 +1,66 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+h2 {
+  color: #ffa800;
+}
+
+.modal-content {
+  background-color: #181818;
+  padding: 30px;
+  opacity: 0.9;
+  border-radius: 10px;
+  max-width: 600px;
+  width: 90%;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+
+.close-btn {
+  background-color: #ffa800;
+  color: #000;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.close-btn:hover {
+  background-color: #d4af37;
+}
+
+.instructions p {
+  color: white;
+  font-family: "libre Baskerville";
+  margin-bottom: 15px;
+}
+.avatar-selection {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+.avatar-option {
+  width: 50px;
+  height: 50px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: border-color 0.3s;
+}
+
+.avatar-option.selected {
+  border-color: blue; /* Highlight the selected avatar */
+}
