@@ -658,6 +658,62 @@ namespace Backend.Database
 			26, // Dag
 			true, // Händer det i Lotr eller the hobbit?
 			false // Är det ett "great happening" som ska vara med i alla quiz?
+		),
+		new LotrCardModel(
+			46, // Id
+			"Lord of The Rings", // Kategori
+			"Pippin looks into the Orthanc-stone", // Fråga
+			"", // Trivia
+			null, // WikiUrl
+			Ages.thirdAge, // Tidsålder
+			DifficultyRating.Hard, //Svårighetsgrad
+			3019, // År
+			3, // Månad
+			5, // Dag
+			true, // Händer det i Lotr eller the hobbit?
+			false // Är det ett "great happening" som ska vara med i alla quiz?
+		),
+		new LotrCardModel(
+			47, // Id
+			"Lord of The Rings", // Kategori
+			"Frodo and Sam reach Henneth Annûn", // Fråga
+			"", // Trivia
+			null, // WikiUrl
+			Ages.thirdAge, // Tidsålder
+			DifficultyRating.Hard, //Svårighetsgrad
+			3019, // År
+			3, // Månad
+			7, // Dag
+			true, // Händer det i Lotr eller the hobbit?
+			false // Är det ett "great happening" som ska vara med i alla quiz?
+		),
+		new LotrCardModel(
+			48, // Id
+			"Lord of The Rings", // Kategori
+			"The Dawnless Day", // Fråga
+			"", // Trivia
+			null, // WikiUrl
+			Ages.thirdAge, // Tidsålder
+			DifficultyRating.Hard, //Svårighetsgrad
+			3019, // År
+			3, // Månad
+			10, // Dag
+			true, // Händer det i Lotr eller the hobbit?
+			true // Är det ett "great happening" som ska vara med i alla quiz?
+		),
+		new LotrCardModel(
+			49, // Id
+			"Lord of The Rings", // Kategori
+			"Second assault on Lothlórien", // Fråga
+			"", // Trivia
+			null, // WikiUrl
+			Ages.thirdAge, // Tidsålder
+			DifficultyRating.Extreme, //Svårighetsgrad
+			3019, // År
+			3, // Månad
+			15, // Dag
+			true, // Händer det i Lotr eller the hobbit?
+			false // Är det ett "great happening" som ska vara med i alla quiz?
 		)
 
 		);
