@@ -32,6 +32,8 @@ function LotrGame({ allCards, setAllCards }) {
 
   function SetUpGame(cardsToUpdate) {
     // Här lägger jag in properties jag vill att min viewModel ska ha
+
+    // Flytta viewModel till AddPlayerCard?
     let updatedCards = cardsToUpdate.map((c) => {
       return {
         ...c,
@@ -43,7 +45,9 @@ function LotrGame({ allCards, setAllCards }) {
     });
     setAllCards(updatedCards);
 
+    // Flytta till första useEffect?
     GetFirstCard(updatedCards);
+
     setLocalStorage("cardPoints", 0);
   }
 
@@ -88,7 +92,7 @@ function LotrGame({ allCards, setAllCards }) {
 
   function Confirm() {
     // Kolla om listan ligger rätt utifrån timeValue
-    const correct = EvaluateCards();
+    const correct = EvaluateCard();
 
     if (correct) {
       setPlayState("new or lock");
@@ -102,7 +106,7 @@ function LotrGame({ allCards, setAllCards }) {
     setPoints(currentPoints);
   }
 
-  function EvaluateCards() {
+  function EvaluateCard() {
     let cardsIsCorrect;
 
     // Skapa en kopia vi jobbar med
@@ -120,31 +124,24 @@ function LotrGame({ allCards, setAllCards }) {
       // Spelet går vidare
 
       // Ändra properties på det nya kortet till grönt
-      newPlayerList.forEach((c) => {
-        if (c.isCurrentlyPlaying) {
-          c.isConfirmed = true;
-          c.isCorrect = true;
-          c.isCurrentlyPlaying = false;
-        }
-      });
+
+      currentCard.isConfirmed = true;
+      currentCard.isCorrect = true;
+      currentCard.isCurrentlyPlaying = false;
 
       cardsIsCorrect = true;
     } else {
       // Game Over
 
       // Ändra properties på det nya kortet till rött
-      newPlayerList.forEach((c) => {
-        if (c.isCurrentlyPlaying) {
-          c.isConfirmed = true;
-          c.isCorrect = false;
-          c.isCurrentlyPlaying = false;
-        }
-      });
+
+      currentCard.isConfirmed = true;
+      currentCard.isCorrect = false;
+      currentCard.isCurrentlyPlaying = false;
 
       cardsIsCorrect = false;
     }
 
-    setPlayerCards(newPlayerList);
     return cardsIsCorrect;
   }
 
@@ -225,6 +222,7 @@ function LotrGame({ allCards, setAllCards }) {
 
     setPlayerCards(newFilteredPlayerList);
   }
+
   return (
     <div className="lotr-game-page">
       <LotrGameBackground />
