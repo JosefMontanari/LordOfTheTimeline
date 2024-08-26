@@ -8,6 +8,7 @@ import LotrGameTimeline from "../../components/LotrGameTimeline/LotrGameTimeline
 import GameArrows from "../../components/GameArrows/GameArrows";
 import useLocalStorage from "../../hooks/useLocalStorage";
 import LotrCardLocked from "../../components/LotrCardLocked/LotrCardLocked";
+import Score from "../../components/Score/Score";
 
 function LotrGame({ allCards, setAllCards }) {
   // För att passa om korten är rätt eller fel när de ändrar state
@@ -15,6 +16,8 @@ function LotrGame({ allCards, setAllCards }) {
   const [playerCards, setPlayerCards] = useState([]);
 
   const [currentCard, setCurrentCard] = useState({});
+
+  const [points, setPoints] = useState(0);
 
   // Tre olika states, placing card, picking new/locking in, game over och won game
   const [playState, setPlayState] = useState("new or lock");
@@ -95,7 +98,8 @@ function LotrGame({ allCards, setAllCards }) {
 
     setCardPoints(currentCard);
     setStreakPoints(playerCards);
-    setTotalPoints();
+    let currentPoints = setTotalPoints();
+    setPoints(currentPoints);
   }
 
   function EvaluateCards() {
@@ -239,6 +243,8 @@ function LotrGame({ allCards, setAllCards }) {
       </div>
       <LotrGameTimeline />
       <div className="bottom-row">
+        <Score points={points} highScore={12000} />
+
         <GameArrows
           clickLeft={() => HandleLeftArrowClick()}
           clickRight={() => HandleRightArrowClick()}

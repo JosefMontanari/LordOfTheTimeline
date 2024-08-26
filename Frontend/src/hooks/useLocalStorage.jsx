@@ -30,7 +30,7 @@ function useLocalStorage() {
     });
 
     if (streakOfCards > 1) {
-      streakMultiplier = 1 + streakOfCards * 0.15;
+      streakMultiplier = Math.round((1 + streakOfCards * 0.15) * 100) / 100; // För att avrunda till 2 decimaler
     } else {
       streakMultiplier = 1;
     }
@@ -45,6 +45,7 @@ function useLocalStorage() {
     const totalPoints = points * streakMultiplier;
 
     setLocalStorage("totalPoints", totalPoints);
+    return totalPoints;
   }
 
   return {

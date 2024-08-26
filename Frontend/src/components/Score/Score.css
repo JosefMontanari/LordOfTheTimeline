@@ -1,0 +1,11 @@
+.score-container {
+  position: absolute;
+  left: 0px;
+}
+.score-container p {
+  font-size: 24px;
+}
+
+.score-container span {
+  font-size: 20px;
+}
