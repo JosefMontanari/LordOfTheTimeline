@@ -48,11 +48,17 @@ function useLocalStorage() {
     return totalPoints;
   }
 
+  function setPlayer(userName, avatar) {
+    const player = { userName, avatar };
+    localStorage.setItem("player", JSON.stringify(player));
+  }
+
   return {
     setLocalStorage,
     setCardPoints,
     setTotalPoints,
     setStreakPoints,
+    setPlayer,
   };
 }
 
