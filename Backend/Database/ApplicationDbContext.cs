@@ -589,20 +589,7 @@ namespace Backend.Database
 			true, // Händer det i Lotr eller the hobbit?
 			false // Är det ett "great happening" som ska vara med i alla quiz?
 		),
-			new LotrCardModel(
-			41, // Id
-			"Lord of The Rings", // Kategori
-			"Frodo wakes up in Rivendell after recovering from his wound", // Fråga
-			"", // Trivia
-			null, // WikiUrl
-			Ages.thirdAge, // Tidsålder
-			DifficultyRating.Normal, //Svårighetsgrad
-			3018, // År
-			10, // Månad
-			24, // Dag
-			true, // Händer det i Lotr eller the hobbit?
-			false // Är det ett "great happening" som ska vara med i alla quiz?
-		),
+
 			new LotrCardModel(
 			42, // Id
 			"Lord of The Rings", // Kategori
@@ -712,6 +699,20 @@ namespace Backend.Database
 			3019, // År
 			3, // Månad
 			15, // Dag
+			true, // Händer det i Lotr eller the hobbit?
+			false // Är det ett "great happening" som ska vara med i alla quiz?
+		),
+					new LotrCardModel(
+			50, // Id
+			"Lord of The Rings", // Kategori
+			"Frodo wakes up in Rivendell after recovering from his wound", // Fråga
+			"", // Trivia
+			null, // WikiUrl
+			Ages.thirdAge, // Tidsålder
+			DifficultyRating.Normal, //Svårighetsgrad
+			3018, // År
+			10, // Månad
+			24, // Dag
 			true, // Händer det i Lotr eller the hobbit?
 			false // Är det ett "great happening" som ska vara med i alla quiz?
 		)
