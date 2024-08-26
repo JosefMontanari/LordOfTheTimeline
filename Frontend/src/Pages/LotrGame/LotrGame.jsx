@@ -9,6 +9,8 @@ import GameArrows from "../../components/GameArrows/GameArrows";
 import useLocalStorage from "../../hooks/useLocalStorage";
 import LotrCardLocked from "../../components/LotrCardLocked/LotrCardLocked";
 import PlayerModal from "../../Modals/PlayerModal/PlayerModal";
+import Score from "../../components/Score/Score";
+
 
 function LotrGame({ allCards, setAllCards }) {
   // För att passa om korten är rätt eller fel när de ändrar state
@@ -19,6 +21,8 @@ function LotrGame({ allCards, setAllCards }) {
   const [playerCards, setPlayerCards] = useState([]);
 
   const [currentCard, setCurrentCard] = useState({});
+
+  const [points, setPoints] = useState(0);
 
   // Tre olika states, placing card, picking new/locking in, game over och won game
   const [playState, setPlayState] = useState("new or lock");
@@ -38,6 +42,8 @@ function LotrGame({ allCards, setAllCards }) {
 
   function SetUpGame(cardsToUpdate) {
     // Här lägger jag in properties jag vill att min viewModel ska ha
+
+    // Flytta viewModel till AddPlayerCard?
     let updatedCards = cardsToUpdate.map((c) => {
       return {
         ...c,
@@ -49,7 +55,10 @@ function LotrGame({ allCards, setAllCards }) {
     });
     setAllCards(updatedCards);
 
+    // Flytta till första useEffect?
     GetFirstCard(updatedCards);
+
+    setLocalStorage("cardPoints", 0);
   }
 
   function GetFirstCard(cards) {
@@ -93,7 +102,7 @@ function LotrGame({ allCards, setAllCards }) {
 
   function Confirm() {
     // Kolla om listan ligger rätt utifrån timeValue
-    const correct = EvaluateCards();
+    const correct = EvaluateCard();
 
     if (correct) {
       setPlayState("new or lock");
@@ -103,10 +112,11 @@ function LotrGame({ allCards, setAllCards }) {
 
     setCardPoints(currentCard);
     setStreakPoints(playerCards);
-    setTotalPoints();
+    let currentPoints = setTotalPoints();
+    setPoints(currentPoints);
   }
 
-  function EvaluateCards() {
+  function EvaluateCard() {
     let cardsIsCorrect;
 
     // Skapa en kopia vi jobbar med
@@ -124,31 +134,24 @@ function LotrGame({ allCards, setAllCards }) {
       // Spelet går vidare
 
       // Ändra properties på det nya kortet till grönt
-      newPlayerList.forEach((c) => {
-        if (c.isCurrentlyPlaying) {
-          c.isConfirmed = true;
-          c.isCorrect = true;
-          c.isCurrentlyPlaying = false;
-        }
-      });
+
+      currentCard.isConfirmed = true;
+      currentCard.isCorrect = true;
+      currentCard.isCurrentlyPlaying = false;
 
       cardsIsCorrect = true;
     } else {
       // Game Over
 
       // Ändra properties på det nya kortet till rött
-      newPlayerList.forEach((c) => {
-        if (c.isCurrentlyPlaying) {
-          c.isConfirmed = true;
-          c.isCorrect = false;
-          c.isCurrentlyPlaying = false;
-        }
-      });
+
+      currentCard.isConfirmed = true;
+      currentCard.isCorrect = false;
+      currentCard.isCurrentlyPlaying = false;
 
       cardsIsCorrect = false;
     }
 
-    setPlayerCards(newPlayerList);
     return cardsIsCorrect;
   }
 
@@ -229,6 +232,7 @@ function LotrGame({ allCards, setAllCards }) {
 
     setPlayerCards(newFilteredPlayerList);
   }
+
   return (
     <div className="lotr-game-page">
       {/* Lägg till modalen och kontrollera om den ska vara öppen */}
@@ -254,6 +258,8 @@ function LotrGame({ allCards, setAllCards }) {
       </div>
       <LotrGameTimeline />
       <div className="bottom-row">
+        <Score points={points} highScore={12000} />
+
         <GameArrows
           clickLeft={() => HandleLeftArrowClick()}
           clickRight={() => HandleRightArrowClick()}
