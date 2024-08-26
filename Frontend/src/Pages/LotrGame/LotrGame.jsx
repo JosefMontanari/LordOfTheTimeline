@@ -162,11 +162,14 @@ function LotrGame({ allCards, setAllCards }) {
   }
 
   function HandleLeftArrowClick() {
+    if (playState !== "placing card") {
+      return;
+    }
+
     // Skapa en kopia vi kan jobba med
     let newPlayerList = [...playerCards];
 
     // Hitta kortet som är isCurrentlyPlaying och dess index
-    //let currentlyPlayingCard = newPlayerList.find((c) => c.isCurrentlyPlaying);
     let index = newPlayerList.indexOf(currentCard);
 
     // Om det inte har index 0
@@ -190,11 +193,13 @@ function LotrGame({ allCards, setAllCards }) {
   }
 
   function HandleRightArrowClick() {
+    if (playState !== "placing card") {
+      return;
+    }
     // Skapa en kopia vi kan jobba med
     let newPlayerList = [...playerCards];
 
     // Hitta kortet som är isCurrentlyPlaying och dess index
-    //let currentlyPlayingCard = newPlayerList.find((c) => c.isCurrentlyPlaying);
     let index = newPlayerList.indexOf(currentCard);
 
     // Om det inte är längst till höger
