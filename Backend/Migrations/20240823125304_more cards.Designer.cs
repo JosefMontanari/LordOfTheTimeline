@@ -4,6 +4,7 @@ using Backend.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Backend.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240823125304_more cards")]
+    partial class morecards
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -327,7 +330,7 @@ namespace Backend.Migrations
                             IsLotrOrTheHobbit = false,
                             Question = "Sauron returns to Mordor",
                             TimeValue = 42942m,
-                            Trivia = "Sauron left Dol Goldur only to later send his Nazgûl to re-occupy it",
+                            Trivia = "trivia",
                             Year = 2942
                         },
                         new
@@ -399,7 +402,7 @@ namespace Backend.Migrations
                             Month = 6,
                             Question = "War of the Ring begins",
                             TimeValue = 43019.17m,
-                            Trivia = "The war officially began after Saurons forces took Osgiliath",
+                            Trivia = "trivia",
                             Year = 3019
                         },
                         new
@@ -459,7 +462,7 @@ namespace Backend.Migrations
                             Month = 3,
                             Question = "Battle of Isengard",
                             TimeValue = 43019.063m,
-                            Trivia = "Isengard means \"Iron-enclosure\" in Old English",
+                            Trivia = "trivia",
                             Year = 3019
                         },
                         new
@@ -489,7 +492,7 @@ namespace Backend.Migrations
                             Month = 3,
                             Question = "Death of Theoden",
                             TimeValue = 43019.075m,
-                            Trivia = "In the books, Theoden never gets to say farewell to Éowyn since her secret indentity is never revealed to him",
+                            Trivia = "trivia",
                             Year = 3019
                         },
                         new
@@ -521,282 +524,6 @@ namespace Backend.Migrations
                             TimeValue = 43019.085m,
                             Trivia = "In the movie adaptation, Sauron was orignally meant to be present at the battle. This was later cut out",
                             Year = 3019
-                        },
-                        new
-                        {
-                            Id = 31,
-                            Age = 40000,
-                            Category = "Lord of The Rings",
-                            Day = 5,
-                            Difficulty = 3,
-                            IsGreatHappening = true,
-                            IsLotrOrTheHobbit = true,
-                            Month = 10,
-                            Question = "Death of Isildur",
-                            TimeValue = 40002.275m,
-                            Trivia = "Before Númenor fell, Isildur took a seedling of the white tree Nimloth with him to Middle Earth. This became the first white tree of Gondor",
-                            Year = 2
-                        },
-                        new
-                        {
-                            Id = 32,
-                            Age = 30000,
-                            Category = "Lord of The Rings",
-                            Difficulty = 3,
-                            IsLotrOrTheHobbit = false,
-                            Question = "Death of Elendil",
-                            TimeValue = 33441m,
-                            Trivia = "Elendil was (approximately) 2 meters and 41 centimeters tall",
-                            Year = 3441
-                        },
-                        new
-                        {
-                            Id = 33,
-                            Age = 30000,
-                            Category = "Lord of The Rings",
-                            Difficulty = 3,
-                            IsLotrOrTheHobbit = false,
-                            Question = "Downfall of Númenor",
-                            TimeValue = 33319m,
-                            Trivia = "Inspired by Tolkiens recurring dreams of a great wave, a dream he later gave to Faramir in the books",
-                            Year = 3319
-                        },
-                        new
-                        {
-                            Id = 34,
-                            Age = 30000,
-                            Category = "Lord of The Rings",
-                            Difficulty = 3,
-                            IsLotrOrTheHobbit = false,
-                            Question = "War of the Last Alliance",
-                            TimeValue = 33429m,
-                            Trivia = "Although called \"The last alliance of Elves and Men\" there where Dwarves there too",
-                            Year = 3429
-                        },
-                        new
-                        {
-                            Id = 35,
-                            Age = 40000,
-                            Category = "Lord of The Rings",
-                            Difficulty = 3,
-                            IsLotrOrTheHobbit = false,
-                            Question = "Isildur plants a sapling of the White Tree in Minas Anor",
-                            TimeValue = 40002m,
-                            Trivia = "Minas Anor was later renamed Minas Tirith",
-                            Year = 2
-                        },
-                        new
-                        {
-                            Id = 36,
-                            Age = 40000,
-                            Category = "Lord of The Rings",
-                            Difficulty = 3,
-                            IsLotrOrTheHobbit = false,
-                            Question = "Birth of Arwen",
-                            TimeValue = 40241m,
-                            Trivia = "Arwen was said to be the fairest of all living beings in the third age",
-                            Year = 241
-                        },
-                        new
-                        {
-                            Id = 37,
-                            Age = 40000,
-                            Category = "Lord of The Rings",
-                            Difficulty = 4,
-                            IsLotrOrTheHobbit = false,
-                            Question = "The Nazgûl reappear in Middle Earth",
-                            TimeValue = 41300m,
-                            Trivia = "Out of the nine only one, Khamûl, is ever named",
-                            Year = 1300
-                        },
-                        new
-                        {
-                            Id = 38,
-                            Age = 40000,
-                            Category = "Lord of The Rings",
-                            Difficulty = 3,
-                            IsLotrOrTheHobbit = false,
-                            Question = "Creation of the Shire",
-                            TimeValue = 41601m,
-                            Trivia = "After the War of the Ring, The shire was gifted more land from Aragorn",
-                            Year = 1601
-                        },
-                        new
-                        {
-                            Id = 39,
-                            Age = 40000,
-                            Category = "Lord of The Rings",
-                            Difficulty = 3,
-                            IsLotrOrTheHobbit = false,
-                            Question = "Destruction of Arnor",
-                            TimeValue = 41974m,
-                            Trivia = "The kingdom af Arnor was later restored by Aragorn",
-                            Year = 1974
-                        },
-                        new
-                        {
-                            Id = 40,
-                            Age = 40000,
-                            Category = "Lord of The Rings",
-                            Day = 14,
-                            Difficulty = 2,
-                            IsGreatHappening = false,
-                            IsLotrOrTheHobbit = true,
-                            Month = 3,
-                            Question = "Minas Tirith is besieged",
-                            TimeValue = 43019.074m,
-                            Trivia = "",
-                            Year = 3019
-                        },
-                        new
-                        {
-                            Id = 41,
-                            Age = 40000,
-                            Category = "Lord of The Rings",
-                            Day = 29,
-                            Difficulty = 2,
-                            IsGreatHappening = false,
-                            IsLotrOrTheHobbit = true,
-                            Month = 9,
-                            Question = "The hobbits reach Bree",
-                            TimeValue = 43018.269m,
-                            Trivia = "",
-                            Year = 3018
-                        },
-                        new
-                        {
-                            Id = 42,
-                            Age = 40000,
-                            Category = "Lord of The Rings",
-                            Day = 13,
-                            Difficulty = 2,
-                            IsGreatHappening = false,
-                            IsLotrOrTheHobbit = true,
-                            Month = 1,
-                            Question = "The fellowship reaches the gate of Moria",
-                            TimeValue = 43019.013m,
-                            Trivia = "",
-                            Year = 3019
-                        },
-                        new
-                        {
-                            Id = 43,
-                            Age = 40000,
-                            Category = "Lord of The Rings",
-                            Day = 15,
-                            Difficulty = 2,
-                            IsGreatHappening = false,
-                            IsLotrOrTheHobbit = true,
-                            Month = 2,
-                            Question = "The fellowship reaches Lothlórien",
-                            TimeValue = 43019.045m,
-                            Trivia = "",
-                            Year = 3019
-                        },
-                        new
-                        {
-                            Id = 44,
-                            Age = 40000,
-                            Category = "Lord of The Rings",
-                            Day = 25,
-                            Difficulty = 2,
-                            IsGreatHappening = false,
-                            IsLotrOrTheHobbit = true,
-                            Month = 2,
-                            Question = "The fellowship passes the Argonath",
-                            TimeValue = 43019.055m,
-                            Trivia = "",
-                            Year = 3019
-                        },
-                        new
-                        {
-                            Id = 45,
-                            Age = 40000,
-                            Category = "Lord of The Rings",
-                            Day = 26,
-                            Difficulty = 2,
-                            IsGreatHappening = false,
-                            IsLotrOrTheHobbit = true,
-                            Month = 2,
-                            Question = "Boromir is slain",
-                            TimeValue = 43019.056m,
-                            Trivia = "",
-                            Year = 3019
-                        },
-                        new
-                        {
-                            Id = 46,
-                            Age = 40000,
-                            Category = "Lord of The Rings",
-                            Day = 5,
-                            Difficulty = 3,
-                            IsGreatHappening = false,
-                            IsLotrOrTheHobbit = true,
-                            Month = 3,
-                            Question = "Pippin looks into the Orthanc-stone",
-                            TimeValue = 43019.065m,
-                            Trivia = "",
-                            Year = 3019
-                        },
-                        new
-                        {
-                            Id = 47,
-                            Age = 40000,
-                            Category = "Lord of The Rings",
-                            Day = 7,
-                            Difficulty = 3,
-                            IsGreatHappening = false,
-                            IsLotrOrTheHobbit = true,
-                            Month = 3,
-                            Question = "Frodo and Sam reach Henneth Annûn",
-                            TimeValue = 43019.067m,
-                            Trivia = "",
-                            Year = 3019
-                        },
-                        new
-                        {
-                            Id = 48,
-                            Age = 40000,
-                            Category = "Lord of The Rings",
-                            Day = 10,
-                            Difficulty = 3,
-                            IsGreatHappening = true,
-                            IsLotrOrTheHobbit = true,
-                            Month = 3,
-                            Question = "The Dawnless Day",
-                            TimeValue = 43019.07m,
-                            Trivia = "",
-                            Year = 3019
-                        },
-                        new
-                        {
-                            Id = 49,
-                            Age = 40000,
-                            Category = "Lord of The Rings",
-                            Day = 15,
-                            Difficulty = 4,
-                            IsGreatHappening = false,
-                            IsLotrOrTheHobbit = true,
-                            Month = 3,
-                            Question = "Second assault on Lothlórien",
-                            TimeValue = 43019.075m,
-                            Trivia = "",
-                            Year = 3019
-                        },
-                        new
-                        {
-                            Id = 50,
-                            Age = 40000,
-                            Category = "Lord of The Rings",
-                            Day = 24,
-                            Difficulty = 2,
-                            IsGreatHappening = false,
-                            IsLotrOrTheHobbit = true,
-                            Month = 10,
-                            Question = "Frodo wakes up in Rivendell after recovering from his wound",
-                            TimeValue = 43018.294m,
-                            Trivia = "",
-                            Year = 3018
                         });
                 });
 #pragma warning restore 612, 618
