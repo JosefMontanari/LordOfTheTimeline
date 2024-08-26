@@ -9,11 +9,8 @@ function useLocalStorage() {
       points = 0;
     }
 
-    console.log("Card", card);
-
     if (card.isCorrect) {
       points += 1000 * (1 + card.difficulty / 10);
-      console.log(points);
     }
 
     setLocalStorage("cardPoints", points);
