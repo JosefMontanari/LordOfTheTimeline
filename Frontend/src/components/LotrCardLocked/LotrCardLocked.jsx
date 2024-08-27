@@ -11,6 +11,17 @@ function LotrCardLocked({ cardData }) {
     `${cardData.year}/${cardData.month}/${cardData.day}`
   );
 
+  const [flipStyle, setFlipStyle] = useState({});
+
+  function handleClick() {
+    if (showTrivia) {
+      setFlipStyle({ transform: `rotateY(180deg)` });
+    } else {
+      setFlipStyle({});
+    }
+    setShowTrivia(!showTrivia);
+  }
+
   useEffect(() => {
     if (cardData.month === null) {
       setDateString(cardData.year);
@@ -34,27 +45,47 @@ function LotrCardLocked({ cardData }) {
   }, []);
   return (
     <>
-      <div
-        className="card-container card-locked"
-        onClick={() => setShowTrivia(!showTrivia)}
-      >
-        <div className="date-container">
-          <img src={timeFrame} alt="" className="time-frame" />
-          <p className="date-text">
-            {age}: {dateString}
-          </p>
-        </div>
-        <div className="card-body ">
-          <img src={ringText} alt="" className="card-image-locked" />
-          <div className="card-text-locked">
-            {!showTrivia ? (
+      {!showTrivia ? (
+        <div
+          className="card-container card-locked card-front"
+          onClick={() => setShowTrivia(!showTrivia)}
+        >
+          <div className="date-container">
+            <img src={timeFrame} alt="" className="time-frame" />
+            <p className="date-text">
+              {age}: {dateString}
+            </p>
+          </div>
+          <div className="card-body ">
+            <img src={ringText} alt="" className="card-image-locked" />
+            <div className="card-text-locked">
               <p>{cardData.question}</p>
-            ) : (
-              <p className="trivia-text">{`Did you know? ${cardData.trivia}`}</p>
-            )}
+            </div>
           </div>
         </div>
-      </div>
+      ) : (
+        <div
+          className="card-container card-locked card-back"
+          onClick={() => handleClick()}
+        >
+          <div className="date-container" style={flipStyle}>
+            <img src={timeFrame} alt="" className="time-frame" />
+            <p className="date-text">
+              {age}: {dateString}
+            </p>
+          </div>
+          <div className="card-body" style={flipStyle}>
+            <img src={ringText} alt="" className="card-image-locked" />
+            <div className="card-text-locked">
+              {!showTrivia ? (
+                <p>{cardData.question}</p>
+              ) : (
+                <p className="trivia-text">{`Did you know? ${cardData.trivia}`}</p>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }

@@ -8,7 +8,8 @@
   min-height: 180px;
   min-width: 120px;
   background-color: #000000;
-
+  perspective: 1000px; /* Provides a 3D perspective */
+  position: relative;
   overflow: hidden;
 }
 
@@ -16,6 +17,11 @@
   /* in order: x offset, y offset, blur size, spread size, color /
     / blur size and spread size are optional (they default to 0) */
   box-shadow: 0px 0px 15px 10px #ffa800;
+  transition: transform 0.3s ease;
+}
+
+.card-playable:hover {
+  transform: scale(1.2);
 }
 
 .card-body {
