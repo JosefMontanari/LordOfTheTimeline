@@ -9,6 +9,7 @@ function HowtoPlay({ isOpen, closeModal }) {
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <h2>How to Play</h2>
         <div className="instructions">
+          <p></p>
           <p>
             Du får ett kort till en början som startkort. Där står det vilket
             årtal du börjar med. Härnäst får du ett nytt kort som du ska placera
