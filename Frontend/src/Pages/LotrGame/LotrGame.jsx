@@ -14,6 +14,7 @@ import useArrowActions from "../../hooks/useArrowActions";
 import PlayerModal from "../../Modals/PlayerModal/PlayerModal";
 import Score from "../../components/Score/Score";
 
+
 function LotrGame({
   allCards,
   setAllCards,
@@ -34,7 +35,7 @@ function LotrGame({
   const { playerCards, setPlayerCards, currentCard, setCurrentCard } =
     useLotrGameSetup(setAllCards, setLocalStorage, handleOpenModal);
 
-  const { NewCard, Confirm, points } = useCardActions(
+  const { NewCard, Confirm, points, LockInCards } = useCardActions(
     allCards,
     playerCards,
     setPlayerCards,
@@ -107,7 +108,9 @@ function LotrGame({
               ) : (
                 <></>
               )}
-              <button className="button">Lock in cards</button>
+              <button className="button" onClick={() => LockInCards()}>
+                Lock in cards
+              </button>
             </>
           ) : (
             <></>

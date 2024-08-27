@@ -21,7 +21,7 @@ function useLocalStorage() {
     let streakOfCards = 0;
     let streakMultiplier = 0;
     listOfCards.forEach((c) => {
-      if (c.isConfirmed && c.isCorrect) {
+      if (c.isConfirmed && c.isCorrect && !c.isLockedIn) {
         streakOfCards++;
       }
     });

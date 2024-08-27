@@ -1,4 +1,5 @@
 import { useState } from "react";
+import useLocalStorage from "./useLocalStorage";
 
 function useCardActions(
   allCards,
@@ -117,7 +118,20 @@ function useCardActions(
     return true; // Arrayerna är lika
   }
 
-  return { NewCard, Confirm, points, setPoints };
+  function LockInCards() {
+    let newPlayerList = [...playerCards];
+
+    newPlayerList.forEach((c) => {
+      if (!c.isLockedIn) {
+        c.isLockedIn = true;
+      }
+    });
+    setPlayerCards(newPlayerList);
+
+    localStorage.setItem("streakMultiplier", JSON.stringify(1));
+  }
+
+  return { NewCard, Confirm, points, setPoints, LockInCards };
 }
 
 export default useCardActions;
