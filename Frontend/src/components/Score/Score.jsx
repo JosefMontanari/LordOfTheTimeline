@@ -1,8 +1,15 @@
 import React from "react";
 import "./Score.css";
+import { useState, useEffect } from "react";
 import useLocalStorage from "../../hooks/useLocalStorage";
 
-function Score({ points, highScore }) {
+function Score({ points }) {
+  const { getHighScore } = useLocalStorage();
+  const [highScore, setHighScore] = useState(0);
+
+  useEffect(() => {
+    setHighScore(getHighScore());
+  }, [getHighScore]);
   return (
     <>
       <div className="score-container lotr-font">

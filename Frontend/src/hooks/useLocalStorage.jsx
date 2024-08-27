@@ -2,6 +2,9 @@ function useLocalStorage() {
   function setLocalStorage(key, value) {
     localStorage.setItem(key, JSON.stringify(value));
   }
+  function getLocalStorage(key) {
+    return JSON.parse(localStorage.getItem(key));
+  }
 
   function setCardPoints(card) {
     let points = JSON.parse(localStorage.getItem("cardPoints"));
@@ -42,12 +45,33 @@ function useLocalStorage() {
     const totalPoints = points * streakMultiplier;
 
     setLocalStorage("totalPoints", totalPoints);
+
+    let player = JSON.parse(localStorage.getItem("player"));
+    if (player) {
+      // Update the high score only if totalPoints is higher
+      if (!player.highScore || totalPoints > player.highScore) {
+        player.highScore = totalPoints;
+      }
+
+      setLocalStorage("player", player);
+    }
+
     return totalPoints;
   }
 
   function setPlayer(userName, avatar) {
-    const player = { userName, avatar };
-    localStorage.setItem("player", JSON.stringify(player));
+    // Check if a player already exists
+    let existingPlayer = JSON.parse(localStorage.getItem("player"));
+
+    // Preserve the high score if the player already exists
+    const highScore = existingPlayer?.highScore || 0;
+
+    const player = { userName, avatar, highScore: 0 };
+    setLocalStorage("player", player);
+  }
+  function getHighScore() {
+    let player = getLocalStorage("player");
+    return player?.highScore || 0;
   }
 
   return {
@@ -56,6 +80,7 @@ function useLocalStorage() {
     setTotalPoints,
     setStreakPoints,
     setPlayer,
+    getHighScore,
   };
 }
 
