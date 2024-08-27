@@ -57,7 +57,7 @@ function useCardActions(
 
     setCardPoints(currentCard);
     setStreakPoints(playerCards);
-    setTotalPoints();
+    setPoints(setTotalPoints());
   }
 
   function EvaluateCards() {

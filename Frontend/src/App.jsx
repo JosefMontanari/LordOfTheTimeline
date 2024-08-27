@@ -6,6 +6,7 @@ import Home from "./Pages/Home/Home";
 import LotrGame from "./Pages/LotrGame/LotrGame";
 function App() {
   const [allCards, setAllCards] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <>

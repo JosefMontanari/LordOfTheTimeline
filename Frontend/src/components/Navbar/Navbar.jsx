@@ -5,9 +5,6 @@ import HowtoPlay from "../../Modals/HowtoPlayModal/HowtoPlay";
 
 function Navbar() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
   return (
     <div className="navbar">
       <div>
@@ -16,14 +13,17 @@ function Navbar() {
         </Link>
       </div>
       <div>
-        <h3 className="navbar-link lotr-font how-to-play" onClick={openModal}>
+        <h3
+          className="navbar-link lotr-font how-to-play"
+          onClick={() => setIsModalOpen(true)}
+        >
           How to play
         </h3>
       </div>
       <div>
         <h3 className="navbar-link lotr-font">High Score</h3>
       </div>
-      <HowtoPlay isOpen={isModalOpen} closeModal={closeModal} />
+      <HowtoPlay isOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
     </div>
   );
 }

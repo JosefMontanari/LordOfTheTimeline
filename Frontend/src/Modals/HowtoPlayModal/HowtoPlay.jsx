@@ -1,11 +1,11 @@
 import React from "react";
 import "./HowtoPlay.css";
 
-function HowtoPlay({ isOpen, closeModal }) {
+function HowtoPlay({ isOpen, setIsModalOpen }) {
   if (!isOpen) return null; // Returnerar null om modal inte ska visas
 
   return (
-    <div className="modal-overlay" onClick={closeModal}>
+    <div className="modal-overlay" onClick={() => setIsModalOpen(false)}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <h2>How to Play</h2>
         <div className="instructions">
@@ -33,7 +33,7 @@ function HowtoPlay({ isOpen, closeModal }) {
             Du vinner när du lyckats med att säkra hem 10 kort på din tidslinje.
           </p>
         </div>
-        <button className="close-btn" onClick={closeModal}>
+        <button className="close-btn" onClick={() => setIsModalOpen(false)}>
           Close
         </button>
       </div>
