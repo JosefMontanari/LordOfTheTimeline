@@ -415,7 +415,7 @@ namespace Backend.Database
 			null, // WikiUrl
 			Ages.thirdAge, // Tidsålder
 			DifficultyRating.Normal, //Svårighetsgrad
-			3021, // År
+			3019, // År
 			3, // Månad
 			15, // Dag
 			true, // Händer det i Lotr eller the hobbit?

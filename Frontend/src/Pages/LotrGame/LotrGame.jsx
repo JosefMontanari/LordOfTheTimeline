@@ -11,12 +11,24 @@ import LotrCardLocked from "../../components/LotrCardLocked/LotrCardLocked";
 import useLotrGameSetup from "../../hooks/useLotrGameSetup";
 import useCardActions from "../../hooks/useCardActions";
 import useArrowActions from "../../hooks/useArrowActions";
+import PlayerModal from "../../Modals/PlayerModal/PlayerModal";
+import Score from "../../components/Score/Score";
+
 
 function LotrGame({ allCards, setAllCards }) {
+
+  const [isModalOpen, setIsModalOpen] = useState(true); // Börja med modalen öppen
+  const closeModal = () => setIsModalOpen(false);
+
   // Tre olika states, placing card, picking new/locking in, game over och won game
   const [playState, setPlayState] = useState("new or lock");
-  const { setLocalStorage, setTotalPoints, setCardPoints, setStreakPoints } =
-    useLocalStorage();
+  const {
+    setLocalStorage,
+    setTotalPoints,
+    setCardPoints,
+    setStreakPoints,
+    setPlayer,
+  } = useLocalStorage();
 
   const { playerCards, setPlayerCards, currentCard, setCurrentCard } =
     useLotrGameSetup(setAllCards, setLocalStorage);
@@ -47,6 +59,13 @@ function LotrGame({ allCards, setAllCards }) {
 
   return (
     <div className="lotr-game-page">
+      {/* Lägg till modalen och kontrollera om den ska vara öppen */}
+      <PlayerModal
+        isOpen={isModalOpen}
+        closeModal={closeModal}
+        setPlayer={setPlayer}
+      />
+
       <LotrGameBackground />
       <div className="cards-container">
         {playerCards.map((c) => {
@@ -63,6 +82,8 @@ function LotrGame({ allCards, setAllCards }) {
       </div>
       <LotrGameTimeline />
       <div className="bottom-row">
+        <Score points={points} highScore={12000} />
+
         <GameArrows
           clickLeft={() => HandleLeftArrowClick()}
           clickRight={() => HandleRightArrowClick()}
