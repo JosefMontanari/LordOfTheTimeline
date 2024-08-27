@@ -4,9 +4,7 @@ import ringText from "/ring-text.png";
 import ringText2 from "/ring-text-2.png";
 import ringText3 from "/ring-text-3.png";
 import { useState } from "react";
-function PlayerModal({ isOpen, setIsModalOpen, setPlayer }) {
-  if (!isOpen) return null; // Modal visas bara när isOpen är true
-
+function PlayerModal({ handleCloseModal, setPlayer }) {
   const [userName, setUserName] = useState("");
   const [avatar, setAvatar] = useState("");
 
@@ -15,11 +13,11 @@ function PlayerModal({ isOpen, setIsModalOpen, setPlayer }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     setPlayer(userName, avatar);
-    setIsModalOpen(false);
+    handleCloseModal();
   };
 
   return (
-    <div className="modal-overlay" onClick={() => setIsModalOpen(false)}>
+    <div className="modal-overlay" onClick={() => handleCloseModal()}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <form onSubmit={handleSubmit}>
           <div>
@@ -53,7 +51,7 @@ function PlayerModal({ isOpen, setIsModalOpen, setPlayer }) {
           </div>
           <button type="submit">Save</button>
         </form>
-        <button className="close-btn" onClick={() => setIsModalOpen(false)}>
+        <button className="close-btn" onClick={() => handleCloseModal()}>
           Close
         </button>
       </div>
