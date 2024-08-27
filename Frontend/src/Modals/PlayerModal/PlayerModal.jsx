@@ -1,14 +1,14 @@
 import "./PlayerModal.css";
 import React from "react";
-import ringText from "/ring-text.png";
-import ringText2 from "/ring-text-2.png";
-import ringText3 from "/ring-text-3.png";
+import gandalfTheWhite from "/Gandalf-the-white-avatar.jpg";
+import gandalfTheGray from "/Gandalf-avatar.jpg";
+import frodo from "/Frodo-avatar.jpg";
 import { useState } from "react";
 function PlayerModal({ handleCloseModal, setPlayer }) {
   const [userName, setUserName] = useState("");
   const [avatar, setAvatar] = useState("");
 
-  const avatars = [ringText, ringText2, ringText3];
+  const avatars = [gandalfTheWhite, gandalfTheGray, frodo];
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -17,8 +17,8 @@ function PlayerModal({ handleCloseModal, setPlayer }) {
   };
 
   return (
-    <div className="modal-overlay" onClick={() => handleCloseModal()}>
-      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+    <div className="player-modal-overlay" onClick={() => handleCloseModal()}>
+      <div className="player-modal-content" onClick={(e) => e.stopPropagation()}>
         <form onSubmit={handleSubmit}>
           <div>
             <h1>Choose your name:</h1>
