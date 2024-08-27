@@ -1,4 +1,4 @@
-.modal-overlay {
+.player-modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -15,7 +15,7 @@ h2 {
   color: #ffa800;
 }
 
-.modal-content {
+.player-modal-content {
   background-color: #181818;
   padding: 30px;
   opacity: 0.9;
@@ -27,7 +27,7 @@ h2 {
   position: relative;
 }
 
-.close-btn {
+.player-close-btn {
   background-color: #ffa800;
   color: #000;
   border: none;
@@ -38,15 +38,10 @@ h2 {
   font-size: 1rem;
 }
 
-.close-btn:hover {
+.player-close-btn:hover {
   background-color: #d4af37;
 }
 
-.instructions p {
-  color: white;
-  font-family: "libre Baskerville";
-  margin-bottom: 15px;
-}
 .avatar-selection {
   display: flex;
   justify-content: space-around;
