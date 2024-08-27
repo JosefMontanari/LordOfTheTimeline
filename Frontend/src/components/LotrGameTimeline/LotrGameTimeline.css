@@ -1,6 +1,6 @@
 .lotr-timeline {
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   background-color: rgba(146, 96, 0, 0.4);
   border: 1px solid #ffa800;
@@ -9,4 +9,21 @@
   width: 99.9vw;
   height: 55px;
   margin-top: 25px;
+  overflow: hidden; /* Dölj överflödig rullning */
+}
+
+.timeline-img {
+  min-width: 100%; /* Ta upp hela bredden */
+  display: flex;
+  justify-content: center;
+  animation: scroll-right 30s linear infinite;
+}
+
+@keyframes scroll-right {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
