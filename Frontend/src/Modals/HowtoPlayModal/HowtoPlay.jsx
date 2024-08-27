@@ -1,11 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./HowtoPlay.css";
 
-function HowtoPlay({ isOpen, closeModal }) {
-  if (!isOpen) return null; // Returnerar null om modal inte ska visas
-
+function HowtoPlay({ handleCloseModal }) {
   return (
-    <div className="modal-overlay" onClick={closeModal}>
+    <div className="modal-overlay" onClick={() => handleCloseModal()}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <h2>How to Play</h2>
         <div className="instructions">
@@ -33,7 +31,7 @@ function HowtoPlay({ isOpen, closeModal }) {
             Du vinner när du lyckats med att säkra hem 10 kort på din tidslinje.
           </p>
         </div>
-        <button className="close-btn" onClick={closeModal}>
+        <button className="close-btn" onClick={() => handleCloseModal()}>
           Close
         </button>
       </div>

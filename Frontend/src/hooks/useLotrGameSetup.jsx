@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-function useLotrGameSetup(setAllCards, setLocalStorage) {
+function useLotrGameSetup(setAllCards, setLocalStorage, handleOpenModal) {
   const [playerCards, setPlayerCards] = useState([]);
   const [currentCard, setCurrentCard] = useState([]);
 
@@ -8,6 +8,18 @@ function useLotrGameSetup(setAllCards, setLocalStorage) {
     fetch("http://localhost:5266/api/Lotr")
       .then((res) => res.json())
       .then((data) => SetUpGame(data));
+  }, []);
+
+  useEffect(() => {
+    try {
+      const player = JSON.parse(localStorage.getItem("player"));
+
+      if (player.userName.length < 1) {
+        handleOpenModal("playerModal");
+      }
+    } catch {
+      handleOpenModal("playerModal");
+    }
   }, []);
 
   function SetUpGame(cardsToUpdate) {

@@ -4,9 +4,7 @@ import gandalfTheWhite from "/Gandalf-the-white-avatar.jpg";
 import gandalfTheGray from "/Gandalf-avatar.jpg";
 import frodo from "/Frodo-avatar.jpg";
 import { useState } from "react";
-function PlayerModal({ isOpen, closeModal, setPlayer }) {
-  if (!isOpen) return null; // Modal visas bara när isOpen är true
-
+function PlayerModal({ handleCloseModal, setPlayer }) {
   const [userName, setUserName] = useState("");
   const [avatar, setAvatar] = useState("");
 
@@ -15,15 +13,12 @@ function PlayerModal({ isOpen, closeModal, setPlayer }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     setPlayer(userName, avatar);
-    closeModal();
+    handleCloseModal();
   };
 
   return (
-    <div className="player-modal-overlay" onClick={closeModal}>
-      <div
-        className="player-modal-content"
-        onClick={(e) => e.stopPropagation()}
-      >
+    <div className="player-modal-overlay" onClick={() => handleCloseModal()}>
+      <div className="player-modal-content" onClick={(e) => e.stopPropagation()}>
         <form onSubmit={handleSubmit}>
           <div>
             <h1>Choose your name:</h1>
@@ -56,7 +51,7 @@ function PlayerModal({ isOpen, closeModal, setPlayer }) {
           </div>
           <button type="submit">Save</button>
         </form>
-        <button className="close-btn" onClick={closeModal}>
+        <button className="close-btn" onClick={() => handleCloseModal()}>
           Close
         </button>
       </div>
