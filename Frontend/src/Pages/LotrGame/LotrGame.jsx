@@ -15,12 +15,14 @@ import PlayerModal from "../../Modals/PlayerModal/PlayerModal";
 import Score from "../../components/Score/Score";
 
 
-function LotrGame({ allCards, setAllCards }) {
-
-  const [isModalOpen, setIsModalOpen] = useState(true); // Börja med modalen öppen
-  const closeModal = () => setIsModalOpen(false);
-
-  // Tre olika states, placing card, picking new/locking in, game over och won game
+function LotrGame({
+  allCards,
+  setAllCards,
+  openModal,
+  handleOpenModal,
+  handleCloseModal,
+}) {
+  // Fyra olika states, placing card, new or lock, game over och won game
   const [playState, setPlayState] = useState("new or lock");
   const {
     setLocalStorage,
@@ -31,9 +33,9 @@ function LotrGame({ allCards, setAllCards }) {
   } = useLocalStorage();
 
   const { playerCards, setPlayerCards, currentCard, setCurrentCard } =
-    useLotrGameSetup(setAllCards, setLocalStorage);
+    useLotrGameSetup(setAllCards, setLocalStorage, handleOpenModal);
 
-  const { NewCard, Confirm, points } = useCardActions(
+  const { NewCard, Confirm, points, LockInCards } = useCardActions(
     allCards,
     playerCards,
     setPlayerCards,
@@ -60,11 +62,12 @@ function LotrGame({ allCards, setAllCards }) {
   return (
     <div className="lotr-game-page">
       {/* Lägg till modalen och kontrollera om den ska vara öppen */}
-      <PlayerModal
-        isOpen={isModalOpen}
-        closeModal={closeModal}
-        setPlayer={setPlayer}
-      />
+      {openModal === "playerModal" && (
+        <PlayerModal
+          setPlayer={setPlayer}
+          handleCloseModal={handleCloseModal}
+        />
+      )}
 
       <LotrGameBackground />
       <div className="cards-container">
@@ -105,7 +108,9 @@ function LotrGame({ allCards, setAllCards }) {
               ) : (
                 <></>
               )}
-              <button className="button">Lock in cards</button>
+              <button className="button" onClick={() => LockInCards()}>
+                Lock in cards
+              </button>
             </>
           ) : (
             <></>

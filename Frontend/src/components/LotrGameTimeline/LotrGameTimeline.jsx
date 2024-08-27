@@ -3,8 +3,13 @@ import "./LotrGameTimeline.css";
 
 const LotrGameTimeline = () => {
   return (
-    <div className="lotr-timeline">
-      <img src="lotr-text-line.png" alt="" />
+    <div class="lotr-timeline">
+      <div class="timeline-img">
+        <img src="lotr-text-line.png" alt="Timeline Image" />
+      </div>
+      <div class="timeline-img">
+        <img src="lotr-text-line.png" alt="Timeline Image" />
+      </div>
     </div>
   );
 };
