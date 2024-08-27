@@ -1,0 +1,12 @@
+.lotr-timeline {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(146, 96, 0, 0.4);
+  border: 1px solid #ffa800;
+  border-left: none;
+  border-right: none;
+  width: 99.9vw;
+  height: 55px;
+  margin-top: 25px;
+}

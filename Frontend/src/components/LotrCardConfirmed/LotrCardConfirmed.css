@@ -1,0 +1,6 @@
+.card-correct {
+  box-shadow: 0px 0px 15px 10px #2e7128;
+}
+.card-incorrect {
+  box-shadow: 0px 0px 15px 10px #830000;
+}

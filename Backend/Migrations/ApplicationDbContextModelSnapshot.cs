@@ -43,9 +43,6 @@ namespace Backend.Migrations
                     b.Property<int>("Difficulty")
                         .HasColumnType("int");
 
-                    b.Property<string>("ImageUrl")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<bool?>("IsGreatHappening")
                         .HasColumnType("bit");
 
@@ -82,13 +79,14 @@ namespace Backend.Migrations
                             Age = 40000,
                             Category = "Lord of The Rings",
                             Day = 25,
-                            Difficulty = 0,
+                            Difficulty = 1,
                             IsGreatHappening = true,
                             IsLotrOrTheHobbit = true,
                             Month = 3,
                             Question = "The One Ring is destroyed in Mount Doom",
                             TimeValue = 43019.085m,
-                            Trivia = "Trivia about The Ring",
+                            Trivia = "In a letter Tolkien wrote that Gollum tripping into the fires of Mt Doom was the result of divine intervention",
+                            WikiUrl = "https://lord-of-the-rings.fandom.com/wiki/Quest_of_the_Ring#Mount_Doom",
                             Year = 3019
                         },
                         new
@@ -97,13 +95,14 @@ namespace Backend.Migrations
                             Age = 40000,
                             Category = "Lord of The Rings",
                             Day = 22,
-                            Difficulty = 0,
+                            Difficulty = 2,
                             IsGreatHappening = true,
                             IsLotrOrTheHobbit = true,
                             Month = 9,
                             Question = "Frodo is born",
                             TimeValue = 42968.262m,
-                            Trivia = "Trivia about Frodo",
+                            Trivia = "In an early draft Frodo was actually named Bingo, and was the son of Bilbo",
+                            WikiUrl = "https://lord-of-the-rings.fandom.com/wiki/Frodo_Baggins",
                             Year = 2968
                         },
                         new
@@ -112,13 +111,14 @@ namespace Backend.Migrations
                             Age = 40000,
                             Category = "Lord of The Rings",
                             Day = 1,
-                            Difficulty = 0,
+                            Difficulty = 2,
                             IsGreatHappening = true,
                             IsLotrOrTheHobbit = true,
                             Month = 3,
                             Question = "Aragorn is born",
                             TimeValue = 42931.061m,
                             Trivia = "Aragorns birth name was Estel",
+                            WikiUrl = "https://tolkiengateway.net/wiki/Aragorn",
                             Year = 2931
                         },
                         new
@@ -126,11 +126,12 @@ namespace Backend.Migrations
                             Id = 4,
                             Age = 30000,
                             Category = "Lord of The Rings",
-                            Difficulty = 0,
+                            Difficulty = 1,
                             IsLotrOrTheHobbit = false,
                             Question = "The One Ring is made",
                             TimeValue = 31600m,
-                            Trivia = "Trivia about The One Ring",
+                            Trivia = "The One Ring was the only one of the primary rings that didn't hold a gem stone",
+                            WikiUrl = "https://tolkiengateway.net/wiki/The_One_Ring",
                             Year = 1600
                         },
                         new
@@ -138,12 +139,664 @@ namespace Backend.Migrations
                             Id = 5,
                             Age = 30000,
                             Category = "Lord of The Rings",
-                            Difficulty = 0,
-                            IsLotrOrTheHobbit = true,
+                            Difficulty = 3,
+                            IsLotrOrTheHobbit = false,
                             Question = "Death of Celebrimbor",
                             TimeValue = 31697m,
                             Trivia = "Celebrimbor is the grandson of Fëanor",
+                            WikiUrl = "https://tolkiengateway.net/wiki/Celebrimbor",
                             Year = 1697
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Age = 40000,
+                            Category = "Lord of The Rings",
+                            Day = 3,
+                            Difficulty = 1,
+                            IsGreatHappening = false,
+                            IsLotrOrTheHobbit = true,
+                            Month = 3,
+                            Question = "The siege of Helms deep",
+                            TimeValue = 43019.063m,
+                            Trivia = "In the movies, Peter Jackson first wanted Arwen to fight alongside the three hunters but later cut her out of the scenes",
+                            WikiUrl = "https://lord-of-the-rings.fandom.com/wiki/Helm%27s_Deep#History",
+                            Year = 3019
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Age = 40000,
+                            Category = "Lord of The Rings",
+                            Day = 1,
+                            Difficulty = 1,
+                            IsGreatHappening = true,
+                            IsLotrOrTheHobbit = true,
+                            Month = 7,
+                            Question = "Bilbo finds The One Ring",
+                            TimeValue = 42941.181m,
+                            Trivia = "In the first edition of The Hobbit, Gollum gives The Ring willingly to Bilbo after the game of riddles",
+                            WikiUrl = "https://lord-of-the-rings.fandom.com/wiki/Bilbo_Baggins?so=search#Discovery_of_the_One_Ring",
+                            Year = 2941
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Age = 40000,
+                            Category = "Lord of The Rings",
+                            Difficulty = 3,
+                            IsLotrOrTheHobbit = false,
+                            Question = "Sauron returns to Dol Goldur",
+                            TimeValue = 42460m,
+                            Trivia = "For a long time, many believed Dol Goldur was inhabited by a mere necromancer. Gandalf suspected it was Sauron.",
+                            WikiUrl = "https://lord-of-the-rings.fandom.com/wiki/Sauron#The_Necromancer_of_Dol_Guldur",
+                            Year = 2460
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Age = 40000,
+                            Category = "Lord of The Rings",
+                            Day = 22,
+                            Difficulty = 2,
+                            IsGreatHappening = true,
+                            IsLotrOrTheHobbit = true,
+                            Month = 9,
+                            Question = "Birth of Bilbo Baggins",
+                            TimeValue = 42890.262m,
+                            Trivia = "In Peter Jacksons adaptation of Lord of The Rings Bilbo was played by Ian Holm. Holm played Frodo in BBC's radio adaptation of the books",
+                            WikiUrl = "https://lord-of-the-rings.fandom.com/wiki/Bilbo_Baggins",
+                            Year = 2890
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Age = 40000,
+                            Category = "Lord of The Rings",
+                            Day = 25,
+                            Difficulty = 1,
+                            IsGreatHappening = true,
+                            IsLotrOrTheHobbit = true,
+                            Month = 12,
+                            Question = "The fellowship leaves Rivendell",
+                            TimeValue = 43018.355m,
+                            Trivia = "The famous meme from the movies of Boromir in the council of Elrond is the result of Sean Bean reading his lines from the script during filming",
+                            WikiUrl = "https://lord-of-the-rings.fandom.com/wiki/Quest_of_the_Ring#Council_of_Elrond",
+                            Year = 3018
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Age = 40000,
+                            Category = "Lord of The Rings",
+                            Day = 1,
+                            Difficulty = 1,
+                            IsGreatHappening = true,
+                            IsLotrOrTheHobbit = true,
+                            Month = 5,
+                            Question = "Coronation of Aragorn",
+                            TimeValue = 43019.121m,
+                            Trivia = "Aragorns royal name is Elessar Telcontar, Telcontar is Elvish (Sindarin) for Strider",
+                            WikiUrl = "https://lord-of-the-rings.fandom.com/wiki/Aragorn_II#As_King_of_Reunited_Gondor_and_Arnor",
+                            Year = 3019
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Age = 40000,
+                            Category = "Lord of The Rings",
+                            Day = 3,
+                            Difficulty = 3,
+                            IsGreatHappening = false,
+                            IsLotrOrTheHobbit = true,
+                            Month = 11,
+                            Question = "Battle of Bywater",
+                            TimeValue = 43019.303m,
+                            Trivia = "The Battle of Bywater marks the end of the war of The Ring",
+                            WikiUrl = "https://lord-of-the-rings.fandom.com/wiki/Battle_of_Bywater",
+                            Year = 3019
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Age = 40000,
+                            Category = "Lord of The Rings",
+                            Day = 1,
+                            Difficulty = 2,
+                            IsGreatHappening = false,
+                            IsLotrOrTheHobbit = true,
+                            Month = 5,
+                            Question = "Marriage of Samwise Gamgee and Rose \"Rosie\" Cotton",
+                            TimeValue = 43020.121m,
+                            Trivia = "Sam and Rose had thirteen children, four of which were named Bilbo, Frodo, Merry and Pippin",
+                            WikiUrl = "https://lord-of-the-rings.fandom.com/wiki/Samwise_Gamgee#After_the_War_of_the_Ring",
+                            Year = 3020
+                        },
+                        new
+                        {
+                            Id = 14,
+                            Age = 40000,
+                            Category = "Lord of The Rings",
+                            Day = 22,
+                            Difficulty = 1,
+                            IsGreatHappening = true,
+                            IsLotrOrTheHobbit = true,
+                            Month = 9,
+                            Question = "Gandalf, Frodo and Bilbo leave Middle Earth",
+                            TimeValue = 43021.262m,
+                            Trivia = "Samwise later leaves Middle Earth to spend his last days with Frodo in the undying lands",
+                            WikiUrl = "https://lord-of-the-rings.fandom.com/wiki/Frodo_Baggins#Close_of_the_Third_Age",
+                            Year = 3021
+                        },
+                        new
+                        {
+                            Id = 15,
+                            Age = 40000,
+                            Category = "Lord of The Rings",
+                            Day = 23,
+                            Difficulty = 2,
+                            IsGreatHappening = true,
+                            IsLotrOrTheHobbit = true,
+                            Month = 11,
+                            Question = "Battle of Five Armies",
+                            TimeValue = 42941.323m,
+                            Trivia = "trivia",
+                            Year = 2941
+                        },
+                        new
+                        {
+                            Id = 16,
+                            Age = 40000,
+                            Category = "Lord of The Rings",
+                            Day = 1,
+                            Difficulty = 2,
+                            IsGreatHappening = false,
+                            IsLotrOrTheHobbit = true,
+                            Month = 11,
+                            Question = "Death of Smaug",
+                            TimeValue = 42941.301m,
+                            Trivia = "The name Smaug is related to the Swedish word \"smyga}\" which means to creep",
+                            Year = 2941
+                        },
+                        new
+                        {
+                            Id = 17,
+                            Age = 40000,
+                            Category = "Lord of The Rings",
+                            Difficulty = 3,
+                            IsLotrOrTheHobbit = false,
+                            Question = "Sauron returns to Mordor",
+                            TimeValue = 42942m,
+                            Trivia = "Sauron left Dol Goldur only to later send his Nazgûl to re-occupy it",
+                            Year = 2942
+                        },
+                        new
+                        {
+                            Id = 18,
+                            Age = 40000,
+                            Category = "Lord of The Rings",
+                            Difficulty = 3,
+                            IsLotrOrTheHobbit = false,
+                            Question = "Birth of Theoden",
+                            TimeValue = 42948m,
+                            Trivia = "Theoden was actually born in Gondor, not in Rohan",
+                            Year = 2948
+                        },
+                        new
+                        {
+                            Id = 19,
+                            Age = 50000,
+                            Category = "Lord of The Rings",
+                            Day = 1,
+                            Difficulty = 1,
+                            IsGreatHappening = false,
+                            IsLotrOrTheHobbit = true,
+                            Month = 3,
+                            Question = "Death of Aragorn",
+                            TimeValue = 50120.061m,
+                            Trivia = "Aragorn died at the age of 210",
+                            Year = 120
+                        },
+                        new
+                        {
+                            Id = 20,
+                            Age = 40000,
+                            Category = "Lord of The Rings",
+                            Day = 22,
+                            Difficulty = 1,
+                            IsGreatHappening = false,
+                            IsLotrOrTheHobbit = true,
+                            Month = 9,
+                            Question = "Bilbos birthday party",
+                            TimeValue = 43001.262m,
+                            Trivia = "Altough not very well emphazised, this was also Frodos 33th birthday party",
+                            Year = 3001
+                        },
+                        new
+                        {
+                            Id = 21,
+                            Age = 40000,
+                            Category = "Lord of The Rings",
+                            Day = 22,
+                            Difficulty = 1,
+                            IsGreatHappening = true,
+                            IsLotrOrTheHobbit = true,
+                            Month = 9,
+                            Question = "Frodo comes in possession of The One Ring",
+                            TimeValue = 43001.262m,
+                            Trivia = "This was the only time any one had ever willingly given up the ring so far in history",
+                            Year = 3001
+                        },
+                        new
+                        {
+                            Id = 22,
+                            Age = 40000,
+                            Category = "Lord of The Rings",
+                            Day = 20,
+                            Difficulty = 3,
+                            IsGreatHappening = true,
+                            IsLotrOrTheHobbit = true,
+                            Month = 6,
+                            Question = "War of the Ring begins",
+                            TimeValue = 43019.17m,
+                            Trivia = "The war officially began after Saurons forces took Osgiliath",
+                            Year = 3019
+                        },
+                        new
+                        {
+                            Id = 23,
+                            Age = 40000,
+                            Category = "Lord of The Rings",
+                            Day = 25,
+                            Difficulty = 2,
+                            IsGreatHappening = true,
+                            IsLotrOrTheHobbit = true,
+                            Month = 10,
+                            Question = "Council of Elrond",
+                            TimeValue = 43018.295m,
+                            Trivia = "Elrond had not sent invitations, Legolas, Gimli and Boromir just happened to be in Rivendell for different reasons",
+                            Year = 3018
+                        },
+                        new
+                        {
+                            Id = 24,
+                            Age = 40000,
+                            Category = "Lord of The Rings",
+                            Day = 15,
+                            Difficulty = 2,
+                            IsGreatHappening = false,
+                            IsLotrOrTheHobbit = true,
+                            Month = 1,
+                            Question = "Gandalf falls from the bridge of Khazad-dûm",
+                            TimeValue = 43019.015m,
+                            Trivia = "The battle between Gandalf and the Balrog persisted for ten days",
+                            Year = 3019
+                        },
+                        new
+                        {
+                            Id = 25,
+                            Age = 40000,
+                            Category = "Lord of The Rings",
+                            Day = 25,
+                            Difficulty = 2,
+                            IsGreatHappening = true,
+                            IsLotrOrTheHobbit = true,
+                            Month = 1,
+                            Question = "Gandalf dies and returns as Gandalf the White",
+                            TimeValue = 43019.025m,
+                            Trivia = "Gandalf is the second person ever to be resurected after figting a Balrog, Glorfindel was the first",
+                            Year = 3019
+                        },
+                        new
+                        {
+                            Id = 26,
+                            Age = 40000,
+                            Category = "Lord of The Rings",
+                            Day = 3,
+                            Difficulty = 2,
+                            IsGreatHappening = false,
+                            IsLotrOrTheHobbit = true,
+                            Month = 3,
+                            Question = "Battle of Isengard",
+                            TimeValue = 43019.063m,
+                            Trivia = "Isengard means \"Iron-enclosure\" in Old English",
+                            Year = 3019
+                        },
+                        new
+                        {
+                            Id = 27,
+                            Age = 40000,
+                            Category = "Lord of The Rings",
+                            Day = 15,
+                            Difficulty = 2,
+                            IsGreatHappening = false,
+                            IsLotrOrTheHobbit = true,
+                            Month = 3,
+                            Question = "Death of Denethor II",
+                            TimeValue = 43019.075m,
+                            Trivia = "In The Return of the King Denethor is described as looking \"indeed much more like a great Wizard than Gandalf did\"",
+                            Year = 3019
+                        },
+                        new
+                        {
+                            Id = 28,
+                            Age = 40000,
+                            Category = "Lord of The Rings",
+                            Day = 15,
+                            Difficulty = 2,
+                            IsGreatHappening = false,
+                            IsLotrOrTheHobbit = true,
+                            Month = 3,
+                            Question = "Death of Theoden",
+                            TimeValue = 43019.075m,
+                            Trivia = "In the books, Theoden never gets to say farewell to Éowyn since her secret indentity is never revealed to him",
+                            Year = 3019
+                        },
+                        new
+                        {
+                            Id = 29,
+                            Age = 40000,
+                            Category = "Lord of The Rings",
+                            Day = 15,
+                            Difficulty = 2,
+                            IsGreatHappening = false,
+                            IsLotrOrTheHobbit = true,
+                            Month = 3,
+                            Question = "Death of the Witch King",
+                            TimeValue = 43021.075m,
+                            Trivia = "It is now known who the Witch King was prior to being made a ring wraith",
+                            Year = 3021
+                        },
+                        new
+                        {
+                            Id = 30,
+                            Age = 40000,
+                            Category = "Lord of The Rings",
+                            Day = 25,
+                            Difficulty = 1,
+                            IsGreatHappening = false,
+                            IsLotrOrTheHobbit = true,
+                            Month = 3,
+                            Question = "Battle of the Morannon (Black Gate)",
+                            TimeValue = 43019.085m,
+                            Trivia = "In the movie adaptation, Sauron was orignally meant to be present at the battle. This was later cut out",
+                            Year = 3019
+                        },
+                        new
+                        {
+                            Id = 31,
+                            Age = 40000,
+                            Category = "Lord of The Rings",
+                            Day = 5,
+                            Difficulty = 3,
+                            IsGreatHappening = true,
+                            IsLotrOrTheHobbit = true,
+                            Month = 10,
+                            Question = "Death of Isildur",
+                            TimeValue = 40002.275m,
+                            Trivia = "Before Númenor fell, Isildur took a seedling of the white tree Nimloth with him to Middle Earth. This became the first white tree of Gondor",
+                            Year = 2
+                        },
+                        new
+                        {
+                            Id = 32,
+                            Age = 30000,
+                            Category = "Lord of The Rings",
+                            Difficulty = 3,
+                            IsLotrOrTheHobbit = false,
+                            Question = "Death of Elendil",
+                            TimeValue = 33441m,
+                            Trivia = "Elendil was (approximately) 2 meters and 41 centimeters tall",
+                            Year = 3441
+                        },
+                        new
+                        {
+                            Id = 33,
+                            Age = 30000,
+                            Category = "Lord of The Rings",
+                            Difficulty = 3,
+                            IsLotrOrTheHobbit = false,
+                            Question = "Downfall of Númenor",
+                            TimeValue = 33319m,
+                            Trivia = "Inspired by Tolkiens recurring dreams of a great wave, a dream he later gave to Faramir in the books",
+                            Year = 3319
+                        },
+                        new
+                        {
+                            Id = 34,
+                            Age = 30000,
+                            Category = "Lord of The Rings",
+                            Difficulty = 3,
+                            IsLotrOrTheHobbit = false,
+                            Question = "War of the Last Alliance",
+                            TimeValue = 33429m,
+                            Trivia = "Although called \"The last alliance of Elves and Men\" there where Dwarves there too",
+                            Year = 3429
+                        },
+                        new
+                        {
+                            Id = 35,
+                            Age = 40000,
+                            Category = "Lord of The Rings",
+                            Difficulty = 3,
+                            IsLotrOrTheHobbit = false,
+                            Question = "Isildur plants a sapling of the White Tree in Minas Anor",
+                            TimeValue = 40002m,
+                            Trivia = "Minas Anor was later renamed Minas Tirith",
+                            Year = 2
+                        },
+                        new
+                        {
+                            Id = 36,
+                            Age = 40000,
+                            Category = "Lord of The Rings",
+                            Difficulty = 3,
+                            IsLotrOrTheHobbit = false,
+                            Question = "Birth of Arwen",
+                            TimeValue = 40241m,
+                            Trivia = "Arwen was said to be the fairest of all living beings in the third age",
+                            Year = 241
+                        },
+                        new
+                        {
+                            Id = 37,
+                            Age = 40000,
+                            Category = "Lord of The Rings",
+                            Difficulty = 4,
+                            IsLotrOrTheHobbit = false,
+                            Question = "The Nazgûl reappear in Middle Earth",
+                            TimeValue = 41300m,
+                            Trivia = "Out of the nine only one, Khamûl, is ever named",
+                            Year = 1300
+                        },
+                        new
+                        {
+                            Id = 38,
+                            Age = 40000,
+                            Category = "Lord of The Rings",
+                            Difficulty = 3,
+                            IsLotrOrTheHobbit = false,
+                            Question = "Creation of the Shire",
+                            TimeValue = 41601m,
+                            Trivia = "After the War of the Ring, The shire was gifted more land from Aragorn",
+                            Year = 1601
+                        },
+                        new
+                        {
+                            Id = 39,
+                            Age = 40000,
+                            Category = "Lord of The Rings",
+                            Difficulty = 3,
+                            IsLotrOrTheHobbit = false,
+                            Question = "Destruction of Arnor",
+                            TimeValue = 41974m,
+                            Trivia = "The kingdom af Arnor was later restored by Aragorn",
+                            Year = 1974
+                        },
+                        new
+                        {
+                            Id = 40,
+                            Age = 40000,
+                            Category = "Lord of The Rings",
+                            Day = 14,
+                            Difficulty = 2,
+                            IsGreatHappening = false,
+                            IsLotrOrTheHobbit = true,
+                            Month = 3,
+                            Question = "Minas Tirith is besieged",
+                            TimeValue = 43019.074m,
+                            Trivia = "",
+                            Year = 3019
+                        },
+                        new
+                        {
+                            Id = 41,
+                            Age = 40000,
+                            Category = "Lord of The Rings",
+                            Day = 29,
+                            Difficulty = 2,
+                            IsGreatHappening = false,
+                            IsLotrOrTheHobbit = true,
+                            Month = 9,
+                            Question = "The hobbits reach Bree",
+                            TimeValue = 43018.269m,
+                            Trivia = "",
+                            Year = 3018
+                        },
+                        new
+                        {
+                            Id = 42,
+                            Age = 40000,
+                            Category = "Lord of The Rings",
+                            Day = 13,
+                            Difficulty = 2,
+                            IsGreatHappening = false,
+                            IsLotrOrTheHobbit = true,
+                            Month = 1,
+                            Question = "The fellowship reaches the gate of Moria",
+                            TimeValue = 43019.013m,
+                            Trivia = "",
+                            Year = 3019
+                        },
+                        new
+                        {
+                            Id = 43,
+                            Age = 40000,
+                            Category = "Lord of The Rings",
+                            Day = 15,
+                            Difficulty = 2,
+                            IsGreatHappening = false,
+                            IsLotrOrTheHobbit = true,
+                            Month = 2,
+                            Question = "The fellowship reaches Lothlórien",
+                            TimeValue = 43019.045m,
+                            Trivia = "",
+                            Year = 3019
+                        },
+                        new
+                        {
+                            Id = 44,
+                            Age = 40000,
+                            Category = "Lord of The Rings",
+                            Day = 25,
+                            Difficulty = 2,
+                            IsGreatHappening = false,
+                            IsLotrOrTheHobbit = true,
+                            Month = 2,
+                            Question = "The fellowship passes the Argonath",
+                            TimeValue = 43019.055m,
+                            Trivia = "",
+                            Year = 3019
+                        },
+                        new
+                        {
+                            Id = 45,
+                            Age = 40000,
+                            Category = "Lord of The Rings",
+                            Day = 26,
+                            Difficulty = 2,
+                            IsGreatHappening = false,
+                            IsLotrOrTheHobbit = true,
+                            Month = 2,
+                            Question = "Boromir is slain",
+                            TimeValue = 43019.056m,
+                            Trivia = "",
+                            Year = 3019
+                        },
+                        new
+                        {
+                            Id = 46,
+                            Age = 40000,
+                            Category = "Lord of The Rings",
+                            Day = 5,
+                            Difficulty = 3,
+                            IsGreatHappening = false,
+                            IsLotrOrTheHobbit = true,
+                            Month = 3,
+                            Question = "Pippin looks into the Orthanc-stone",
+                            TimeValue = 43019.065m,
+                            Trivia = "",
+                            Year = 3019
+                        },
+                        new
+                        {
+                            Id = 47,
+                            Age = 40000,
+                            Category = "Lord of The Rings",
+                            Day = 7,
+                            Difficulty = 3,
+                            IsGreatHappening = false,
+                            IsLotrOrTheHobbit = true,
+                            Month = 3,
+                            Question = "Frodo and Sam reach Henneth Annûn",
+                            TimeValue = 43019.067m,
+                            Trivia = "",
+                            Year = 3019
+                        },
+                        new
+                        {
+                            Id = 48,
+                            Age = 40000,
+                            Category = "Lord of The Rings",
+                            Day = 10,
+                            Difficulty = 3,
+                            IsGreatHappening = true,
+                            IsLotrOrTheHobbit = true,
+                            Month = 3,
+                            Question = "The Dawnless Day",
+                            TimeValue = 43019.07m,
+                            Trivia = "",
+                            Year = 3019
+                        },
+                        new
+                        {
+                            Id = 49,
+                            Age = 40000,
+                            Category = "Lord of The Rings",
+                            Day = 15,
+                            Difficulty = 4,
+                            IsGreatHappening = false,
+                            IsLotrOrTheHobbit = true,
+                            Month = 3,
+                            Question = "Second assault on Lothlórien",
+                            TimeValue = 43019.075m,
+                            Trivia = "",
+                            Year = 3019
+                        },
+                        new
+                        {
+                            Id = 50,
+                            Age = 40000,
+                            Category = "Lord of The Rings",
+                            Day = 24,
+                            Difficulty = 2,
+                            IsGreatHappening = false,
+                            IsLotrOrTheHobbit = true,
+                            Month = 10,
+                            Question = "Frodo wakes up in Rivendell after recovering from his wound",
+                            TimeValue = 43018.294m,
+                            Trivia = "",
+                            Year = 3018
                         });
                 });
 #pragma warning restore 612, 618

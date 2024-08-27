@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Backend.Models;
+using Backend.Repos;
+using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -8,36 +10,36 @@ namespace Backend.Controllers
 	[ApiController]
 	public class LotrController : ControllerBase
 	{
-		// GET: api/<LotrController>
+		public readonly LotrCardRepo _repo;
+
+		public LotrController(LotrCardRepo cRepo)
+		{
+			_repo = cRepo;
+		}
+
 		[HttpGet]
-		public IEnumerable<string> Get()
+		public async Task<List<LotrCardModel>> GetAllCards()
 		{
-			return new string[] { "value1", "value2" };
+			List<LotrCardModel> cards = await _repo.GetAllCardsAsync();
+			if (cards == null)
+			{
+				throw new Exception("Could not find list of cards");
+			}
+			return cards;
 		}
 
-		// GET api/<LotrController>/5
-		[HttpGet("{id}")]
-		public string Get(int id)
+		[HttpGet("id")]
+		public async Task<LotrCardModel> GetCardById(int id)
 		{
-			return "value";
+			return await _repo.GetCardById(id);
 		}
 
-		// POST api/<LotrController>
 		[HttpPost]
-		public void Post([FromBody] string value)
-		{
-		}
 
-		// PUT api/<LotrController>/5
-		[HttpPut("{id}")]
-		public void Put(int id, [FromBody] string value)
+		public async Task<LotrCardModel> PostNewCard(LotrCardModel card)
 		{
-		}
-
-		// DELETE api/<LotrController>/5
-		[HttpDelete("{id}")]
-		public void Delete(int id)
-		{
+			await _repo.PostNewCard(card);
+			return card;
 		}
 	}
 }
