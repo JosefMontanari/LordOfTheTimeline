@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useLocalStorage from "./useLocalStorage";
 
 function useCardActions(
@@ -13,6 +13,7 @@ function useCardActions(
   setTotalPoints
 ) {
   const [points, setPoints] = useState(0);
+  const [shouldAddNewCard, setShouldAddNewCard] = useState(false);
 
   function NewCard() {
     // Lägg till nytt kort som spelas
@@ -51,9 +52,14 @@ function useCardActions(
     const correct = EvaluateCards();
 
     if (correct) {
-      setPlayState("new or lock");
+      if (playerCards.length >= 10) {
+        //TODO: Fler saker som ska göras vid won game?
+        setPlayState("won game");
+      } else {
+        setPlayState("new or lock");
+      }
     } else {
-      setPlayState("game over");
+      setPlayState("continue");
     }
 
     setCardPoints(currentCard);
@@ -76,8 +82,6 @@ function useCardActions(
     const correctAnswer = EvaluateLists(newPlayerList, correctlySortedList);
 
     if (correctAnswer) {
-      // Spelet går vidare
-
       // Ändra properties på det nya kortet till grönt
       newPlayerList.forEach((c) => {
         if (c.isCurrentlyPlaying) {
@@ -89,8 +93,6 @@ function useCardActions(
 
       cardsIsCorrect = true;
     } else {
-      // Game Over
-
       // Ändra properties på det nya kortet till rött
       newPlayerList.forEach((c) => {
         if (c.isCurrentlyPlaying) {
@@ -131,7 +133,25 @@ function useCardActions(
     localStorage.setItem("streakMultiplier", JSON.stringify(1));
   }
 
-  return { NewCard, Confirm, points, setPoints, LockInCards };
+  async function Continue() {
+    // Ta bort kort som inte är lockedIn
+    let newPlayerList = playerCards.filter((c) => c.isLockedIn);
+    setPlayerCards(newPlayerList);
+    setPlayState("new or lock");
+
+    // Det här är för att NewCard ska köras efter setPlayerCards har gjort som är asynkron
+    setShouldAddNewCard(true);
+  }
+
+  useEffect(() => {
+    //Används i Continue()
+    if (shouldAddNewCard) {
+      NewCard();
+    }
+    setShouldAddNewCard(false);
+  }, [shouldAddNewCard]);
+
+  return { NewCard, Confirm, points, setPoints, LockInCards, Continue };
 }
 
 export default useCardActions;
