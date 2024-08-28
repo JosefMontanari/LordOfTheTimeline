@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 3px solid #835700;
+  border: 4px solid #835700;
   max-height: 220px;
   max-width: 150px;
   min-height: 220px;
@@ -16,8 +16,9 @@
 .card-playable {
   /* in order: x offset, y offset, blur size, spread size, color /
     / blur size and spread size are optional (they default to 0) */
-  box-shadow: 0px 0px 15px 10px #ffa800;
+  box-shadow: 0px 0px 25px 5px #ffa800;
   transition: transform 0.3s ease;
+  outline-style: solid;
 }
 
 /* .card-playable:hover {

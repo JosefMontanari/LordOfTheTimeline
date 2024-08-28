@@ -36,7 +36,7 @@ function LotrCardConfirmed({ cardData, isRemoving }) {
   return (
     <>
       <div
-        className={`card-container card-locked ${
+        className={`card-container ${
           cardData.isCorrect ? "card-correct" : "card-incorrect"
         } ${isRemoving ? "removing" : ""}`}
         onClick={() => setShowTrivia(!showTrivia)}
