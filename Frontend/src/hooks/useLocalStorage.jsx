@@ -64,9 +64,9 @@ function useLocalStorage() {
     let existingPlayer = JSON.parse(localStorage.getItem("player"));
 
     // Preserve the high score if the player already exists
-    const highScore = existingPlayer?.highScore || 0;
+    const previousHighScore = existingPlayer?.highScore || 0;
 
-    const player = { userName, avatar, highScore: 0 };
+    const player = { userName, avatar, highScore: previousHighScore };
     setLocalStorage("player", player);
   }
   function getHighScore() {
@@ -80,6 +80,7 @@ function useLocalStorage() {
     setTotalPoints,
     setStreakPoints,
     setPlayer,
+    getLocalStorage,
     getHighScore,
   };
 }

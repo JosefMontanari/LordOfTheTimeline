@@ -13,7 +13,7 @@ import useCardActions from "../../hooks/useCardActions";
 import useArrowActions from "../../hooks/useArrowActions";
 import PlayerModal from "../../Modals/PlayerModal/PlayerModal";
 import Score from "../../components/Score/Score";
-
+import Avatar from "../../components/Avatar/Avatar";
 
 function LotrGame({
   allCards,
@@ -85,8 +85,10 @@ function LotrGame({
       </div>
       <LotrGameTimeline />
       <div className="bottom-row">
-        <Score points={points} highScore={12000} />
-
+        <div className="score-player-container">
+          <Score points={points} highScore={12000} />
+          <Avatar handleOpenModal={handleOpenModal} />
+        </div>
         <GameArrows
           clickLeft={() => HandleLeftArrowClick()}
           clickRight={() => HandleRightArrowClick()}
