@@ -11,16 +11,9 @@ function LotrCardLocked({ cardData }) {
     `${cardData.year}/${cardData.month}/${cardData.day}`
   );
 
-  const [flipStyle, setFlipStyle] = useState({});
-
-  function handleClick() {
-    if (showTrivia) {
-      setFlipStyle({ transform: `rotateY(180deg)` });
-    } else {
-      setFlipStyle({});
-    }
-    setShowTrivia(!showTrivia);
-  }
+  const flipStyle = {
+    transform: `rotateY(180deg)`,
+  };
 
   useEffect(() => {
     if (cardData.month === null) {
@@ -40,8 +33,6 @@ function LotrCardLocked({ cardData }) {
       case 50000:
         return setAge("Fo.A");
     }
-
-    console.log("Sätter switch");
   }, []);
   return (
     <>
@@ -66,7 +57,7 @@ function LotrCardLocked({ cardData }) {
       ) : (
         <div
           className="card-container card-locked card-back"
-          onClick={() => handleClick()}
+          onClick={() => setShowTrivia(!showTrivia)}
         >
           <div className="date-container" style={flipStyle}>
             <img src={timeFrame} alt="" className="time-frame" />

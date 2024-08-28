@@ -5,7 +5,7 @@ import timeFrame from "/time-frame.png";
 
 import "./LotrCardConfirmed.css";
 
-function LotrCardConfirmed({ cardData }) {
+function LotrCardConfirmed({ cardData, isRemoving }) {
   const [showTrivia, setShowTrivia] = useState(false);
   const [age, setAge] = useState("");
   const [dateString, setDateString] = useState(
@@ -38,7 +38,7 @@ function LotrCardConfirmed({ cardData }) {
       <div
         className={`card-container card-locked ${
           cardData.isCorrect ? "card-correct" : "card-incorrect"
-        }`}
+        } ${isRemoving ? "removing" : ""}`}
         onClick={() => setShowTrivia(!showTrivia)}
       >
         <div className="date-container">

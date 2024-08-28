@@ -13,3 +13,10 @@
 /* .card-incorrect:hover {
   transform: scale(1.2);
 } */
+
+.card-container.removing {
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
