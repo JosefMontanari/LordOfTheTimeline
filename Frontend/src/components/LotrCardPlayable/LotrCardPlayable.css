@@ -58,3 +58,14 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+.card-container.adding {
+  opacity: 0;
+  transform: translateY(-80px);
+}
+
+.card-container.adding-added {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 1s ease-in, transform 1s ease-in;
+}

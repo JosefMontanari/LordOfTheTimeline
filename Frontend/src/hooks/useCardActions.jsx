@@ -10,7 +10,9 @@ function useCardActions(
   setPlayState,
   setCardPoints,
   setStreakPoints,
-  setTotalPoints
+  setTotalPoints,
+  setRemovingCardsId,
+  setAddingCardId
 ) {
   const [points, setPoints] = useState(0);
   const [shouldAddNewCard, setShouldAddNewCard] = useState(false);
@@ -43,8 +45,13 @@ function useCardActions(
 
     newPlayerList.push(newCard);
 
+    setAddingCardId(newCard.id);
     setCurrentCard(newCard);
     setPlayerCards(newPlayerList);
+
+    setTimeout(() => {
+      setAddingCardId(null);
+    }, 100);
   }
 
   function Confirm() {
@@ -134,13 +141,23 @@ function useCardActions(
   }
 
   async function Continue() {
-    // Ta bort kort som inte är lockedIn
-    let newPlayerList = playerCards.filter((c) => c.isLockedIn);
-    setPlayerCards(newPlayerList);
-    setPlayState("new or lock");
+    // Gör en lista med id på korten som ska tas bort (de som inte är locked in)
+    const cardsToRemove = playerCards
+      .filter((card) => !card.isLockedIn)
+      .map((card) => card.id);
 
-    // Det här är för att NewCard ska köras efter setPlayerCards har gjort som är asynkron
-    setShouldAddNewCard(true);
+    setRemovingCardsId(cardsToRemove);
+
+    setTimeout(() => {
+      // Ta bort kort som inte är lockedIn
+      let newPlayerList = playerCards.filter((c) => c.isLockedIn);
+      setPlayerCards(newPlayerList);
+      setPlayState("new or lock");
+      setRemovingCardsId([]);
+
+      // Det här är för att NewCard ska köras efter setPlayerCards har gjort som är asynkron
+      setShouldAddNewCard(true);
+    }, 500);
   }
 
   useEffect(() => {
