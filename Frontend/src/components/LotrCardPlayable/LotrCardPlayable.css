@@ -11,6 +11,7 @@
   perspective: 1000px; /* Provides a 3D perspective */
   position: relative;
   overflow: hidden;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
 }
 
 .card-playable {
@@ -20,10 +21,6 @@
   transition: transform 0.3s ease;
   outline-style: solid;
 }
-
-/* .card-playable:hover {
-  transform: scale(1.2);
-} */
 
 .card-body {
   position: relative;

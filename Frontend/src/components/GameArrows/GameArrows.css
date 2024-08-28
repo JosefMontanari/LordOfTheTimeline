@@ -9,7 +9,7 @@
 
 .arrow-right {
   rotate: 180deg;
-  filter: drop-shadow(-1px -5px 0px rgba(0, 0, 0, 0.5));
+  filter: drop-shadow(1px 5px 0px rgba(0, 0, 0, 0.5));
 }
 
 .arrow-left,

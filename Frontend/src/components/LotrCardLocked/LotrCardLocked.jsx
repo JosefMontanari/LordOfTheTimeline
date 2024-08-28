@@ -11,9 +11,8 @@ function LotrCardLocked({ cardData }) {
     `${cardData.year}/${cardData.month}/${cardData.day}`
   );
 
-  const flipStyle = {
-    transform: `rotateY(180deg)`,
-  };
+  const flipStyle = { transform: `rotateY(180deg)` };
+
 
   useEffect(() => {
     if (cardData.month === null) {
