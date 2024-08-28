@@ -18,6 +18,7 @@
     / blur size and spread size are optional (they default to 0) */
   box-shadow: 0px 0px 25px 5px #ffa800;
   transition: transform 0.3s ease;
+  outline-style: solid;
 }
 
 /* .card-playable:hover {

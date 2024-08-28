@@ -58,7 +58,7 @@ function useCardActions(
 
     setCardPoints(currentCard);
     setStreakPoints(playerCards);
-    setPoints(setTotalPoints());
+    // setPoints(setTotalPoints());
   }
 
   function EvaluateCards() {
@@ -129,6 +129,8 @@ function useCardActions(
     setPlayerCards(newPlayerList);
 
     localStorage.setItem("streakMultiplier", JSON.stringify(1));
+    setPoints(setTotalPoints());
+    setLocalStorage("cardPoints", 0);
   }
 
   return { NewCard, Confirm, points, setPoints, LockInCards };

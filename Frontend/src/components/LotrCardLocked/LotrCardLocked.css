@@ -1,6 +1,6 @@
 .card-locked {
   transition: transform 0.6s ease;
-  /* box-shadow: 0px 0px 20px 5px #d1d1d19a; */
+  outline-style: solid;
   transform-style: preserve-3d;
 }
 

@@ -1,9 +1,11 @@
 .card-correct {
   box-shadow: 0px 0px 15px 5px #9ef01a;
   transition: transform 0.3s ease;
+  outline-style: solid;
 }
 .card-incorrect {
   box-shadow: 0px 0px 15px 5px #e61d1d;
+  outline-style: solid;
 }
 
 /* .card-correct:hover {
