@@ -6,7 +6,7 @@ function useLocalStorage() {
     return JSON.parse(localStorage.getItem(key));
   }
 
-  function setCardPoints(card) {
+  function setCardPoints(card, time) {
     let points = JSON.parse(localStorage.getItem("cardPoints"));
     if (points === null) {
       points = 0;
@@ -14,6 +14,11 @@ function useLocalStorage() {
 
     if (card.isCorrect) {
       points += 1000 * (1 + card.difficulty / 10);
+      let timeBonus;
+      if (time < 5000) {
+        timeBonus = Math.floor((5000 - time) / 10);
+      }
+      points = points + timeBonus;
     }
 
     setLocalStorage("cardPoints", points);
@@ -39,10 +44,11 @@ function useLocalStorage() {
   }
 
   function setTotalPoints() {
+    let currentPoints = JSON.parse(localStorage.getItem("totalPoints"));
     let points = JSON.parse(localStorage.getItem("cardPoints"));
     let streakMultiplier = JSON.parse(localStorage.getItem("streakMultiplier"));
 
-    const totalPoints = points * streakMultiplier;
+    const totalPoints = Math.floor(currentPoints + points * streakMultiplier);
 
     setLocalStorage("totalPoints", totalPoints);
 

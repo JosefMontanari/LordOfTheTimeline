@@ -1,10 +1,11 @@
 .card-locked {
   transition: transform 0.3s ease;
+  outline-style: solid;
   transform-style: preserve-3d;
 }
 
 .card-text-locked {
-  font-size: 11px;
+  font-size: 13px;
   top: 35px;
   font-weight: 600;
   margin: 0px 12px;
@@ -34,19 +35,20 @@
   color: white;
   position: relative;
   top: 5px;
-  font-size: 14px;
+  font-size: 15px;
+  font-weight: 500;
   text-align: center;
 }
 
 .time-frame {
   position: absolute;
-  width: 130px;
+  width: 160px;
   top: 19px;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 .trivia-text {
-  font-size: 9px;
+  font-size: 12px;
 }
 
 .trivia-text-container {

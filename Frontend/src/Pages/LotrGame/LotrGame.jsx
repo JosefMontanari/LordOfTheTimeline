@@ -14,7 +14,6 @@ import useArrowActions from "../../hooks/useArrowActions";
 import PlayerModal from "../../Modals/PlayerModal/PlayerModal";
 import Score from "../../components/Score/Score";
 
-
 function LotrGame({
   allCards,
   setAllCards,
@@ -22,8 +21,11 @@ function LotrGame({
   handleOpenModal,
   handleCloseModal,
 }) {
-  // Fyra olika states, placing card, new or lock, game over och won game
+  // Fyra olika states, placing card, new or lock, continue och won game
   const [playState, setPlayState] = useState("new or lock");
+  const [removingCardsId, setRemovingCardsId] = useState([]);
+  const [addingCardId, setAddingCardId] = useState(null);
+
   const {
     setLocalStorage,
     setTotalPoints,
@@ -35,7 +37,7 @@ function LotrGame({
   const { playerCards, setPlayerCards, currentCard, setCurrentCard } =
     useLotrGameSetup(setAllCards, setLocalStorage, handleOpenModal);
 
-  const { NewCard, Confirm, points, LockInCards } = useCardActions(
+  const { NewCard, Confirm, points, LockInCards, Continue } = useCardActions(
     allCards,
     playerCards,
     setPlayerCards,
@@ -44,7 +46,9 @@ function LotrGame({
     setPlayState,
     setCardPoints,
     setStreakPoints,
-    setTotalPoints
+    setTotalPoints,
+    setRemovingCardsId,
+    setAddingCardId
   );
 
   const { HandleLeftArrowClick, HandleRightArrowClick } = useArrowActions(
@@ -72,14 +76,29 @@ function LotrGame({
       <LotrGameBackground />
       <div className="cards-container">
         {playerCards.map((c) => {
+          const isRemoving = removingCardsId.includes(c.id); // Kontrollera om kortet ska tas bort
+          const isAdding = c.id === addingCardId;
           if (c.isCurrentlyPlaying === false) {
             if (c.isLockedIn === false) {
-              return <LotrCardConfirmed cardData={c} key={c.id} />;
+              return (
+                <LotrCardConfirmed
+                  cardData={c}
+                  key={c.id}
+                  isRemoving={isRemoving}
+                />
+              );
             } else {
               return <LotrCardLocked cardData={c} key={c.id} />;
             }
           } else {
-            return <LotrCardPlayable cardData={c} key={c.id} />;
+            return (
+              <LotrCardPlayable
+                cardData={c}
+                key={c.id}
+                isAdding={isAdding}
+                addingCardId={addingCardId}
+              />
+            );
           }
         })}
       </div>
@@ -101,13 +120,9 @@ function LotrGame({
           )}
           {playState === "new or lock" ? (
             <>
-              {playerCards.length < 10 ? (
-                <button className="button" onClick={() => NewCard()}>
-                  New card
-                </button>
-              ) : (
-                <></>
-              )}
+              <button className="button" onClick={() => NewCard()}>
+                New card
+              </button>
               <button className="button" onClick={() => LockInCards()}>
                 Lock in cards
               </button>
@@ -115,9 +130,16 @@ function LotrGame({
           ) : (
             <></>
           )}
-          {playState === "game over" ? (
+          {playState === "won game" ? (
             <button className="button" onClick={() => NewGame()}>
               New game
+            </button>
+          ) : (
+            <></>
+          )}
+          {playState === "continue" ? (
+            <button className="button" onClick={() => Continue()}>
+              New Card
             </button>
           ) : (
             <></>
