@@ -8,7 +8,7 @@
 }
 
 .arrow-right {
-  rotate: 180deg;
+  transform: rotateY(180deg);
   filter: drop-shadow(1px 5px 0px rgba(0, 0, 0, 0.5));
 }
 
