@@ -27,7 +27,9 @@ function useLotrGameSetup(setAllCards, setLocalStorage, handleOpenModal) {
 
     GetFirstCard(cardsToUpdate);
 
+    // Nollställ allam points vid ett nytt game
     setLocalStorage("cardPoints", 0);
+    setLocalStorage("totalPoints", 0);
   }
 
   function GetFirstCard(cards) {

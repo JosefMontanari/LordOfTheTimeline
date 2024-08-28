@@ -1,5 +1,6 @@
 import { useState } from "react";
 import useLocalStorage from "./useLocalStorage";
+import useTimer from "./useTime";
 
 function useCardActions(
   allCards,
@@ -14,7 +15,13 @@ function useCardActions(
 ) {
   const [points, setPoints] = useState(0);
 
+  // importera Josefs magiska timer
+  const { time, startTimer, stopTimer, resetTimer } = useTimer();
+
   function NewCard() {
+    // Starta Josefs magiska timer
+    startTimer();
+
     // Lägg till nytt kort som spelas
     AddPlayerCard();
 
@@ -47,6 +54,10 @@ function useCardActions(
   }
 
   function Confirm() {
+    // Stoppa Josefs magiska timer och spara tiden
+    stopTimer();
+    const elapsedTime = time;
+
     // Kolla om listan ligger rätt utifrån timeValue
     const correct = EvaluateCards();
 
@@ -56,9 +67,14 @@ function useCardActions(
       setPlayState("game over");
     }
 
-    setCardPoints(currentCard);
+    setCardPoints(currentCard, time);
     setStreakPoints(playerCards);
     // setPoints(setTotalPoints());
+
+    console.log("Tid det tog:" + elapsedTime + "sekunder");
+
+    // Nollställ Josefs magiska timer
+    resetTimer();
   }
 
   function EvaluateCards() {
@@ -128,9 +144,9 @@ function useCardActions(
     });
     setPlayerCards(newPlayerList);
 
-    localStorage.setItem("streakMultiplier", JSON.stringify(1));
     setPoints(setTotalPoints());
-    setLocalStorage("cardPoints", 0);
+    localStorage.setItem("streakMultiplier", JSON.stringify(1));
+    localStorage.setItem("cardPoints", 0);
   }
 
   return { NewCard, Confirm, points, setPoints, LockInCards };
