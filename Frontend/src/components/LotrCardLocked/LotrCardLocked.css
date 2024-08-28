@@ -2,6 +2,8 @@
   transition: transform 0.3s ease;
   outline-style: solid;
   transform-style: preserve-3d;
+  outline-style: solid;
+  outline-offset: -2px;
 }
 
 .card-text-locked {
