@@ -4,21 +4,22 @@ import { useState, useEffect } from "react";
 import useLocalStorage from "../../hooks/useLocalStorage";
 
 function Score({ points }) {
-  const { getHighScore } = useLocalStorage();
-  const [highScore, setHighScore] = useState(0);
+  // Behövs bara om vi vill visa highScore
+  // const { getHighScore } = useLocalStorage();
+  // const [highScore, setHighScore] = useState(0);
 
-  useEffect(() => {
-    setHighScore(getHighScore());
-  }, [getHighScore]);
+  // useEffect(() => {
+  //   setHighScore(getHighScore());
+  // }, [getHighScore]);
   return (
     <>
       <div className="score-container lotr-font">
         <p>
           points: <span>{points}</span>
         </p>
-        <p>
+        {/* <p>
           highscore: <span>{highScore}</span>
-        </p>
+        </p> */}
       </div>
     </>
   );

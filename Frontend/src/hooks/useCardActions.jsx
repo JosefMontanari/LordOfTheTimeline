@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import useLocalStorage from "./useLocalStorage";
 import useTimer from "./useTime";
+import useLocalStorage from "./useLocalStorage";
 
 function useCardActions(
   allCards,
@@ -17,7 +17,7 @@ function useCardActions(
 ) {
   const [points, setPoints] = useState(0);
   const [shouldAddNewCard, setShouldAddNewCard] = useState(false);
-
+  const { updateHighScores } = useLocalStorage();
   // importera Josefs magiska timer
   const { time, startTimer, stopTimer, resetTimer } = useTimer();
 
@@ -72,6 +72,12 @@ function useCardActions(
     if (correct) {
       if (playerCards.length >= 10) {
         //TODO: Fler saker som ska göras vid won game?
+
+        // Lås alla kort
+        LockInCards();
+
+        updateHighScores();
+
         setPlayState("won game");
       } else {
         setPlayState("new or lock");
