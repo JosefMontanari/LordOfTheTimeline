@@ -79,6 +79,33 @@ function useLocalStorage() {
     let player = getLocalStorage("player");
     return player?.highScore || 0;
   }
+  function updateHighScores() {
+    let player = getLocalStorage("player");
+
+    let playerName;
+    player === null ? (playerName = "guest") : (playerName = player.userName);
+    let score = getLocalStorage("totalPoints");
+
+    // Hämta listan med spelare från localStorage
+    let listOfPlayers = getLocalStorage("players") || [];
+
+    // Hitta den existerande spelaren i listan
+    let existingPlayer = listOfPlayers.find((p) => p.userName === playerName);
+
+    if (existingPlayer) {
+      // Om spelaren redan finns, uppdatera highscore om den nya poängen är högre
+      if (score > existingPlayer.highScore) {
+        existingPlayer.highScore = score;
+      }
+    } else {
+      // Om spelaren inte finns, lägg till den i listan med den nya poängen
+      listOfPlayers.push({ userName: playerName, highScore: score });
+    }
+
+    listOfPlayers.sort((a, b) => b.highScore - a.highScore);
+
+    setLocalStorage("players", listOfPlayers);
+  }
 
   return {
     setLocalStorage,
@@ -88,6 +115,7 @@ function useLocalStorage() {
     setPlayer,
     getLocalStorage,
     getHighScore,
+    updateHighScores,
   };
 }
 
