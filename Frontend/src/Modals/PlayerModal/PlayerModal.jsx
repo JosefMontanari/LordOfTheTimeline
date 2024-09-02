@@ -46,7 +46,7 @@ function PlayerModal({ handleCloseModal, setPlayer }) {
       >
         <form onSubmit={handleSubmit}>
           <div>
-            <h1>Choose your name:</h1>
+            <h1 className="player-modal-title">Choose your name:</h1>
             <label>
               Username:
               <input
@@ -58,7 +58,7 @@ function PlayerModal({ handleCloseModal, setPlayer }) {
             </label>
           </div>
           <div>
-            <h1>Choose your Avatar:</h1>
+            <h1 className="player-modal-title">Choose your Avatar:</h1>
             <div className="avatar-selection">
               {avatars.map((avatarOption, index) => (
                 <img
