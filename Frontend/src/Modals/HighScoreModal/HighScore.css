@@ -26,6 +26,7 @@
   align-items: center;
   border-color: #ffa800;
   border-style: double;
+  gap: 40px;
 }
 
 .frame {
@@ -54,14 +55,32 @@
   font-size: 18px;
   margin-bottom: 15px;
   padding-top: 20%;
+  margin-top: 10px;
 }
 
-.p-highscore {
-  color: #ffa800;
-  font-family: "libre Baskerville";
-  font-size: 18px;
-  margin-bottom: 15px;
-  padding-top: 20%;
+.p-highscore-name-small {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  color: #956f21;
+  font-family: "Libre Baskerville";
+  font-size: 16px;
+  margin-bottom: 5px;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.p-name-score {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+  margin-bottom: 30px;
+  font-weight: 900;
+  font-size: 32px;
+  gap: 50px;
 }
 
 .close-btn {
@@ -77,4 +96,32 @@
 
 .close-btn:hover {
   background-color: #d4af37;
+}
+
+.p-highscore-name-big {
+  display: flex;
+  justify-content: space-between; /* Align items with space between */
+  align-items: center; /* Center align items vertically */
+  gap: 20px; /* Add gap between name and score */
+  color: #ffa800;
+  font-family: "Libre Baskerville";
+  font-size: 24px; /* Larger font size */
+  margin-bottom: 5px;
+  margin-top: 10px;
+  width: 100%; /* Ensure the container takes full width */
+  font-weight: bold; /* Make it stand out more */
+  text-shadow: 0 0 4px #ffa800, 0 0 6px #ffa800, 0 0 8px #d4af37; /* Subtle glow effect */
+  animation: pulse-glow 2s infinite; /* Apply the animation */
+}
+
+@keyframes pulse-glow {
+  0% {
+    text-shadow: 0 0 4px #ffa800, 0 0 6px #ffa800, 0 0 8px #d4af37;
+  }
+  50% {
+    text-shadow: 0 0 10px #ffa800, 0 0 20px #ffa800, 0 0 30px #d4af37;
+  }
+  100% {
+    text-shadow: 0 0 4px #ffa800, 0 0 6px #ffa800, 0 0 8px #d4af37;
+  }
 }
