@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import LotrCardPlayable from "../../components/LotrCardPlayable/LotrCardPlayable";
 import LotrCardConfirmed from "../../components/LotrCardConfirmed/LotrCardConfirmed";
-import { useState, useEffect } from "react";
 import "./LotrGame.css";
 import LotrGameBackground from "../../components/LotrGameBackground/LotrGameBackground";
 import LotrGameTimeline from "../../components/LotrGameTimeline/LotrGameTimeline";
@@ -15,7 +14,6 @@ import PlayerModal from "../../Modals/PlayerModal/PlayerModal";
 import Score from "../../components/Score/Score";
 import Avatar from "../../components/Avatar/Avatar";
 
-
 function LotrGame({
   allCards,
   setAllCards,
@@ -27,6 +25,8 @@ function LotrGame({
   const [playState, setPlayState] = useState("new or lock");
   const [removingCardsId, setRemovingCardsId] = useState([]);
   const [addingCardId, setAddingCardId] = useState(null);
+
+  const [difficultySelected, setDifficultySelected] = useState(false);
 
   const {
     setLocalStorage,
@@ -65,6 +65,10 @@ function LotrGame({
     window.location.reload();
   }
 
+  const handleDifficultySelect = (difficulty) => {
+    setDifficultySelected(true);
+  };
+
   return (
     <div className="lotr-game-page">
       {/* Lägg till modalen och kontrollera om den ska vara öppen */}
@@ -76,34 +80,53 @@ function LotrGame({
       )}
 
       <LotrGameBackground />
-      <div className="cards-container">
-        {playerCards.map((c) => {
-          const isRemoving = removingCardsId.includes(c.id); // Kontrollera om kortet ska tas bort
-          const isAdding = c.id === addingCardId;
-          if (c.isCurrentlyPlaying === false) {
-            if (c.isLockedIn === false) {
+
+      {!difficultySelected ? (
+        <div className="difficulty-buttons-container">
+          <button
+            className="button"
+            onClick={() => handleDifficultySelect("Easy")}
+          >
+            Books and Movies
+          </button>
+          <button
+            className="button"
+            onClick={() => handleDifficultySelect("Hard")}
+          >
+            Tolkien Universe
+          </button>
+        </div>
+      ) : (
+        <div className="cards-container">
+          {playerCards.map((c) => {
+            const isRemoving = removingCardsId.includes(c.id); // Kontrollera om kortet ska tas bort
+            const isAdding = c.id === addingCardId;
+            if (c.isCurrentlyPlaying === false) {
+              if (c.isLockedIn === false) {
+                return (
+                  <LotrCardConfirmed
+                    cardData={c}
+                    key={c.id}
+                    isRemoving={isRemoving}
+                  />
+                );
+              } else {
+                return <LotrCardLocked cardData={c} key={c.id} />;
+              }
+            } else {
               return (
-                <LotrCardConfirmed
+                <LotrCardPlayable
                   cardData={c}
                   key={c.id}
-                  isRemoving={isRemoving}
+                  isAdding={isAdding}
+                  addingCardId={addingCardId}
                 />
               );
-            } else {
-              return <LotrCardLocked cardData={c} key={c.id} />;
             }
-          } else {
-            return (
-              <LotrCardPlayable
-                cardData={c}
-                key={c.id}
-                isAdding={isAdding}
-                addingCardId={addingCardId}
-              />
-            );
-          }
-        })}
-      </div>
+          })}
+        </div>
+      )}
+
       <LotrGameTimeline />
       <div className="bottom-row">
         <div className="score-player-container">
