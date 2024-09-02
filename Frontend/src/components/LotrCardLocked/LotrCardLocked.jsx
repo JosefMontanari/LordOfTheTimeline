@@ -13,7 +13,6 @@ function LotrCardLocked({ cardData }) {
 
   const flipStyle = { transform: `rotateY(180deg)` };
 
-
   useEffect(() => {
     if (cardData.month === null) {
       setDateString(cardData.year);
@@ -70,7 +69,10 @@ function LotrCardLocked({ cardData }) {
               {!showTrivia ? (
                 <p>{cardData.question}</p>
               ) : (
-                <p className="trivia-text">{`Did you know? ${cardData.trivia}`}</p>
+                <div className="trivia-text-container">
+                  <p className="trivia-text">Did you know?</p>
+                  <p className="trivia-text">{cardData.trivia}</p>
+                </div>
               )}
             </div>
           </div>

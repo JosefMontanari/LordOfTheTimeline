@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
 import HowtoPlay from "../../Modals/HowtoPlayModal/HowtoPlay";
-import HighScore from "../../Modals/HighScoreModal/Highscore";
+import HighScore from "../../Modals/HighScoreModal/HighScore";
 
 function Navbar({ openModal, handleOpenModal, handleCloseModal }) {
   return (

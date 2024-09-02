@@ -13,7 +13,8 @@ function useCardActions(
   setStreakPoints,
   setTotalPoints,
   setRemovingCardsId,
-  setAddingCardId
+  setAddingCardId,
+  handleOpenModal
 ) {
   const [points, setPoints] = useState(0);
   const [shouldAddNewCard, setShouldAddNewCard] = useState(false);
@@ -73,6 +74,9 @@ function useCardActions(
       if (playerCards.length >= 10) {
         //TODO: Fler saker som ska göras vid won game?
 
+        //Modal när stäte ändras till won game
+        handleOpenModal("gameWonModal");
+
         // Lås alla kort
         LockInCards();
 
@@ -88,9 +92,6 @@ function useCardActions(
 
     setCardPoints(currentCard, time);
     setStreakPoints(playerCards);
-    // setPoints(setTotalPoints());
-
-    console.log("Tid det tog:" + elapsedTime + "sekunder");
 
     // Nollställ Josefs magiska timer
     resetTimer();
