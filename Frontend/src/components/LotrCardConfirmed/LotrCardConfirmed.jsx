@@ -12,6 +12,8 @@ function LotrCardConfirmed({ cardData, isRemoving }) {
     `${cardData.year}/${cardData.month}/${cardData.day}`
   );
 
+  const flipStyle = { transform: `rotateY(180deg)` }; // Add flip style for the back side
+
   useEffect(() => {
     if (cardData.month === null) {
       setDateString(cardData.year);
@@ -29,38 +31,57 @@ function LotrCardConfirmed({ cardData, isRemoving }) {
         return setAge("T.A");
       case 50000:
         return setAge("Fo.A");
+      default:
+        return setAge(""); // Default case added to handle other values
     }
+  }, [cardData.age, cardData.month, cardData.year]);
 
-    console.log("Sätter switch");
-  }, []);
   return (
     <>
-      <div
-        className={`card-container ${
-          cardData.isCorrect ? "card-correct" : "card-incorrect"
-        } ${isRemoving ? "removing" : ""}`}
-        onClick={() => setShowTrivia(!showTrivia)}
-      >
-        <div className="date-container">
-          <img src={timeFrame} alt="" className="time-frame" />
-          <p className="date-text">
-            {age}: {dateString}
-          </p>
-        </div>
-        <div className="card-body ">
-          <img src={ringText} alt="" className="card-image-locked" />
-          <div className="card-text-locked">
-            {!showTrivia ? (
+      {!showTrivia ? (
+        <div
+          className={`card-container ${
+            cardData.isCorrect ? "card-correct" : "card-incorrect"
+          } card-front ${isRemoving ? "removing" : ""}`}
+          onClick={() => setShowTrivia(!showTrivia)}
+        >
+          <div className="date-container">
+            <img src={timeFrame} alt="" className="time-frame" />
+            <p className="date-text">
+              {age}: {dateString}
+            </p>
+          </div>
+          <div className="card-body ">
+            <img src={ringText} alt="" className="card-image-locked" />
+            <div className="card-text-locked">
               <p>{cardData.question}</p>
-            ) : (
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div
+          className={`card-container ${
+            cardData.isCorrect ? "card-correct" : "card-incorrect"
+          } card-back ${isRemoving ? "removing" : ""}`}
+          onClick={() => setShowTrivia(!showTrivia)}
+        >
+          <div className="date-container" style={flipStyle}>
+            <img src={timeFrame} alt="" className="time-frame" />
+            <p className="date-text">
+              {age}: {dateString}
+            </p>
+          </div>
+          <div className="card-body" style={flipStyle}>
+            <img src={ringText} alt="" className="card-image-locked" />
+            <div className="card-text-locked">
               <div className="trivia-text-container">
                 <p className="trivia-text">Did you know?</p>
                 <p className="trivia-text">{cardData.trivia}</p>
               </div>
-            )}
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </>
   );
 }

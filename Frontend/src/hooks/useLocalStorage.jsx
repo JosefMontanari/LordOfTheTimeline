@@ -87,6 +87,7 @@ function useLocalStorage() {
     let player = getLocalStorage("player");
     return player?.highScore || 0;
   }
+
   function updateHighScores() {
     let player = getLocalStorage("player");
 

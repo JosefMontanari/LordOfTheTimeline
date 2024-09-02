@@ -5,6 +5,10 @@
   align-items: center;
 }
 
+.button-card-wrapper {
+  height: 230px;
+}
+
 .cards-container {
   display: flex;
   justify-content: center;
@@ -56,4 +60,31 @@
   left: 0;
   top: 0;
   gap: 20px;
+}
+
+.difficulty-container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.difficulty-buttons-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.difficulty-button {
+  height: 70px;
+  width: 150px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.difficulty-button:hover {
+  font-size: 18px;
 }
