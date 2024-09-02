@@ -57,3 +57,8 @@
   top: 0;
   gap: 20px;
 }
+
+.difficulty-buttons-container {
+  display: flex;
+  gap: 30px;
+}
