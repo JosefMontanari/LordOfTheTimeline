@@ -12,7 +12,14 @@ function useArrowActions(playState, playerCards, setPlayerCards, currentCard) {
 
     // Om det inte har index 0
     if (index === 0) {
-      // TODO: Gör någon visuell feedback på att man redan är längst till vänster
+      // Hittar kortelementet i spel, sätter en vibrate-klass på den
+      const cardElement = document.getElementById(`card-${currentCard.id}`);
+      if (cardElement) {
+        cardElement.classList.add("vibrate");
+        setTimeout(() => {
+          cardElement.classList.remove("vibrate"); // Tar bort vibrate-klass på kortet
+        }, 200);
+      }
       return;
     }
 
@@ -42,6 +49,13 @@ function useArrowActions(playState, playerCards, setPlayerCards, currentCard) {
 
     // Om det inte är längst till höger
     if (index === newPlayerList.length - 1) {
+      const cardElement = document.getElementById(`card-${currentCard.id}`);
+      if (cardElement) {
+        cardElement.classList.add("vibrate");
+        setTimeout(() => {
+          cardElement.classList.remove("vibrate");
+        }, 200); // Ta bort klassen efter animationen
+      }
       // TODO: Gör någon visuell feedback på att man redan är längst till höger
       return;
     }

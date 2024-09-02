@@ -9,6 +9,8 @@ function LotrCardPlayable({ cardData, isAdding, addingCardId }) {
 
   return (
     <div
+      id={`card-${cardData.id}`}
+      key={cardData.id} // För att hitta vilket kort som ska vibrera
       className={`card-container card-playable ${isAdding ? "adding" : ""} ${
         !isAdding && addingCardId ? "adding-added" : ""
       }`}

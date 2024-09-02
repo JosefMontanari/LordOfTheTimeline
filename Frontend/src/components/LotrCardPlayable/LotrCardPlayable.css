@@ -67,3 +67,25 @@
   transform: translateY(0);
   transition: opacity 1s ease-in, transform 1s ease-in;
 }
+
+.vibrate {
+  animation: vibrate 0.2s ease-in-out;
+}
+
+@keyframes vibrate {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-2px);
+  }
+  50% {
+    transform: translateX(2px);
+  }
+  75% {
+    transform: translateX(-2px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
