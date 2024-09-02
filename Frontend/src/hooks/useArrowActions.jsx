@@ -54,9 +54,8 @@ function useArrowActions(playState, playerCards, setPlayerCards, currentCard) {
         cardElement.classList.add("vibrate");
         setTimeout(() => {
           cardElement.classList.remove("vibrate");
-        }, 200); // Ta bort klassen efter animationen
+        }, 200);
       }
-      // TODO: Gör någon visuell feedback på att man redan är längst till höger
       return;
     }
 
