@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Backend.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240826074902_more data")]
-    partial class moredata
+    [Migration("20240902073532_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -401,9 +401,9 @@ namespace Backend.Migrations
                             IsLotrOrTheHobbit = true,
                             Month = 6,
                             Question = "War of the Ring begins",
-                            TimeValue = 43019.17m,
+                            TimeValue = 43018.17m,
                             Trivia = "The war officially began after Saurons forces took Osgiliath",
-                            Year = 3019
+                            Year = 3018
                         },
                         new
                         {
@@ -506,9 +506,9 @@ namespace Backend.Migrations
                             IsLotrOrTheHobbit = true,
                             Month = 3,
                             Question = "Death of the Witch King",
-                            TimeValue = 43021.075m,
+                            TimeValue = 43019.075m,
                             Trivia = "It is now known who the Witch King was prior to being made a ring wraith",
-                            Year = 3021
+                            Year = 3019
                         },
                         new
                         {
