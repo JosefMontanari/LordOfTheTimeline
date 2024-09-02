@@ -5,7 +5,7 @@ function HowtoPlay({ handleCloseModal }) {
   return (
     <div className="modal-overlay" onClick={() => handleCloseModal()}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-        <h2>How to Play</h2>
+        <h2 className="how-to-play-title">How to Play</h2>
         <div className="instructions">
           <p></p>
           <p>
