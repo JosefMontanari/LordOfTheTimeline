@@ -1,14 +1,25 @@
 import { useState, useEffect } from "react";
 
-function useLotrGameSetup(setAllCards, setLocalStorage, handleOpenModal) {
+function useLotrGameSetup(
+  setAllCards,
+  setLocalStorage,
+  handleOpenModal,
+  difficulty
+) {
   const [playerCards, setPlayerCards] = useState([]);
   const [currentCard, setCurrentCard] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5266/api/Lotr")
-      .then((res) => res.json())
-      .then((data) => SetUpGame(data));
-  }, []);
+    if (difficulty === "easy") {
+      fetch("http://localhost:5266/api/Lotr/lotr-hobbit")
+        .then((res) => res.json())
+        .then((data) => SetUpGame(data));
+    } else {
+      fetch("http://localhost:5266/api/Lotr/")
+        .then((res) => res.json())
+        .then((data) => SetUpGame(data));
+    }
+  }, [difficulty]);
 
   useEffect(() => {
     try {

@@ -29,6 +29,7 @@ function HighScore({ handleCloseModal }) {
             </>
           ) : (
             <>
+
               <div className="p-name-score">
                 <p>NAME</p>
                 <p>SCORE</p>
@@ -45,6 +46,7 @@ function HighScore({ handleCloseModal }) {
                   <p>{h.userName}:</p>
                   <p>{h.highScore}</p>
                 </div>
+
               ))}
             </>
           )}

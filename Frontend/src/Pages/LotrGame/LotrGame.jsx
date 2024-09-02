@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import LotrCardPlayable from "../../components/LotrCardPlayable/LotrCardPlayable";
 import LotrCardConfirmed from "../../components/LotrCardConfirmed/LotrCardConfirmed";
-import { useState, useEffect } from "react";
 import "./LotrGame.css";
 import LotrGameBackground from "../../components/LotrGameBackground/LotrGameBackground";
 import LotrGameTimeline from "../../components/LotrGameTimeline/LotrGameTimeline";
@@ -15,7 +14,6 @@ import PlayerModal from "../../Modals/PlayerModal/PlayerModal";
 import Score from "../../components/Score/Score";
 import Avatar from "../../components/Avatar/Avatar";
 
-
 function LotrGame({
   allCards,
   setAllCards,
@@ -24,9 +22,12 @@ function LotrGame({
   handleCloseModal,
 }) {
   // Fyra olika states, placing card, new or lock, continue och won game
-  const [playState, setPlayState] = useState("new or lock");
+  const [playState, setPlayState] = useState("initial");
   const [removingCardsId, setRemovingCardsId] = useState([]);
   const [addingCardId, setAddingCardId] = useState(null);
+
+  const [difficultySelected, setDifficultySelected] = useState(false);
+  const [difficulty, setDifficulty] = useState("");
 
   const {
     setLocalStorage,
@@ -37,7 +38,7 @@ function LotrGame({
   } = useLocalStorage();
 
   const { playerCards, setPlayerCards, currentCard, setCurrentCard } =
-    useLotrGameSetup(setAllCards, setLocalStorage, handleOpenModal);
+    useLotrGameSetup(setAllCards, setLocalStorage, handleOpenModal, difficulty);
 
   const { NewCard, Confirm, points, LockInCards, Continue } = useCardActions(
     allCards,
@@ -65,6 +66,12 @@ function LotrGame({
     window.location.reload();
   }
 
+  const handleDifficultySelect = (difficulty) => {
+    setDifficulty(difficulty);
+    setDifficultySelected(true);
+    setPlayState("new or lock");
+  };
+
   return (
     <div className="lotr-game-page">
       {/* Lägg till modalen och kontrollera om den ska vara öppen */}
@@ -76,34 +83,60 @@ function LotrGame({
       )}
 
       <LotrGameBackground />
-      <div className="cards-container">
-        {playerCards.map((c) => {
-          const isRemoving = removingCardsId.includes(c.id); // Kontrollera om kortet ska tas bort
-          const isAdding = c.id === addingCardId;
-          if (c.isCurrentlyPlaying === false) {
-            if (c.isLockedIn === false) {
-              return (
-                <LotrCardConfirmed
-                  cardData={c}
-                  key={c.id}
-                  isRemoving={isRemoving}
-                />
-              );
-            } else {
-              return <LotrCardLocked cardData={c} key={c.id} />;
-            }
-          } else {
-            return (
-              <LotrCardPlayable
-                cardData={c}
-                key={c.id}
-                isAdding={isAdding}
-                addingCardId={addingCardId}
-              />
-            );
-          }
-        })}
+
+      <div className="button-card-wrapper">
+        {!difficultySelected ? (
+          <div className="difficulty-container">
+            <h1 className="choose-difficulty-text lotr-font">
+              Choose Difficulty
+            </h1>
+            <div className="difficulty-buttons-container">
+              <button
+                className="button difficulty-button"
+                onClick={() => handleDifficultySelect("easy")}
+              >
+                Normal
+              </button>
+              <button
+                className="button difficulty-button"
+                onClick={() => handleDifficultySelect("hard")}
+              >
+                Hard
+              </button>
+            </div>
+          </div>
+        ) : (
+          <div className="cards-container">
+            {playerCards.map((c) => {
+              const isRemoving = removingCardsId.includes(c.id); // Kontrollera om kortet ska tas bort
+              const isAdding = c.id === addingCardId;
+              if (c.isCurrentlyPlaying === false) {
+                if (c.isLockedIn === false) {
+                  return (
+                    <LotrCardConfirmed
+                      cardData={c}
+                      key={c.id}
+                      isRemoving={isRemoving}
+                    />
+                  );
+                } else {
+                  return <LotrCardLocked cardData={c} key={c.id} />;
+                }
+              } else {
+                return (
+                  <LotrCardPlayable
+                    cardData={c}
+                    key={c.id}
+                    isAdding={isAdding}
+                    addingCardId={addingCardId}
+                  />
+                );
+              }
+            })}
+          </div>
+        )}
       </div>
+
       <LotrGameTimeline />
       <div className="bottom-row">
         <div className="score-player-container">

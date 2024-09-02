@@ -20,7 +20,7 @@ namespace Backend.Controllers
 		[HttpGet]
 		public async Task<List<LotrCardModel>> GetAllCards()
 		{
-			List<LotrCardModel> cards = await _repo.GetAllCardsAsync();
+			List<LotrCardModel> cards = await _repo.GetAllAsync();
 			if (cards == null)
 			{
 				throw new Exception("Could not find list of cards");
@@ -28,17 +28,23 @@ namespace Backend.Controllers
 			return cards;
 		}
 
-		[HttpGet("id")]
-		public async Task<LotrCardModel> GetCardById(int id)
+		[HttpGet("lotr-hobbit")]
+		public async Task<List<LotrCardModel>> GetAllInLotrAndHobbitAsync()
 		{
-			return await _repo.GetCardById(id);
+			return await _repo.GetCardInLotrAndHobbitAsync();
+		}
+
+		[HttpGet("id")]
+		public async Task<LotrCardModel?> GetCardById(int id)
+		{
+			return await _repo.GetByIdAsync(id);
 		}
 
 		[HttpPost]
 
 		public async Task<LotrCardModel> PostNewCard(LotrCardModel card)
 		{
-			await _repo.PostNewCard(card);
+			await _repo.AddAsync(card);
 			return card;
 		}
 	}
