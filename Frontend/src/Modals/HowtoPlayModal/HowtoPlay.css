@@ -13,6 +13,7 @@
 
 .how-to-play-title {
   color: #ffa800;
+  font-size: 30px;
 }
 
 .modal-content {
@@ -46,7 +47,17 @@
   color: white;
   font-family: "libre Baskerville";
   font-size: 14px;
-  margin-bottom: 15px;
+  margin-bottom: 30px;
   padding: 5px;
   margin: 0 30px;
+}
+
+.instructions-header {
+  font-weight: 900;
+  font-size: 15px;
+  margin-right: 5px;
+}
+
+.instructions {
+  text-align: left;
 }
