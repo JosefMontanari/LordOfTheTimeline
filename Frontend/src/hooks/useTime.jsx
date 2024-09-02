@@ -13,7 +13,7 @@ function useTimer() {
       setIsRunning(true);
       timerRef.current = setInterval(() => {
         setTime((prevTime) => prevTime + 1);
-      }, 1000);
+      }, 1);
     }
   }
 

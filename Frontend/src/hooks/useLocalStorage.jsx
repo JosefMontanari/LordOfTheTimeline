@@ -17,13 +17,11 @@ function useLocalStorage() {
       let timeBonus;
       if (time < 5000) {
         timeBonus = Math.floor((5000 - time) / 10);
-        console.log(timeBonus);
       }
       points = points + timeBonus;
     }
-
+    console.log("Your cardpoints are: " + points);
     setLocalStorage("cardPoints", points);
-    console.log(points);
   }
 
   function setStreakPoints(listOfCards) {
@@ -41,7 +39,6 @@ function useLocalStorage() {
     } else {
       streakMultiplier = 1;
     }
-
     setLocalStorage("streakMultiplier", streakMultiplier);
   }
 
