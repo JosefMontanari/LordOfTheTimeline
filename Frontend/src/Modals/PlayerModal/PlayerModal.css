@@ -37,7 +37,7 @@
   border: 1px solid #333; /* Subtil kantlinje */
 }
 
-h1 {
+.player-modal-title {
   color: #ffa800;
   margin-bottom: 25px;
 }
