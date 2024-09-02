@@ -13,6 +13,7 @@ import useArrowActions from "../../hooks/useArrowActions";
 import PlayerModal from "../../Modals/PlayerModal/PlayerModal";
 import Score from "../../components/Score/Score";
 import Avatar from "../../components/Avatar/Avatar";
+import GameWonModal from "../../Modals/GameWonModal/GameWonModal";
 
 function LotrGame({
   allCards,
@@ -51,7 +52,8 @@ function LotrGame({
     setStreakPoints,
     setTotalPoints,
     setRemovingCardsId,
-    setAddingCardId
+    setAddingCardId,
+    handleOpenModal
   );
 
   const { HandleLeftArrowClick, HandleRightArrowClick } = useArrowActions(
@@ -168,9 +170,18 @@ function LotrGame({
             <></>
           )}
           {playState === "won game" ? (
-            <button className="button" onClick={() => NewGame()}>
-              New game
-            </button>
+            <>
+              {openModal === "gameWonModal" && (
+                <GameWonModal
+                  newGame={NewGame}
+                  // setPlayer={setPlayer}
+                  handleCloseModal={handleCloseModal}
+                />
+              )}
+              <button className="button" onClick={() => NewGame()}>
+                New game
+              </button>
+            </>
           ) : (
             <></>
           )}
