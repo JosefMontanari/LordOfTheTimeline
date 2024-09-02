@@ -29,12 +29,24 @@ function HighScore({ handleCloseModal }) {
             </>
           ) : (
             <>
+
+              <div className="p-name-score">
+                <p>NAME</p>
+                <p>SCORE</p>
+              </div>
               {highScores.map((h, index) => (
-                <>
-                  <p className="p-highscore" key={index}>
-                    {index + 1}. {h.userName}: {h.highScore}
-                  </p>
-                </>
+                <div
+                  key={index}
+                  className={`p-highscore-name ${
+                    index === 0
+                      ? "p-highscore-name-big"
+                      : "p-highscore-name-small"
+                  }`}
+                >
+                  <p>{h.userName}:</p>
+                  <p>{h.highScore}</p>
+                </div>
+
               ))}
             </>
           )}
