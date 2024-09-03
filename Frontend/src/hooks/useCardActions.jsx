@@ -14,7 +14,9 @@ function useCardActions(
   setTotalPoints,
   setRemovingCardsId,
   setAddingCardId,
-  handleOpenModal
+  handleOpenModal,
+  usedCards,
+  setUsedCards
 ) {
   const [points, setPoints] = useState(0);
   const [shouldAddNewCard, setShouldAddNewCard] = useState(false);
@@ -37,14 +39,11 @@ function useCardActions(
     // Skapa en helt ny lista som är en kopia av befintliga playercards
     let newPlayerList = [...playerCards];
 
-    // Skapa en lista med alla existerande korts id
-    const existingCardIds = newPlayerList.map((card) => card.id);
-
     // Skapa ett kort och se om kortets id redan finns i existerande kort
     let newCard;
     do {
       newCard = allCards[Math.floor(Math.random() * allCards.length)];
-    } while (existingCardIds.includes(newCard.id)); // Kolla om kortet redan finns i listan (via ID)
+    } while (usedCards.includes(newCard.id)); // Kolla om kortet redan använts så ID:t skulle ligga i usedCards
 
     newCard.isLockedIn = false;
     newCard.isCurrentlyPlaying = true;
@@ -56,6 +55,7 @@ function useCardActions(
     setAddingCardId(newCard.id);
     setCurrentCard(newCard);
     setPlayerCards(newPlayerList);
+    setUsedCards((prev) => [...prev, newCard.id]);
 
     setTimeout(() => {
       setAddingCardId(null);
