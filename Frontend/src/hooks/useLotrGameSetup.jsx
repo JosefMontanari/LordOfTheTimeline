@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 
 function useLotrGameSetup(
+  allCards,
   setAllCards,
   setLocalStorage,
   handleOpenModal,
@@ -8,6 +9,7 @@ function useLotrGameSetup(
 ) {
   const [playerCards, setPlayerCards] = useState([]);
   const [currentCard, setCurrentCard] = useState([]);
+  const [usedCards, setUsedCards] = useState([]);
 
   useEffect(() => {
     if (difficulty === "easy") {
@@ -22,6 +24,7 @@ function useLotrGameSetup(
   }, [difficulty]);
 
   useEffect(() => {
+    // Öppnar player modalen om det inte finns någon sparad i LocalStorage
     try {
       const player = JSON.parse(localStorage.getItem("player"));
 
@@ -32,6 +35,14 @@ function useLotrGameSetup(
       handleOpenModal("playerModal");
     }
   }, []);
+
+  useEffect(() => {
+    // Shufflar om kortleken om alla kort har använts en gång.
+    if (usedCards.length >= allCards.length) {
+      const playerCardIds = playerCards.map((card) => card.id);
+      setUsedCards(playerCardIds);
+    }
+  }, [usedCards]);
 
   function SetUpGame(cardsToUpdate) {
     setAllCards(cardsToUpdate);
@@ -54,9 +65,18 @@ function useLotrGameSetup(
     newPlayerList.push(firstCard);
 
     setPlayerCards(newPlayerList);
+    // Lägger till kortet till "använt" så det inte ska användas igen.
+    setUsedCards((prev) => [...prev, firstCard.id]);
   }
 
-  return { playerCards, setPlayerCards, currentCard, setCurrentCard };
+  return {
+    playerCards,
+    setPlayerCards,
+    currentCard,
+    setCurrentCard,
+    usedCards,
+    setUsedCards,
+  };
 }
 
 export default useLotrGameSetup;

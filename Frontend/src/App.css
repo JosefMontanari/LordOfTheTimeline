@@ -40,6 +40,10 @@ body,
 html {
   overflow: hidden;
   height: 100%;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .lotr-font {
@@ -47,4 +51,8 @@ html {
   font-family: lotr-5;
   -webkit-text-stroke: 0.05px rgb(104, 91, 91);
   text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.57);
+}
+
+img {
+  -webkit-user-drag: none;
 }

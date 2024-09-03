@@ -38,8 +38,20 @@ function LotrGame({
     setPlayer,
   } = useLocalStorage();
 
-  const { playerCards, setPlayerCards, currentCard, setCurrentCard } =
-    useLotrGameSetup(setAllCards, setLocalStorage, handleOpenModal, difficulty);
+  const {
+    playerCards,
+    setPlayerCards,
+    currentCard,
+    setCurrentCard,
+    usedCards,
+    setUsedCards,
+  } = useLotrGameSetup(
+    allCards,
+    setAllCards,
+    setLocalStorage,
+    handleOpenModal,
+    difficulty
+  );
 
   const { NewCard, Confirm, points, LockInCards, Continue } = useCardActions(
     allCards,
@@ -53,7 +65,9 @@ function LotrGame({
     setTotalPoints,
     setRemovingCardsId,
     setAddingCardId,
-    handleOpenModal
+    handleOpenModal,
+    usedCards,
+    setUsedCards
   );
 
   const { HandleLeftArrowClick, HandleRightArrowClick } = useArrowActions(
