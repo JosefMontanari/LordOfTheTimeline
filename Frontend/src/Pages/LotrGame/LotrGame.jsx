@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import LotrCardPlayable from "../../components/LotrCardPlayable/LotrCardPlayable";
 import LotrCardConfirmed from "../../components/LotrCardConfirmed/LotrCardConfirmed";
-import { useState, useEffect } from "react";
 import "./LotrGame.css";
 import LotrGameBackground from "../../components/LotrGameBackground/LotrGameBackground";
 import LotrGameTimeline from "../../components/LotrGameTimeline/LotrGameTimeline";
@@ -13,7 +12,8 @@ import useCardActions from "../../hooks/useCardActions";
 import useArrowActions from "../../hooks/useArrowActions";
 import PlayerModal from "../../Modals/PlayerModal/PlayerModal";
 import Score from "../../components/Score/Score";
-
+import Avatar from "../../components/Avatar/Avatar";
+import GameWonModal from "../../Modals/GameWonModal/GameWonModal";
 
 function LotrGame({
   allCards,
@@ -22,8 +22,14 @@ function LotrGame({
   handleOpenModal,
   handleCloseModal,
 }) {
-  // Fyra olika states, placing card, new or lock, game over och won game
-  const [playState, setPlayState] = useState("new or lock");
+  // Fyra olika states, placing card, new or lock, continue och won game
+  const [playState, setPlayState] = useState("initial");
+  const [removingCardsId, setRemovingCardsId] = useState([]);
+  const [addingCardId, setAddingCardId] = useState(null);
+
+  const [difficultySelected, setDifficultySelected] = useState(false);
+  const [difficulty, setDifficulty] = useState("");
+
   const {
     setLocalStorage,
     setTotalPoints,
@@ -32,10 +38,22 @@ function LotrGame({
     setPlayer,
   } = useLocalStorage();
 
-  const { playerCards, setPlayerCards, currentCard, setCurrentCard } =
-    useLotrGameSetup(setAllCards, setLocalStorage, handleOpenModal);
+  const {
+    playerCards,
+    setPlayerCards,
+    currentCard,
+    setCurrentCard,
+    usedCards,
+    setUsedCards,
+  } = useLotrGameSetup(
+    allCards,
+    setAllCards,
+    setLocalStorage,
+    handleOpenModal,
+    difficulty
+  );
 
-  const { NewCard, Confirm, points, LockInCards } = useCardActions(
+  const { NewCard, Confirm, points, LockInCards, Continue } = useCardActions(
     allCards,
     playerCards,
     setPlayerCards,
@@ -44,7 +62,12 @@ function LotrGame({
     setPlayState,
     setCardPoints,
     setStreakPoints,
-    setTotalPoints
+    setTotalPoints,
+    setRemovingCardsId,
+    setAddingCardId,
+    handleOpenModal,
+    usedCards,
+    setUsedCards
   );
 
   const { HandleLeftArrowClick, HandleRightArrowClick } = useArrowActions(
@@ -59,6 +82,12 @@ function LotrGame({
     window.location.reload();
   }
 
+  const handleDifficultySelect = (difficulty) => {
+    setDifficulty(difficulty);
+    setDifficultySelected(true);
+    setPlayState("new or lock");
+  };
+
   return (
     <div className="lotr-game-page">
       {/* Lägg till modalen och kontrollera om den ska vara öppen */}
@@ -70,23 +99,66 @@ function LotrGame({
       )}
 
       <LotrGameBackground />
-      <div className="cards-container">
-        {playerCards.map((c) => {
-          if (c.isCurrentlyPlaying === false) {
-            if (c.isLockedIn === false) {
-              return <LotrCardConfirmed cardData={c} key={c.id} />;
-            } else {
-              return <LotrCardLocked cardData={c} key={c.id} />;
-            }
-          } else {
-            return <LotrCardPlayable cardData={c} key={c.id} />;
-          }
-        })}
+
+      <div className="button-card-wrapper">
+        {!difficultySelected ? (
+          <div className="difficulty-container">
+            <h1 className="choose-difficulty-text lotr-font">
+              Choose Difficulty
+            </h1>
+            <div className="difficulty-buttons-container">
+              <button
+                className="button difficulty-button"
+                onClick={() => handleDifficultySelect("easy")}
+              >
+                Normal
+              </button>
+              <button
+                className="button difficulty-button"
+                onClick={() => handleDifficultySelect("hard")}
+              >
+                Hard
+              </button>
+            </div>
+          </div>
+        ) : (
+          <div className="cards-container">
+            {playerCards.map((c) => {
+              const isRemoving = removingCardsId.includes(c.id); // Kontrollera om kortet ska tas bort
+              const isAdding = c.id === addingCardId;
+              if (c.isCurrentlyPlaying === false) {
+                if (c.isLockedIn === false) {
+                  return (
+                    <LotrCardConfirmed
+                      cardData={c}
+                      key={c.id}
+                      isRemoving={isRemoving}
+                    />
+                  );
+                } else {
+                  return <LotrCardLocked cardData={c} key={c.id} />;
+                }
+              } else {
+                return (
+                  <LotrCardPlayable
+                    cardData={c}
+                    key={c.id}
+                    isAdding={isAdding}
+                    addingCardId={addingCardId}
+                  />
+                );
+              }
+            })}
+          </div>
+        )}
       </div>
+
       <LotrGameTimeline />
       <div className="bottom-row">
-        <Score points={points} highScore={12000} />
-
+        <div className="score-player-container">
+          <Score points={points} highScore={12000} />
+          <Avatar handleOpenModal={handleOpenModal} />
+        </div>
         <GameArrows
           clickLeft={() => HandleLeftArrowClick()}
           clickRight={() => HandleRightArrowClick()}
@@ -101,13 +173,9 @@ function LotrGame({
           )}
           {playState === "new or lock" ? (
             <>
-              {playerCards.length < 10 ? (
-                <button className="button" onClick={() => NewCard()}>
-                  New card
-                </button>
-              ) : (
-                <></>
-              )}
+              <button className="button" onClick={() => NewCard()}>
+                New card
+              </button>
               <button className="button" onClick={() => LockInCards()}>
                 Lock in cards
               </button>
@@ -115,9 +183,25 @@ function LotrGame({
           ) : (
             <></>
           )}
-          {playState === "game over" ? (
-            <button className="button" onClick={() => NewGame()}>
-              New game
+          {playState === "won game" ? (
+            <>
+              {openModal === "gameWonModal" && (
+                <GameWonModal
+                  newGame={NewGame}
+                  // setPlayer={setPlayer}
+                  handleCloseModal={handleCloseModal}
+                />
+              )}
+              <button className="button" onClick={() => NewGame()}>
+                New game
+              </button>
+            </>
+          ) : (
+            <></>
+          )}
+          {playState === "continue" ? (
+            <button className="button" onClick={() => Continue()}>
+              New Card
             </button>
           ) : (
             <></>

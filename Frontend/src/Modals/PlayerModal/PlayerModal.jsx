@@ -1,14 +1,32 @@
 import "./PlayerModal.css";
 import React from "react";
-import gandalfTheWhite from "/Gandalf-the-white-avatar.jpg";
-import gandalfTheGray from "/Gandalf-avatar.jpg";
-import frodo from "/Frodo-avatar.jpg";
+import gandalf from "/Gandalf-avatar.png";
+import frodo from "/Frodo-avatar.png";
+import galadriel from "/Galadriel-avatar.png";
+import gollum from "/Gollum-avatar.png";
+import legolas from "/Legolas-avatar.png";
+import orc from "/Orc-avatar.png";
+import useLocalStorage from "../../hooks/useLocalStorage";
+
 import { useState } from "react";
 function PlayerModal({ handleCloseModal, setPlayer }) {
-  const [userName, setUserName] = useState("");
-  const [avatar, setAvatar] = useState("");
+  const { getLocalStorage } = useLocalStorage();
+  const player = getLocalStorage("player");
 
-  const avatars = [gandalfTheWhite, gandalfTheGray, frodo];
+  const [userName, setUserName] = useState(() => {
+    if (player != null) {
+      return player.userName;
+    }
+    return "";
+  });
+  const [avatar, setAvatar] = useState(() => {
+    if (player != null) {
+      return player.avatar;
+    }
+    return "";
+  });
+
+  const avatars = [gandalf, frodo, galadriel, gollum, legolas, orc];
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,12 +34,19 @@ function PlayerModal({ handleCloseModal, setPlayer }) {
     handleCloseModal();
   };
 
+  // Fixa så att korten inte överlappar med player-modalen
+  // Avatar-komponent så att vi kan slänga in den på hemsidan så att den syns någonstans, username också kanske?
+  // Styla Player-modalen
+
   return (
     <div className="player-modal-overlay" onClick={() => handleCloseModal()}>
-      <div className="player-modal-content" onClick={(e) => e.stopPropagation()}>
+      <div
+        className="player-modal-content"
+        onClick={(e) => e.stopPropagation()}
+      >
         <form onSubmit={handleSubmit}>
           <div>
-            <h1>Choose your name:</h1>
+            <h1 className="player-modal-title">Choose your name:</h1>
             <label>
               Username:
               <input
@@ -33,7 +58,7 @@ function PlayerModal({ handleCloseModal, setPlayer }) {
             </label>
           </div>
           <div>
-            <h1>Choose your Avatar:</h1>
+            <h1 className="player-modal-title">Choose your Avatar:</h1>
             <div className="avatar-selection">
               {avatars.map((avatarOption, index) => (
                 <img
@@ -49,7 +74,9 @@ function PlayerModal({ handleCloseModal, setPlayer }) {
               ))}
             </div>
           </div>
-          <button type="submit">Save</button>
+          <button className="save-btn" type="submit">
+            Save
+          </button>
         </form>
         <button className="close-btn" onClick={() => handleCloseModal()}>
           Close

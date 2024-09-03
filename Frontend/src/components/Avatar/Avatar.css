@@ -1,0 +1,21 @@
+.Avatar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center the avatar */
+  align-self: flex-start;
+  text-align: center;
+  cursor: pointer;
+}
+
+.Avatar-container img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%; /* Optional: make the avatar circular */
+  object-fit: cover; /* Ensures the image covers the container */
+}
+
+.Avatar-container p {
+  text-align: center;
+  color: #ffa800;
+  font-size: 24px; /* Adjust font size as needed */
+}

@@ -6,7 +6,7 @@ function useLocalStorage() {
     return JSON.parse(localStorage.getItem(key));
   }
 
-  function setCardPoints(card) {
+  function setCardPoints(card, time) {
     let points = JSON.parse(localStorage.getItem("cardPoints"));
     if (points === null) {
       points = 0;
@@ -14,8 +14,13 @@ function useLocalStorage() {
 
     if (card.isCorrect) {
       points += 1000 * (1 + card.difficulty / 10);
+      let timeBonus;
+      if (time < 5000) {
+        timeBonus = Math.floor((5000 - time) / 10);
+      }
+      points = points + timeBonus;
     }
-
+    console.log("Your cardpoints are: " + points);
     setLocalStorage("cardPoints", points);
   }
 
@@ -34,15 +39,15 @@ function useLocalStorage() {
     } else {
       streakMultiplier = 1;
     }
-
     setLocalStorage("streakMultiplier", streakMultiplier);
   }
 
   function setTotalPoints() {
+    let currentPoints = JSON.parse(localStorage.getItem("totalPoints"));
     let points = JSON.parse(localStorage.getItem("cardPoints"));
     let streakMultiplier = JSON.parse(localStorage.getItem("streakMultiplier"));
 
-    const totalPoints = points * streakMultiplier;
+    const totalPoints = Math.floor(currentPoints + points * streakMultiplier);
 
     setLocalStorage("totalPoints", totalPoints);
 
@@ -60,18 +65,52 @@ function useLocalStorage() {
   }
 
   function setPlayer(userName, avatar) {
-    // Check if a player already exists
-    let existingPlayer = JSON.parse(localStorage.getItem("player"));
+    // Hämta listan med alla existerande spelare för att se om spelaren redan finns
+    let listOfPlayers = getLocalStorage("players") || [];
+    let existingPlayer = listOfPlayers.find((p) => p.userName === userName);
 
-    // Preserve the high score if the player already exists
-    const highScore = existingPlayer?.highScore || 0;
+    // Set highscore till 0 om det är en ny spelare eller till gamla värdet om det är en existerande
+    let previousHighScore;
 
-    const player = { userName, avatar, highScore: 0 };
+    if (existingPlayer) {
+      previousHighScore = existingPlayer?.highScore || 0;
+    }
+
+    // Spara och sätt spelaren
+    const player = { userName, avatar, highScore: previousHighScore };
     setLocalStorage("player", player);
   }
   function getHighScore() {
     let player = getLocalStorage("player");
     return player?.highScore || 0;
+  }
+
+  function updateHighScores() {
+    let player = getLocalStorage("player");
+
+    let playerName;
+    player === null ? (playerName = "guest") : (playerName = player.userName);
+    let score = getLocalStorage("totalPoints");
+
+    // Hämta listan med spelare från localStorage
+    let listOfPlayers = getLocalStorage("players") || [];
+
+    // Hitta den existerande spelaren i listan
+    let existingPlayer = listOfPlayers.find((p) => p.userName === playerName);
+
+    if (existingPlayer) {
+      // Om spelaren redan finns, uppdatera highscore om den nya poängen är högre
+      if (score > existingPlayer.highScore) {
+        existingPlayer.highScore = score;
+      }
+    } else {
+      // Om spelaren inte finns, lägg till den i listan med den nya poängen
+      listOfPlayers.push({ userName: playerName, highScore: score });
+    }
+
+    listOfPlayers.sort((a, b) => b.highScore - a.highScore);
+
+    setLocalStorage("players", listOfPlayers);
   }
 
   return {
@@ -80,7 +119,9 @@ function useLocalStorage() {
     setTotalPoints,
     setStreakPoints,
     setPlayer,
+    getLocalStorage,
     getHighScore,
+    updateHighScores,
   };
 }
 

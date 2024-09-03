@@ -2,26 +2,24 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 10px solid #835700;
-  max-height: 180px;
-  max-width: 120px;
-  min-height: 180px;
-  min-width: 120px;
+  border: 4px solid #835700;
+  max-height: 220px;
+  max-width: 150px;
+  min-height: 220px;
+  min-width: 150px;
   background-color: #000000;
   perspective: 1000px; /* Provides a 3D perspective */
   position: relative;
   overflow: hidden;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
 }
 
 .card-playable {
   /* in order: x offset, y offset, blur size, spread size, color /
     / blur size and spread size are optional (they default to 0) */
-  box-shadow: 0px 0px 15px 10px #ffa800;
+  box-shadow: 0px 0px 25px 5px #ffa800;
   transition: transform 0.3s ease;
-}
-
-.card-playable:hover {
-  transform: scale(1.2);
+  outline-style: solid;
 }
 
 .card-body {
@@ -42,7 +40,7 @@
   top: 15px;
 }
 .card-text-playable {
-  font-size: 11px;
+  font-size: 13px;
   top: 35px;
   font-weight: 600;
   margin: 0px 12px;
@@ -57,4 +55,37 @@
   top: 19px;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.card-container.adding {
+  opacity: 0;
+  transform: translateY(-80px);
+}
+
+.card-container.adding-added {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 1s ease-in, transform 1s ease-in;
+}
+
+.vibrate {
+  animation: vibrate 0.2s ease-in-out;
+}
+
+@keyframes vibrate {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-2px);
+  }
+  50% {
+    transform: translateX(2px);
+  }
+  75% {
+    transform: translateX(-2px);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
