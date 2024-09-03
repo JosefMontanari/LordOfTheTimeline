@@ -88,6 +88,7 @@ function useCardActions(
       }
     } else {
       setPlayState("continue");
+      localStorage.setItem("cardPoints", 0);
     }
 
     setCardPoints(currentCard, time);
