@@ -4,6 +4,7 @@ import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./Pages/Home/Home";
 import LotrGame from "./Pages/LotrGame/LotrGame";
+import LotrMultiplayerGame from "./Pages/LotrMultiplayerGame/LotrMultiplayerGame";
 function App() {
   const [allCards, setAllCards] = useState([]);
   const [openModal, setOpenModal] = useState(null);
@@ -38,6 +39,7 @@ function App() {
               />
             }
           />
+          <Route path="/multiplayer" element={<LotrMultiplayerGame />} />
         </Routes>
       </div>
     </>

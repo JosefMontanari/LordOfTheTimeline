@@ -70,6 +70,11 @@
   -webkit-text-stroke: 1px #2b2b2b; /* Add a thicker text outline */
 }
 
+.choose-game-container {
+  display: flex;
+  gap: 300px;
+}
+
 @keyframes rotation {
   from {
     transform: rotate(0deg);
