@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import useTimer from "./useTime";
 import useLocalStorage from "./useLocalStorage";
 
+// TODO: refaktorera allt som har med kortanimationer till en egen hook
+
 function useCardActions(
   allCards,
   playerCards,
