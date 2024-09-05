@@ -9,6 +9,7 @@ import LotrCardLocked from "../../components/LotrCardLocked/LotrCardLocked";
 import LotrCardPlayable from "../../components/LotrCardPlayable/LotrCardPlayable";
 import LotrCardConfirmed from "../../components/LotrCardConfirmed/LotrCardConfirmed";
 import useCardActions from "../../hooks/useCardActions";
+import MultiplayerModal from "../../Modals/MultiplayerModal/MultiplayerModal";
 import MultiplayerAvatar from "../../components/MultiplayerAvatar/MultiplayerAvatar";
 
 // Struktur:
@@ -88,13 +89,12 @@ function LotrMultiplayerGame({
 
   const [currentPlayerNumber, setCurrentPlayerNumber] = useState(0);
   const [playState, setPlayState] = useState("new or lock");
-  const [allPlayers, setAllPlayers] = useState(players);
-  const [currentPlayer, setCurrentPlayer] = useState(
-    players[currentPlayerNumber]
-  );
-
+  const [allPlayers, setAllPlayers] = useState([]);
+  const [currentPlayer, setCurrentPlayer] = useState({});
   const [removingCardsId, setRemovingCardsId] = useState([]);
   const [addingCardId, setAddingCardId] = useState(null);
+  const [playersAreSet, setPlayersAreSet] = useState(false);
+  const [allCardsAreLocked, setAllCardsAreLocked] = useState(true);
 
   const {
     playerCards,
@@ -103,13 +103,15 @@ function LotrMultiplayerGame({
     setCurrentCard,
     usedCards,
     setUsedCards,
+    StartSetup,
   } = useMultiPlayerGameSetup(
     allPlayers,
     setAllPlayers,
     currentPlayer,
     setCurrentPlayer,
     allCards,
-    setAllCards
+    setAllCards,
+    handleOpenModal
   );
 
   const { HandleLeftArrowClick, HandleRightArrowClick } = useArrowActions(
@@ -136,6 +138,11 @@ function LotrMultiplayerGame({
     setUsedCards
   );
 
+  function HandleNewCard() {
+    NewCard();
+    setAllCardsAreLocked(false);
+  }
+
   function HandleConfirm() {
     let confirm = Confirm();
 
@@ -144,6 +151,7 @@ function LotrMultiplayerGame({
     }
 
     setPlayState("continue");
+    setAllCardsAreLocked(true);
   }
 
   function HandleContinue() {
@@ -153,60 +161,71 @@ function LotrMultiplayerGame({
     }, 500);
   }
 
-  useEffect(() => {
-    console.log(playState);
-  }, [playState]);
-
   function HandleLockIn() {
     LockInCards();
-
+    setAllCardsAreLocked(true);
+    setPlayState("continue");
     // Kör all logik för att checka ställning och sätta ny spelare
 
     //spara en users cards när de låses in
     currentPlayer.thisPlayersCards = playerCards;
-
-    setCurrentPlayerNumber((currentPlayerNumber + 1) % allPlayers.length);
   }
 
   useEffect(() => {
+    if (!playersAreSet) return;
     setCurrentPlayer(allPlayers[currentPlayerNumber]);
   }, [currentPlayerNumber]);
 
   useEffect(() => {
+    if (!playersAreSet) return;
     setPlayerCards(currentPlayer.thisPlayersCards);
-    console.log(currentPlayer.name);
   }, [currentPlayer]);
+
+  useEffect(() => {
+    StartSetup();
+  }, [playersAreSet]);
 
   return (
     <div className="lotr-game-page">
       <LotrGameBackground />
-      <div className="cards-container">
-        {playerCards.map((c) => {
-          const isRemoving = removingCardsId.includes(c.id); // Kontrollera om kortet ska tas bort
-          const isAdding = c.id === addingCardId;
-          if (c.isCurrentlyPlaying === false) {
-            if (c.isLockedIn === false) {
-              return (
-                <LotrCardConfirmed
-                  cardData={c}
-                  key={c.id}
-                  isRemoving={isRemoving}
-                />
-              );
-            } else {
-              return <LotrCardLocked cardData={c} key={c.id} />;
-            }
-          } else {
-            return (
-              <LotrCardPlayable
-                cardData={c}
-                key={c.id}
-                isAdding={isAdding}
-                addingCardId={addingCardId}
-              />
-            );
-          }
-        })}
+      {openModal === "multiplayerModal" && (
+        <MultiplayerModal
+          handleCloseModal={handleCloseModal}
+          setAllPlayers={setAllPlayers}
+          setPlayersAreSet={setPlayersAreSet}
+        />
+      )}
+      <div className="cards-container button-card-wrapper">
+        {playersAreSet && (
+          <>
+            {playerCards.map((c) => {
+              const isRemoving = removingCardsId.includes(c.id); // Kontrollera om kortet ska tas bort
+              const isAdding = c.id === addingCardId;
+              if (c.isCurrentlyPlaying === false) {
+                if (c.isLockedIn === false) {
+                  return (
+                    <LotrCardConfirmed
+                      cardData={c}
+                      key={c.id}
+                      isRemoving={isRemoving}
+                    />
+                  );
+                } else {
+                  return <LotrCardLocked cardData={c} key={c.id} />;
+                }
+              } else {
+                return (
+                  <LotrCardPlayable
+                    cardData={c}
+                    key={c.id}
+                    isAdding={isAdding}
+                    addingCardId={addingCardId}
+                  />
+                );
+              }
+            })}
+          </>
+        )}
       </div>
       <LotrGameTimeline />
       <div className="bottom-row">
@@ -230,12 +249,16 @@ function LotrMultiplayerGame({
           )}
           {playState === "new or lock" ? (
             <>
-              <button className="button" onClick={() => NewCard()}>
+              <button className="button" onClick={() => HandleNewCard()}>
                 New card
               </button>
-              <button className="button" onClick={() => HandleLockIn()}>
-                Lock in cards
-              </button>
+              {!allCardsAreLocked && (
+                <>
+                  <button className="button" onClick={() => HandleLockIn()}>
+                    Lock in cards
+                  </button>
+                </>
+              )}
             </>
           ) : (
             <></>

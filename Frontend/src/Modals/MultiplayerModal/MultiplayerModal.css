@@ -1,0 +1,133 @@
+.player-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(
+    0,
+    0,
+    0,
+    0.6
+  ); /* Mörkare bakgrund för att fokusera på modalen */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.player-modal-content {
+  background: linear-gradient(
+    145deg,
+    #1f1f1f,
+    #2c2c2c
+  ); /* Snyggare bakgrund med gradient */
+  padding: 40px;
+  opacity: 0.97;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 600px;
+  width: 90%;
+  text-align: center;
+  color: white;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* Skugga för att ge djup */
+  border: 1px solid #333; /* Subtil kantlinje */
+}
+
+.player-modal-title {
+  color: #ffa800;
+  margin-bottom: 25px;
+}
+
+label {
+  display: block;
+  margin-bottom: 20px;
+}
+
+.avatar-selection {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  justify-content: center; /* Centrera avatarerna */
+  margin-top: 20px;
+}
+
+.avatar-option {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%; /* Gör avatarerna runda */
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.avatar-option.selected {
+  border-color: #ffa800; /* Matcha med andra element i modalen */
+}
+
+.avatar-option:hover {
+  transform: scale(1.1); /* Liten förstoringseffekt vid hover */
+}
+
+.save-btn {
+  background-color: #ffa800;
+  color: #000;
+  border: none;
+  padding: 15px 30px;
+  margin-top: 30px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.save-btn:hover {
+  background-color: #d4af37;
+  transform: scale(1.05);
+}
+
+.player-close-btn {
+  background-color: #ffa800;
+  color: #000;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.player-close-btn:hover {
+  background-color: #d4af37;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 1.2rem; /* Gör texten i label större */
+  font-weight: bold; /* Gör texten i label fetare */
+  color: #ffa800; /* Matchar färgen med andra element */
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  font-size: 1rem;
+  border-radius: 5px; /* Rundade hörn */
+  border: 1px solid #555; /* Subtil kantlinje */
+  background-color: #2c2c2c; /* Matchar modalens bakgrund */
+  color: #fff;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5); /* Inre skugga för djup */
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="text"]:focus {
+  border-color: #ffa800; /* Gör kantlinjen mer framträdande vid fokus */
+  box-shadow: 0 0 8px rgba(255, 168, 0, 0.7); /* Lägg till yttre skugga vid fokus */
+  outline: none; /* Ta bort standard outline */
+}
