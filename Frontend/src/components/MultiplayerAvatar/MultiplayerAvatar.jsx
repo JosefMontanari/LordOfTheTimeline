@@ -7,7 +7,7 @@ function MultiplayerAvatars({ allPlayers, currentPlayerId }) {
       {allPlayers.map((player) => (
         <div key={player.id} className="Avatar-container">
           <p>
-            <span>{player.name || "Guest"}</span>
+            <span>{player.userName || "Guest"}</span>
           </p>
           <img
             className="Avatar-img"
@@ -17,7 +17,7 @@ function MultiplayerAvatars({ allPlayers, currentPlayerId }) {
               border:
                 player.id === currentPlayerId
                   ? `3px solid ${player.colour}`
-                  : "#ffa800",
+                  : "",
             }}
           />
           <p>{player.thisPlayersCards.length}</p>

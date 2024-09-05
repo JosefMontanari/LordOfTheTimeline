@@ -56,37 +56,6 @@ function LotrMultiplayerGame({
   handleOpenModal,
   handleCloseModal,
 }) {
-  const players = [
-    {
-      id: 1,
-      name: "Josef",
-      avatar: "./Frodo-avatar.png",
-      colour: "#00FF0D",
-      thisPlayersCards: [],
-    },
-    {
-      id: 2,
-      name: "Gustav",
-      avatar: "./Gandalf-avatar.png",
-      colour: "#0066FF",
-      thisPlayersCards: [],
-    },
-    {
-      id: 3,
-      name: "ks-Calle",
-      avatar: "./Orc-avatar.png",
-      colour: "#FF0000 ",
-      thisPlayersCards: [],
-    },
-    {
-      id: 4,
-      name: "Wigwen",
-      avatar: "./Galadriel-avatar.png",
-      colour: "#9D00FF",
-      thisPlayersCards: [],
-    },
-  ];
-
   const [currentPlayerNumber, setCurrentPlayerNumber] = useState(0);
   const [playState, setPlayState] = useState("new or lock");
   const [allPlayers, setAllPlayers] = useState([]);
