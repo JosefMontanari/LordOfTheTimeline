@@ -702,7 +702,7 @@ namespace Backend.Database
 			true, // Händer det i Lotr eller the hobbit?
 			false // Är det ett "great happening" som ska vara med i alla quiz?
 		),
-					new LotrCardModel(
+			new LotrCardModel(
 			50, // Id
 			"Lord of The Rings", // Kategori
 			"Frodo wakes up in Rivendell after recovering from his wound", // Fråga
@@ -715,9 +715,148 @@ namespace Backend.Database
 			24, // Dag
 			true, // Händer det i Lotr eller the hobbit?
 			false // Är det ett "great happening" som ska vara med i alla quiz?
-		)
+		),			
+			new LotrCardModel(
+			51, // Id
+			"Lord of The Rings", // Kategori
+			"Arwen dies in Lothlórien", // Fråga
+			"", // Trivia
+			null, // WikiUrl
+			Ages.fourthAge, // Tidsålder
+			DifficultyRating.Hard, //Svårighetsgrad
+			121, // År
+			null, // Månad
+			null, // Dag
+			false, // Händer det i Lotr eller the hobbit?
+			null // Är det ett "great happening" som ska vara med i alla quiz?
+		),
+					new LotrCardModel(
+			52, // Id
+			"Lord of The Rings", // Kategori
+			"Samwise Gamgee leaves Middle-earth", // Fråga
+			"As a ringbearer, Sam was also eligible to leave for the undying lands", // Trivia
+			null, // WikiUrl
+			Ages.fourthAge, // Tidsålder
+			DifficultyRating.Normal, //Svårighetsgrad
+			61, // År
+			9, // Månad
+			22, // Dag
+			true, // Händer det i Lotr eller the hobbit?
+			false // Är det ett "great happening" som ska vara med i alla quiz?
+		),
+			new LotrCardModel(
+			53, // Id
+			"Lord of The Rings", // Kategori
+			"Bilbo turns 131 years old", // Fråga
+			"At 131 years old, Bilbo becomes the longest living hobbit in history", // Trivia
+			null, // WikiUrl
+			Ages.thirdAge, // Tidsålder
+			DifficultyRating.Normal, //Svårighetsgrad
+			3021, // År
+			9, // Månad
+			22, // Dag
+			true, // Händer det i Lotr eller the hobbit?
+			false // Är det ett "great happening" som ska vara med i alla quiz?
+		),
+			new LotrCardModel(
+			54, // Id
+			"Lord of The Rings", // Kategori
+			"Elanor, daughter of Samwise is born", // Fråga
+			"The name Elanor comes from a flower in Lothlórien", // Trivia
+			null, // WikiUrl
+			Ages.thirdAge, // Tidsålder
+			DifficultyRating.Hard, //Svårighetsgrad
+			3021, // År
+			3, // Månad
+			25, // Dag
+			true, // Händer det i Lotr eller the hobbit?
+			false // Är det ett "great happening" som ska vara med i alla quiz?
+		),
+			new LotrCardModel(
+			55, // Id
+			"Lord of The Rings", // Kategori
+			"Death of Saruman", // Fråga
+			"In the books, Saruman dies in The Shire after the battle of Bywater", // Trivia
+			null, // WikiUrl
+			Ages.thirdAge, // Tidsålder
+			DifficultyRating.Hard, //Svårighetsgrad
+			3019, // År
+			11, // Månad
+			3, // Dag
+			true, // Händer det i Lotr eller the hobbit?
+			true // Är det ett "great happening" som ska vara med i alla quiz?
+		),
+			new LotrCardModel(
+			56, // Id
+			"Lord of The Rings", // Kategori
+			"Aragorn finds a sapling of the White Tree", // Fråga
+			"Tis tree is the seventh decendant in line from the Great Tree Telperion", // Trivia
+			null, // WikiUrl
+			Ages.thirdAge, // Tidsålder
+			DifficultyRating.Hard, //Svårighetsgrad
+			3019, // År
+			6, // Månad
+			25, // Dag
+			true, // Händer det i Lotr eller the hobbit?
+			true // Är det ett "great happening" som ska vara med i alla quiz?
+		),
+			new LotrCardModel(
+			57, // Id
+			"Lord of The Rings", // Kategori
+			"The sacking of Dol Goldur", // Fråga
+			"Galadriel throws down the walls of Dol Goldur at the end of the siege", // Trivia
+			null, // WikiUrl
+			Ages.thirdAge, // Tidsålder
+			DifficultyRating.Hard, //Svårighetsgrad
+			3019, // År
+			3, // Månad
+			28, // Dag
+			true, // Händer det i Lotr eller the hobbit?
+			false // Är det ett "great happening" som ska vara med i alla quiz?
+		),
+			new LotrCardModel(
+			58, // Id
+			"Lord of The Rings", // Kategori
+			"Sam defeats Shelob", // Fråga
+			"Shelob is the last descendant of Ungoliant, the spider who destroyed the Two Trees of Valinor", // Trivia
+			null, // WikiUrl
+			Ages.thirdAge, // Tidsålder
+			DifficultyRating.Normal, //Svårighetsgrad
+			3019, // År
+			6, // Månad
+			13, // Dag
+			true, // Händer det i Lotr eller the hobbit?
+			true // Är det ett "great happening" som ska vara med i alla quiz?
+		),
+			new LotrCardModel(
+			59, // Id
+			"Lord of The Rings", // Kategori
+			"Awakening of the Elves", // Fråga
+			"The Elves awake at Cuiviénen under a starlit sky as the sun and the moon aren't created yet", // Trivia
+			null, // WikiUrl
+			Ages.trees, // Tidsålder
+			DifficultyRating.Hard, //Svårighetsgrad
+			1050, // År
+			null, // Månad
+			null, // Dag
+			false, // Händer det i Lotr eller the hobbit?
+			null // Är det ett "great happening" som ska vara med i alla quiz?
+		),
+		new LotrCardModel(
+			60, // Id
+			"Lord of The Rings", // Kategori
+			"Fingolfin challenges Morgoth", // Fråga
+			"Fingolfin strikes Morgoth seven times. Morgoth walked with a limp after the duel, and the wounds he received pained him forever", // Trivia
+			null, // WikiUrl
+			Ages.firstAge, // Tidsålder
+			DifficultyRating.Hard, //Svårighetsgrad
+			456, // År
+			null, // Månad
+			null, // Dag
+			false, // Händer det i Lotr eller the hobbit?
+			null // Är det ett "great happening" som ska vara med i alla quiz?
 
-		);
+		));
 		}
 	}
 }

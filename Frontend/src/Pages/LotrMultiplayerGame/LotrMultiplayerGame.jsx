@@ -9,6 +9,7 @@ import LotrCardLocked from "../../components/LotrCardLocked/LotrCardLocked";
 import LotrCardPlayable from "../../components/LotrCardPlayable/LotrCardPlayable";
 import LotrCardConfirmed from "../../components/LotrCardConfirmed/LotrCardConfirmed";
 import useCardActions from "../../hooks/useCardActions";
+import Avatar from "../../components/Avatar/Avatar";
 
 // Struktur:
 
@@ -201,6 +202,9 @@ function LotrMultiplayerGame({
       </div>
       <LotrGameTimeline />
       <div className="bottom-row">
+        <div className="score-player-container">
+          <Avatar handleOpenModal={handleOpenModal} />
+        </div>
         <GameArrows
           clickLeft={() => HandleLeftArrowClick()}
           clickRight={() => HandleRightArrowClick()}
