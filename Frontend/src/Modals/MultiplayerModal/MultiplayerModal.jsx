@@ -7,18 +7,17 @@ import gollum from "/Gollum-avatar.png";
 import legolas from "/Legolas-avatar.png";
 import orc from "/Orc-avatar.png";
 
-const MultiplayerModal = ({ handleCloseModal }) => {
+const MultiplayerModal = ({
+  handleCloseModal,
+  setAllPlayers,
+  setPlayersAreSet,
+}) => {
   const [numberOfPlayers, setNumberOfPlayers] = useState(2);
   const [players, setPlayers] = useState([]);
   const [numberOfPlayersChosen, setNumberOfPlayersChosen] = useState(false);
   const [playerNumber, setPlayerNumber] = useState(1);
 
-  //   const [userName, setUserName] = useState(() => {
-  //     if (player != null) {
-  //       return player.userName;
-  //     }
-  //     return "";
-  //   });
+  const [userName, setUserName] = useState("");
   const [avatar, setAvatar] = useState("");
 
   const avatars = [gandalf, frodo, galadriel, gollum, legolas, orc];
@@ -26,15 +25,26 @@ const MultiplayerModal = ({ handleCloseModal }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log("playerNumber", playerNumber);
-    console.log("numberOfPlayers", numberOfPlayers);
+    //Lägg till spelares uppgifter
+    let newPlayer = {};
+    newPlayer.userName = userName;
+    newPlayer.avatar = avatar;
+    newPlayer.thisPlayersCards = [];
+
+    //Sätter en players som är en tillfällig lista
+    setPlayers([...players, newPlayer]);
 
     if (playerNumber >= numberOfPlayers) {
-      console.log("Nu är de samma!");
+      //Skickas ut till LotrMultiplayerGame
+      setAllPlayers([...players, newPlayer]);
+      setPlayersAreSet(true);
+
       handleCloseModal();
     }
 
     setPlayerNumber(playerNumber + 1);
+    setUserName("");
+    setAvatar("");
   };
 
   function handleSaveNumberOfPlayers() {
@@ -77,8 +87,8 @@ const MultiplayerModal = ({ handleCloseModal }) => {
                   <label>
                     <input
                       type="text"
-                      //   value={userName}
-                      //onChange={(e) => setUserName(e.target.value)}
+                      value={userName}
+                      onChange={(e) => setUserName(e.target.value)}
                       required
                     />
                   </label>

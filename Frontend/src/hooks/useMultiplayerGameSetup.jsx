@@ -13,18 +13,22 @@ function useMultiplayerGameSetup(
   const [currentCard, setCurrentCard] = useState([]);
   const [usedCards, setUsedCards] = useState([]);
 
-  useEffect(() => {
-    // Kontrollera om setup har körts
+  function StartSetup() {
     fetch("http://localhost:5266/api/Lotr/")
       .then((res) => res.json())
       .then((data) => {
         SetUpMPGame(data);
       });
-  }, []);
+  }
 
   function SetUpMPGame(data) {
     // Hämta alla kort och lägg dem i "kortleken"
     setAllCards(data);
+
+    if (allPlayers.length < 1) {
+      handleOpenModal("multiplayerModal");
+      return;
+    }
 
     let allPlayersCopy = [...allPlayers];
 
@@ -41,8 +45,6 @@ function useMultiplayerGameSetup(
     setAllPlayers(allPlayersCopy);
     setCurrentPlayer(allPlayersCopy[0]);
     setPlayerCards(allPlayersCopy[0].thisPlayersCards);
-
-    handleOpenModal("multiplayerModal");
   }
 
   //Nästa tur
@@ -68,6 +70,7 @@ function useMultiplayerGameSetup(
     setCurrentCard,
     usedCards,
     setUsedCards,
+    StartSetup,
   };
 }
 
