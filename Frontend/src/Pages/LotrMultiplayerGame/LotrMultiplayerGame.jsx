@@ -9,6 +9,7 @@ import LotrCardLocked from "../../components/LotrCardLocked/LotrCardLocked";
 import LotrCardPlayable from "../../components/LotrCardPlayable/LotrCardPlayable";
 import LotrCardConfirmed from "../../components/LotrCardConfirmed/LotrCardConfirmed";
 import useCardActions from "../../hooks/useCardActions";
+import MultiplayerModal from "../../Modals/MultiplayerModal/MultiplayerModal";
 
 // Struktur:
 
@@ -100,7 +101,8 @@ function LotrMultiplayerGame({
     currentPlayer,
     setCurrentPlayer,
     allCards,
-    setAllCards
+    setAllCards,
+    handleOpenModal
   );
 
   const { HandleLeftArrowClick, HandleRightArrowClick } = useArrowActions(
@@ -171,6 +173,9 @@ function LotrMultiplayerGame({
   return (
     <div className="lotr-game-page">
       <LotrGameBackground />
+      {openModal === "multiplayerModal" && (
+        <MultiplayerModal handleCloseModal={handleCloseModal} />
+      )}
       <div className="cards-container">
         {playerCards.map((c) => {
           const isRemoving = removingCardsId.includes(c.id); // Kontrollera om kortet ska tas bort

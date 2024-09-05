@@ -6,7 +6,8 @@ function useMultiplayerGameSetup(
   currentPlayer,
   setCurrentPlayer,
   allCards,
-  setAllCards
+  setAllCards,
+  handleOpenModal
 ) {
   const [playerCards, setPlayerCards] = useState([]);
   const [currentCard, setCurrentCard] = useState([]);
@@ -40,6 +41,8 @@ function useMultiplayerGameSetup(
     setAllPlayers(allPlayersCopy);
     setCurrentPlayer(allPlayersCopy[0]);
     setPlayerCards(allPlayersCopy[0].thisPlayersCards);
+
+    handleOpenModal("multiplayerModal");
   }
 
   //Nästa tur
