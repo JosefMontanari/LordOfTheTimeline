@@ -14,13 +14,13 @@ function Home() {
           <img src={ringText} alt="" className="play-ring" />
 
           <Link className="play-button" to={"/game"}>
-            <p>PLAY GAME</p>
+            <p>SINGLE PLAYER</p>
           </Link>
         </div>
         <div className="play-game-container">
           <img src={ringText} alt="" className="play-ring" />
           <Link className=" play-button" to={"/multiplayer"}>
-            <p>PLAY MULTIPLAYER</p>
+            <p>MULTI PLAYER</p>
           </Link>
         </div>
       </div>

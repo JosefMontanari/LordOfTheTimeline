@@ -39,7 +39,18 @@ function App() {
               />
             }
           />
-          <Route path="/multiplayer" element={<LotrMultiplayerGame />} />
+          <Route
+            path="/multiplayer"
+            element={
+              <LotrMultiplayerGame
+                allCards={allCards}
+                setAllCards={setAllCards}
+                openModal={openModal}
+                handleOpenModal={handleOpenModal}
+                handleCloseModal={handleCloseModal}
+              />
+            }
+          />
         </Routes>
       </div>
     </>

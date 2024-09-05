@@ -40,7 +40,7 @@
   position: absolute;
   z-index: 1;
   opacity: 1;
-  width: 240px;
+  width: 280px;
   animation: rotation 60s infinite linear;
   animation-play-state: paused; /* Startar i pausat läge */
   transform-origin: center;
