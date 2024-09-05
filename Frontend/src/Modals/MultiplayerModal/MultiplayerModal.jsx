@@ -30,6 +30,8 @@ const MultiplayerModal = ({
     newPlayer.userName = userName;
     newPlayer.avatar = avatar;
     newPlayer.thisPlayersCards = [];
+    newPlayer.id = playerNumber;
+    newPlayer.colour = "#ffa800";
 
     //Sätter en players som är en tillfällig lista
     setPlayers([...players, newPlayer]);
