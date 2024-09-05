@@ -93,11 +93,12 @@ function useCardActions(
       localStorage.setItem("cardPoints", 0);
     }
 
-    setCardPoints(currentCard, time);
-    setStreakPoints(playerCards);
+    if (setCardPoints) setCardPoints(currentCard, time);
+    if (setStreakPoints) setStreakPoints(playerCards);
 
     // Nollställ Josefs magiska timer
     resetTimer();
+    return correct;
   }
 
   function EvaluateCards() {
@@ -163,7 +164,8 @@ function useCardActions(
     });
     setPlayerCards(newPlayerList);
 
-    setPoints(setTotalPoints());
+    if (setTotalPoints) setPoints(setTotalPoints());
+
     localStorage.setItem("streakMultiplier", JSON.stringify(1));
     localStorage.setItem("cardPoints", 0);
   }
@@ -184,7 +186,10 @@ function useCardActions(
       setRemovingCardsId([]);
 
       // Det här är för att NewCard ska köras efter setPlayerCards har gjort som är asynkron
-      setShouldAddNewCard(true);
+      // En if-check for att metoden bara ska köras i singleplayer. Ej definierad i multiplayer
+      if (setCardPoints) {
+        setShouldAddNewCard(true);
+      }
     }, 500);
   }
 

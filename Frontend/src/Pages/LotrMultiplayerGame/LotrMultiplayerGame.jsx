@@ -8,6 +8,7 @@ import useMultiPlayerGameSetup from "../../hooks/useMultiplayerGameSetup";
 import LotrCardLocked from "../../components/LotrCardLocked/LotrCardLocked";
 import LotrCardPlayable from "../../components/LotrCardPlayable/LotrCardPlayable";
 import LotrCardConfirmed from "../../components/LotrCardConfirmed/LotrCardConfirmed";
+import useCardActions from "../../hooks/useCardActions";
 
 // Struktur:
 
@@ -77,12 +78,23 @@ function LotrMultiplayerGame({
     },
   ];
 
+  const [currentPlayerNumber, setCurrentPlayerNumber] = useState(0);
   const [playState, setPlayState] = useState("new or lock");
   const [allPlayers, setAllPlayers] = useState(players);
-  const [currentPlayer, setCurrentPlayer] = useState(players[0]);
+  const [currentPlayer, setCurrentPlayer] = useState(
+    players[currentPlayerNumber]
+  );
   const [removingCardsId, setRemovingCardsId] = useState([]);
   const [addingCardId, setAddingCardId] = useState(null);
-  const setUpMPGame = useMultiPlayerGameSetup(
+
+  const {
+    playerCards,
+    setPlayerCards,
+    currentCard,
+    setCurrentCard,
+    usedCards,
+    setUsedCards,
+  } = useMultiPlayerGameSetup(
     allPlayers,
     setAllPlayers,
     currentPlayer,
@@ -90,49 +102,103 @@ function LotrMultiplayerGame({
     allCards,
     setAllCards
   );
-  
-  useEffect(() => {
-    console.log(allPlayers);
-  }, [allPlayers]);
 
-  // const { HandleLeftArrowClick, HandleRightArrowClick } = useArrowActions(
-  //   playState,
-  //   playerCards,
-  //   setPlayerCards,
-  //   currentCard
-  // );
+  const { HandleLeftArrowClick, HandleRightArrowClick } = useArrowActions(
+    playState,
+    playerCards,
+    setPlayerCards,
+    currentCard
+  );
+
+  const { NewCard, Confirm, points, LockInCards, Continue } = useCardActions(
+    allCards,
+    playerCards,
+    setPlayerCards,
+    currentCard,
+    setCurrentCard,
+    setPlayState,
+    undefined,
+    undefined,
+    undefined,
+    setRemovingCardsId,
+    setAddingCardId,
+    handleOpenModal,
+    usedCards,
+    setUsedCards
+  );
+
+  function HandleConfirm() {
+    let confirm = Confirm();
+
+    if (confirm === true) {
+      return;
+    }
+
+    setPlayState("continue");
+  }
+
+  function HandleContinue() {
+    Continue();
+    setTimeout(() => {
+      setCurrentPlayerNumber((currentPlayerNumber + 1) % allPlayers.length);
+    }, 500);
+  }
+
+  useEffect(() => {
+    console.log(playState);
+  }, [playState]);
+
+  function HandleLockIn() {
+    LockInCards();
+
+    // Kör all logik för att checka ställning och sätta ny spelare
+
+    //spara en users cards när de låses in
+    currentPlayer.thisPlayersCards = playerCards;
+
+    setCurrentPlayerNumber((currentPlayerNumber + 1) % allPlayers.length);
+  }
+
+  useEffect(() => {
+    setCurrentPlayer(allPlayers[currentPlayerNumber]);
+  }, [currentPlayerNumber]);
+
+  useEffect(() => {
+    setPlayerCards(currentPlayer.thisPlayersCards);
+    console.log(currentPlayer.name);
+  }, [currentPlayer]);
 
   return (
     <div className="lotr-game-page">
       <LotrGameBackground />
       <div className="cards-container">
-            {currentPlayer.thisPlayersCards.map((c) => {
-              const isRemoving = removingCardsId.includes(c.id); // Kontrollera om kortet ska tas bort
-              const isAdding = c.id === addingCardId;
-              if (c.isCurrentlyPlaying === false) {
-                if (c.isLockedIn === false) {
-                  return (
-                    <LotrCardConfirmed
-                      cardData={c}
-                      key={c.id}
-                      isRemoving={isRemoving}
-                    />
-                  );
-                } else {
-                  return <LotrCardLocked cardData={c} key={c.id} />;
-                }
-              } else {
-                return (
-                  <LotrCardPlayable
-                    cardData={c}
-                    key={c.id}
-                    isAdding={isAdding}
-                    addingCardId={addingCardId}
-                  />
-                );
-              }
-            })}
-          </div>
+        {playerCards.map((c) => {
+          const isRemoving = removingCardsId.includes(c.id); // Kontrollera om kortet ska tas bort
+          const isAdding = c.id === addingCardId;
+          if (c.isCurrentlyPlaying === false) {
+            if (c.isLockedIn === false) {
+              return (
+                <LotrCardConfirmed
+                  cardData={c}
+                  key={c.id}
+                  isRemoving={isRemoving}
+                />
+              );
+            } else {
+              return <LotrCardLocked cardData={c} key={c.id} />;
+            }
+          } else {
+            return (
+              <LotrCardPlayable
+                cardData={c}
+                key={c.id}
+                isAdding={isAdding}
+                addingCardId={addingCardId}
+              />
+            );
+          }
+        })}
+      </div>
       <LotrGameTimeline />
       <div className="bottom-row">
         <GameArrows
@@ -141,7 +207,7 @@ function LotrMultiplayerGame({
         />
         <div className="button-container">
           {playState === "placing card" ? (
-            <button className="button" onClick={() => Confirm()}>
+            <button className="button" onClick={() => HandleConfirm()}>
               Confirm
             </button>
           ) : (
@@ -152,7 +218,7 @@ function LotrMultiplayerGame({
               <button className="button" onClick={() => NewCard()}>
                 New card
               </button>
-              <button className="button" onClick={() => LockInCards()}>
+              <button className="button" onClick={() => HandleLockIn()}>
                 Lock in cards
               </button>
             </>
@@ -176,8 +242,8 @@ function LotrMultiplayerGame({
             <></>
           )}
           {playState === "continue" ? (
-            <button className="button" onClick={() => Continue()}>
-              New Card
+            <button className="button" onClick={() => HandleContinue()}>
+              Next player
             </button>
           ) : (
             <></>
