@@ -16,9 +16,54 @@
   padding: 30px;
   opacity: 0.9;
   border-radius: 10px;
-  max-width: 350px;
+  max-width: 360px;
   width: 90%;
   text-align: center;
   color: white;
   position: relative;
+  border: 2px solid #ff8c00;
+  box-shadow: 0 0 15px #ff8c00;
+}
+
+.won-modal-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-image: linear-gradient(90deg, #100c07, #020100, #100c07, #020100);
+  background-size: 300% 300%;
+  background-position: 0% 0%;
+  animation: animated-border 4s linear infinite;
+  z-index: -1;
+}
+
+@keyframes animated-border {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 0%;
+  }
+}
+
+.p-won-game-points {
+  padding-bottom: 10%;
+  padding-top: 5%;
+  color: #aaaaaa;
+  font-size: 24px;
+}
+
+.p-highscore-beat {
+  padding-bottom: 10%;
+  color: #ffa800;
+  text-shadow: 0 0 10px #56431c, 0 0 10px #3a301b, 0 0 10px #28210c;
+  font-size: 18px;
+}
+
+.s-won-game-points {
+  color: #ffa800;
 }
