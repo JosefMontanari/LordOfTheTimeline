@@ -98,7 +98,7 @@ function LotrGame({
         />
       )}
 
-      <LotrGameBackground />
+      <LotrGameBackground title="lord of the timeline" />
 
       <div className="button-card-wrapper">
         {!difficultySelected ? (
