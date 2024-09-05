@@ -10,6 +10,7 @@ import LotrCardPlayable from "../../components/LotrCardPlayable/LotrCardPlayable
 import LotrCardConfirmed from "../../components/LotrCardConfirmed/LotrCardConfirmed";
 import useCardActions from "../../hooks/useCardActions";
 import MultiplayerModal from "../../Modals/MultiplayerModal/MultiplayerModal";
+import MultiplayerAvatar from "../../components/MultiplayerAvatar/MultiplayerAvatar";
 
 // Struktur:
 
@@ -59,22 +60,29 @@ function LotrMultiplayerGame({
     {
       id: 1,
       name: "Josef",
-      avatar: "./Frontend/public/Frodo-avatar.png",
-      colour: "#ffa800",
+      avatar: "./Frodo-avatar.png",
+      colour: "#00FF0D",
       thisPlayersCards: [],
     },
     {
       id: 2,
       name: "Gustav",
-      avatar: "./Frontend/public/Gandalf-avatar.png",
-      colour: "#eea700",
+      avatar: "./Gandalf-avatar.png",
+      colour: "#0066FF",
       thisPlayersCards: [],
     },
     {
       id: 3,
       name: "ks-Calle",
-      avatar: "./Frontend/public/Orc-avatar.png",
-      colour: "#bba400",
+      avatar: "./Orc-avatar.png",
+      colour: "#FF0000 ",
+      thisPlayersCards: [],
+    },
+    {
+      id: 4,
+      name: "Wigwen",
+      avatar: "./Galadriel-avatar.png",
+      colour: "#9D00FF",
       thisPlayersCards: [],
     },
   ];
@@ -221,6 +229,12 @@ function LotrMultiplayerGame({
       </div>
       <LotrGameTimeline />
       <div className="bottom-row">
+        <div className="score-player-container">
+          <MultiplayerAvatar
+            allPlayers={allPlayers}
+            currentPlayerId={currentPlayer.id}
+          />
+        </div>
         <GameArrows
           clickLeft={() => HandleLeftArrowClick()}
           clickRight={() => HandleRightArrowClick()}
