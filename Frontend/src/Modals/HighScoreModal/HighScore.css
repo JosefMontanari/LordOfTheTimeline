@@ -16,11 +16,11 @@
   padding: 30px;
   opacity: 0.9;
   border-radius: 10px;
-  max-width: 300px; /* Increased max-width for better appearance */
+  max-width: 300px;
   width: 90%;
   text-align: center;
   color: #ffa800;
-  position: relative; /* Ensure absolute children are positioned relative to this */
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -31,12 +31,12 @@
 
 .frame {
   padding-top: 5%;
-  width: 100%; /* Full width of modal content */
+  width: 100%;
   max-width: 100%;
   height: auto;
   z-index: 0;
   position: absolute;
-  top: 0; /* Align the frame to the top */
+  top: 0;
   left: 0;
   display: block;
 }
@@ -46,7 +46,7 @@
   font-family: "Lotr-5";
   src: local("RINGM___"), url("./assets/fonts/RINGM___.ttf") format("truetype");
   z-index: 1000;
-  margin-top: 15px; /* Add spacing from the top */
+  margin-top: 15px;
 }
 
 .h2-title {
@@ -100,18 +100,18 @@
 
 .p-highscore-name-big {
   display: flex;
-  justify-content: space-between; /* Align items with space between */
-  align-items: center; /* Center align items vertically */
-  gap: 20px; /* Add gap between name and score */
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
   color: #ffa800;
   font-family: "Libre Baskerville";
-  font-size: 24px; /* Larger font size */
+  font-size: 24px;
   margin-bottom: 5px;
   margin-top: 10px;
-  width: 100%; /* Ensure the container takes full width */
-  font-weight: bold; /* Make it stand out more */
-  text-shadow: 0 0 4px #ffa800, 0 0 6px #ffa800, 0 0 8px #d4af37; /* Subtle glow effect */
-  animation: pulse-glow 2s infinite; /* Apply the animation */
+  width: 100%;
+  font-weight: bold;
+  text-shadow: 0 0 4px #ffa800, 0 0 6px #ffa800, 0 0 8px #d4af37;
+  animation: pulse-glow 2s infinite;
 }
 
 @keyframes pulse-glow {

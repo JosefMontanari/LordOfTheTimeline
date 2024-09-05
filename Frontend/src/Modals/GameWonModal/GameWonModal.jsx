@@ -11,21 +11,23 @@ function GameWonModal({ newGame, handleCloseModal }) {
       <div className="won-modal-overlay" onClick={handleCloseModal}>
         <div className="won-modal-content" onClick={(e) => e.stopPropagation()}>
           <div>
-            <p>
-              Your points this round:{" "}
-              <s>{localStorage.getItem("totalPoints")}</s>
-            </p>
             <br />
-            <p>
-              Your highscore: <s>{player.highScore}</s>
+            <p className="p-highscore-name-big">
+              YOUR HIGHSCORE: <s>{player.highScore}</s>
             </p>
             <br />
             {parseInt(localStorage.getItem("totalPoints")) >=
             parseInt(player.highScore) ? (
-              <p>You beat your highscore!</p>
+              <p className="p-highscore-beat ">You beat your highscore!</p>
             ) : (
               <></>
             )}
+            <p className="p-won-game-points">
+              Your points this round:{" "}
+              <s className="s-won-game-points">
+                {localStorage.getItem("totalPoints")}
+              </s>
+            </p>
             <br />
             <button className="button" onClick={() => newGame()}>
               New game
