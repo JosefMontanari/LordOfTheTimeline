@@ -187,7 +187,7 @@ function LotrMultiplayerGame({
 
   return (
     <div className="lotr-game-page">
-      <LotrGameBackground />
+      <LotrGameBackground title="lords of the timeline" />
       {openModal === "multiplayerModal" && (
         <MultiplayerModal
           handleCloseModal={handleCloseModal}
