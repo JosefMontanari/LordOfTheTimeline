@@ -823,7 +823,7 @@ namespace Backend.Database
 			Ages.thirdAge, // Tidsålder
 			DifficultyRating.Normal, //Svårighetsgrad
 			3019, // År
-			6, // Månad
+			3, // Månad
 			13, // Dag
 			true, // Händer det i Lotr eller the hobbit?
 			true // Är det ett "great happening" som ska vara med i alla quiz?
