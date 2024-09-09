@@ -54,11 +54,13 @@ function LotrGame({
   );
 
   const { NewCard, Confirm, points, LockInCards, Continue } = useCardActions(
+    true,
     allCards,
     playerCards,
     setPlayerCards,
     currentCard,
     setCurrentCard,
+    undefined,
     setPlayState,
     setCardPoints,
     setStreakPoints,

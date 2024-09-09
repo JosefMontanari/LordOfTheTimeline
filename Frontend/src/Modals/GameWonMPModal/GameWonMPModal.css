@@ -1,0 +1,88 @@
+.mp-won-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.mp-won-modal-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  background-color: #181818;
+  padding: 30px;
+  opacity: 0.9;
+  border-radius: 10px;
+  max-width: 360px;
+  width: 90%;
+  text-align: center;
+  color: white;
+  position: relative;
+  border: 2px solid #ff8c00;
+  box-shadow: 0 0 15px #ff8c00;
+}
+
+.mp-won-modal-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-image: linear-gradient(90deg, #100c07, #020100, #100c07, #020100);
+  background-size: 300% 300%;
+  background-position: 0% 0%;
+  animation: animated-border 4s linear infinite;
+  z-index: -1;
+}
+
+@keyframes animated-border {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 0%;
+  }
+}
+
+.mp-winner {
+  text-align: center;
+  gap: 20px;
+  color: #ffa800;
+  font-family: "Libre Baskerville";
+  font-size: 24px;
+  margin-bottom: 5px;
+  margin-top: 10px;
+  width: 100%;
+  font-weight: bold;
+  text-shadow: 0 0 4px #ffa800, 0 0 6px #ffa800, 0 0 8px #d4af37;
+  animation: pulse-glow 2s infinite;
+}
+
+.mp-placements-wrapper {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: #ffa800;
+  font-family: "Libre Baskerville";
+  font-size: 18px;
+  width: 100%;
+}
+
+.mp-placements {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}

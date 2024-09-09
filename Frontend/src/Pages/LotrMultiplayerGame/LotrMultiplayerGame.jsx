@@ -11,43 +11,7 @@ import LotrCardConfirmed from "../../components/LotrCardConfirmed/LotrCardConfir
 import useCardActions from "../../hooks/useCardActions";
 import MultiplayerModal from "../../Modals/MultiplayerModal/MultiplayerModal";
 import MultiplayerAvatar from "../../components/MultiplayerAvatar/MultiplayerAvatar";
-
-// Struktur:
-
-// // Modal där man först väljer antal spelare och sedan får varje spelare välja namn, avatar och färg
-
-// // Spara alla spelare i ett state (allPlayers) på game pagen som object, med id, namn, avatar,  lista med spelarens kort, färg
-
-// // usestate som sparar vald svårigetsgrad på multiplayerpagen
-
-// // useState borderColour som är currenPlayer.colour
-
-// // usestate som anger vilken spelares tur det är (currentPlayer) som sätts till 1 default
-
-// // useEffect som körs när currentPlayer ändras som hämtar currentPlayers kort och lägger dem på timelinen
-
-// // useEffect som körs när confirmCard körs som kollar hur många kort alla spelare har och uppdaterar en lista där den med flest kort är högst upp
-
-// // Kör SetUpMPGame() för spelare 1 som hämtar kortleken och ger alla spelare sitt första kort på timelinen (GetFirstCard())
-
-// // Spelare 1 tur börjar (kanske randomizer)
-
-// // Gameplay loop:
-// // Sedan kör player 1 den vanliga gameloopen fram tills att han antingen svarat fel eller låst in, vid LockIn() eller fel så går turen över
-
-// // Spara playerCards till spelare 1 i staten allPlayers
-
-// // uppdatera currentPlayer till nästa spelare
-
-// // Timelinen uppdateras med currentPlayers kort (setPlayerCards(currentPlayer.cards))
-
-// // Modal som säger att det är nästa spelares tur med en bekräfta knapp
-
-// // Checka efter varje tur om en spelare har nått 10 kort
-
-// // Gameplay loop tar slut.
-
-// // Modal som visar vem som vunnit
+import GameWonMPModal from "../../Modals/GameWonMPModal/GameWonMPModal";
 
 function LotrMultiplayerGame({
   allCards,
@@ -91,11 +55,13 @@ function LotrMultiplayerGame({
   );
 
   const { NewCard, Confirm, points, LockInCards, Continue } = useCardActions(
+    false,
     allCards,
     playerCards,
     setPlayerCards,
     currentCard,
     setCurrentCard,
+    currentPlayer,
     setPlayState,
     undefined,
     undefined,
@@ -113,9 +79,9 @@ function LotrMultiplayerGame({
   }
 
   function HandleConfirm() {
-    let confirm = Confirm();
+    let correct = Confirm();
 
-    if (confirm === true) {
+    if (correct === true) {
       return;
     }
 
@@ -125,6 +91,7 @@ function LotrMultiplayerGame({
 
   function HandleContinue() {
     Continue();
+    //TODO: Den här delayen körs även vid rätt svar så det känns som att spelet "laggar" när det är utan animation
     setTimeout(() => {
       setCurrentPlayerNumber((currentPlayerNumber + 1) % allPlayers.length);
     }, 500);
@@ -138,6 +105,11 @@ function LotrMultiplayerGame({
 
     //spara en users cards när de låses in
     currentPlayer.thisPlayersCards = playerCards;
+  }
+
+  function NewGame() {
+    // Laddar om sidan för att starta om spelet
+    window.location.reload();
   }
 
   useEffect(() => {
@@ -235,10 +207,11 @@ function LotrMultiplayerGame({
           {playState === "won game" ? (
             <>
               {openModal === "gameWonModal" && (
-                <GameWonModal
-                  newGame={NewGame}
-                  setPlayer={setPlayer}
+                <GameWonMPModal
                   handleCloseModal={handleCloseModal}
+                  NewGame={NewGame}
+                  player={currentPlayer}
+                  allPlayers={allPlayers}
                 />
               )}
               <button className="button" onClick={() => NewGame()}>
