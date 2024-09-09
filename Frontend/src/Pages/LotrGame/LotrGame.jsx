@@ -26,9 +26,9 @@ function LotrGame({
   const [playState, setPlayState] = useState("initial");
   const [removingCardsId, setRemovingCardsId] = useState([]);
   const [addingCardId, setAddingCardId] = useState(null);
-
   const [difficultySelected, setDifficultySelected] = useState(false);
   const [difficulty, setDifficulty] = useState("");
+  const [allCardsAreLocked, setAllCardsAreLocked] = useState(true);
 
   const {
     setLocalStorage,
@@ -69,7 +69,8 @@ function LotrGame({
     setAddingCardId,
     handleOpenModal,
     usedCards,
-    setUsedCards
+    setUsedCards,
+    setAllCardsAreLocked
   );
 
   const { HandleLeftArrowClick, HandleRightArrowClick } = useArrowActions(
@@ -178,9 +179,13 @@ function LotrGame({
               <button className="button" onClick={() => NewCard()}>
                 New card
               </button>
-              <button className="button" onClick={() => LockInCards()}>
-                Lock in cards
-              </button>
+              {!allCardsAreLocked && (
+                <>
+                  <button className="button" onClick={() => LockInCards()}>
+                    Lock in cards
+                  </button>
+                </>
+              )}
             </>
           ) : (
             <></>

@@ -20,7 +20,8 @@ function useCardActions(
   setAddingCardId,
   handleOpenModal,
   usedCards,
-  setUsedCards
+  setUsedCards,
+  setAllCardsAreLocked
 ) {
   const [points, setPoints] = useState(0);
   const [shouldAddNewCard, setShouldAddNewCard] = useState(false);
@@ -37,6 +38,8 @@ function useCardActions(
 
     // Ändra knapparna så vi är i lägg-läge
     setPlayState("placing card");
+
+    if (singlePlayer) setAllCardsAreLocked(false);
   }
 
   function AddPlayerCard() {
@@ -175,6 +178,8 @@ function useCardActions(
 
     localStorage.setItem("streakMultiplier", JSON.stringify(1));
     localStorage.setItem("cardPoints", 0);
+
+    if (singlePlayer) setAllCardsAreLocked(true);
   }
 
   async function Continue() {
@@ -185,6 +190,17 @@ function useCardActions(
 
     setRemovingCardsId(cardsToRemove);
 
+    // Om det inte ska tas bort kort kör vi ingen setTimeout för animationen
+    if (cardsToRemove.length < 1) {
+      setPlayState("new or lock");
+
+      if (singlePlayer) {
+        setShouldAddNewCard(true);
+      }
+      return;
+    }
+
+    // Ska ta bort kort så timeOut för att hinna med animation
     setTimeout(() => {
       // Ta bort kort som inte är lockedIn
       let newPlayerList = playerCards.filter((c) => c.isLockedIn);
@@ -201,7 +217,7 @@ function useCardActions(
   }
 
   useEffect(() => {
-    //Används i Continue()
+    //Används i Continue() för att köra asynkront
     if (shouldAddNewCard) {
       NewCard();
     }

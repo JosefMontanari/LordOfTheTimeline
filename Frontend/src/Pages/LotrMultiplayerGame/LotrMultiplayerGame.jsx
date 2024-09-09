@@ -86,15 +86,21 @@ function LotrMultiplayerGame({
     }
 
     setPlayState("continue");
-    setAllCardsAreLocked(true);
   }
 
   function HandleContinue() {
     Continue();
-    //TODO: Den här delayen körs även vid rätt svar så det känns som att spelet "laggar" när det är utan animation
-    setTimeout(() => {
+
+    // Kör endast en timeOut om man har svarat fel för att matcha animationen
+    if (!allCardsAreLocked) {
+      setTimeout(() => {
+        setCurrentPlayerNumber((currentPlayerNumber + 1) % allPlayers.length);
+        setAllCardsAreLocked(true);
+      }, 500);
+    } else {
+      // Har man låst in är det ingen animation
       setCurrentPlayerNumber((currentPlayerNumber + 1) % allPlayers.length);
-    }, 500);
+    }
   }
 
   function HandleLockIn() {
