@@ -17,6 +17,7 @@
 }
 
 .player-modal-content {
+  position: relative;
   background: linear-gradient(
     145deg,
     #1f1f1f,
@@ -35,6 +36,9 @@
   color: white;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* Skugga för att ge djup */
   border: 1px solid #333; /* Subtil kantlinje */
+  color: #ffa800;
+  font-family: Aniron;
+  font-size: 1vw;
 }
 
 .player-modal-title {
@@ -91,7 +95,7 @@ label {
 }
 
 .player-close-btn {
-  background-color: #ffa800;
+  background-color: #f3eee4;
   color: #000;
   border: none;
   padding: 10px 20px;
@@ -103,6 +107,26 @@ label {
 
 .player-close-btn:hover {
   background-color: #d4af37;
+}
+.go-back-btn {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  background-color: transparent;
+  color: #5a5a5a;
+  border: none;
+  font-size: 4rem;
+  cursor: pointer;
+  padding: 0;
+  margin-top: 0;
+  transition: color 0.3s, transform 0.3s;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+  font-weight: bold;
+}
+
+.go-back-btn:hover {
+  color: #ffa800;
+  transform: scale(1.1);
 }
 
 label {
@@ -130,4 +154,42 @@ input[type="text"]:focus {
   border-color: #ffa800; /* Gör kantlinjen mer framträdande vid fokus */
   box-shadow: 0 0 8px rgba(255, 168, 0, 0.7); /* Lägg till yttre skugga vid fokus */
   outline: none; /* Ta bort standard outline */
+}
+
+.player-count-dropdown {
+  margin-top: 5%;
+  width: 200px;
+  padding: 10px;
+  padding-right: 40px;
+  border: 2px solid #ff8c00;
+  border-radius: 5px;
+  background-color: #181818;
+  color: white;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  outline: none;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  margin-bottom: 10px;
+  position: relative;
+  background-image: url('data:image/svg+xml;charset=US-ASCII,<svg%20xmlns="http://www.w3.org/2000/svg"%20viewBox="0%200%204%205"><polygon%20points="0,0%204,0%202,5"%20style="fill:%23646464;"/></svg>'); /* Pil med hjälp av SVG */
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 10px;
+}
+
+.player-count-dropdown option {
+  background-color: #181818;
+  color: white;
+  padding: 10px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Hover and focus effects */
+.player-count-dropdown:hover,
+.player-count-dropdown:focus {
+  border-color: #ff8c00;
+  box-shadow: 0 0 5px #ff8c00;
 }

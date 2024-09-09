@@ -73,7 +73,7 @@ function useCardActions(
     const correct = EvaluateCards();
 
     if (correct) {
-      if (playerCards.length >= 10) {
+      if (playerCards.length >= 3) {
         //TODO: Fler saker som ska göras vid won game?
 
         //Modal när stäte ändras till won game

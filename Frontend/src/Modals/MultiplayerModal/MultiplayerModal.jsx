@@ -6,6 +6,7 @@ import galadriel from "/Galadriel-avatar.png";
 import gollum from "/Gollum-avatar.png";
 import legolas from "/Legolas-avatar.png";
 import orc from "/Orc-avatar.png";
+import { Link } from "react-router-dom";
 
 const MultiplayerModal = ({
   handleCloseModal,
@@ -61,9 +62,13 @@ const MultiplayerModal = ({
           className="player-modal-content"
           onClick={(e) => e.stopPropagation()}
         >
+          {/* Tar tillbaka användaren till Home */}
+          <Link to="/" className="go-back-btn" aria-label="Go Back">
+            &times;
+          </Link>
           {!numberOfPlayersChosen ? (
             <>
-              <h2>Choose Number of players</h2>
+              <h2>Choose Number of Players</h2>
               <select
                 value={numberOfPlayers}
                 className="player-count-dropdown"
@@ -96,7 +101,7 @@ const MultiplayerModal = ({
                   </label>
                 </div>
                 <div>
-                  <h1 className="player-modal-title">Choose your Avatar:</h1>
+                  <h1 className="player-modal-title">Choose your avatar:</h1>
                   <div className="avatar-selection">
                     {avatars.map((avatarOption, index) => (
                       <img
