@@ -1145,12 +1145,12 @@ namespace Backend.Database
 		new LotrCardModel(
 			80, // Id
 			"Lord of The Rings", // Kategori
-			"Lúthien dies", // Fråga
-			"", // Trivia
+			"Awakening of Men", // Fråga
+			"Men awake as the sun rises for the first time", // Trivia
 			null, // WikiUrl
 			Ages.firstAge, // Tidsålder
 			DifficultyRating.Hard, //Svårighetsgrad
-			467, // År
+			1, // År
 			null, // Månad
 			null, // Dag
 			false, // Händer det i Lotr eller the hobbit?
@@ -1161,7 +1161,7 @@ namespace Backend.Database
 			81, // Id
 			"Lord of The Rings", // Kategori
 			"Beren and Lúthien retrieve a Silmaril from Morgoths crown", // Fråga
-			"", // Trivia
+			"Beren tries to take more than one Silmaril but is  in the attempt", // Trivia
 			null, // WikiUrl
 			Ages.firstAge, // Tidsålder
 			DifficultyRating.Hard, //Svårighetsgrad
@@ -1175,8 +1175,8 @@ namespace Backend.Database
 		new LotrCardModel(
 			82, // Id
 			"Lord of The Rings", // Kategori
-			"Dagor Bagollach, Battle of the Sudden Flame", // Fråga
-			"", // Trivia
+			"Dagor Bragollach, Battle of the Sudden Flame", // Fråga
+			"This is the first battle were dragons were used", // Trivia
 			null, // WikiUrl
 			Ages.firstAge, // Tidsålder
 			DifficultyRating.Hard, //Svårighetsgrad
@@ -1191,7 +1191,7 @@ namespace Backend.Database
 			83, // Id
 			"Lord of The Rings", // Kategori
 			"Fingon rescues Maedhros from Thangorodrim", // Fråga
-			"", // Trivia
+			"Meadhros was the oldest of Fëanors seven sons", // Trivia
 			null, // WikiUrl
 			Ages.firstAge, // Tidsålder
 			DifficultyRating.Hard, //Svårighetsgrad
@@ -1221,7 +1221,7 @@ namespace Backend.Database
 			85, // Id
 			"Lord of The Rings", // Kategori
 			"Lúthien dies", // Fråga
-			"", // Trivia
+			"Beren and Lúthien were both revived and given mortal life, their ultimate deaths are not recorded", // Trivia
 			null, // WikiUrl
 			Ages.firstAge, // Tidsålder
 			DifficultyRating.Hard, //Svårighetsgrad
@@ -1236,7 +1236,7 @@ namespace Backend.Database
 			86, // Id
 			"Lord of The Rings", // Kategori
 			"Elrond and Elros are born", // Fråga
-			"", // Trivia
+			"Elrond chooses and elven life and Elros the life of a man", // Trivia
 			null, // WikiUrl
 			Ages.firstAge, // Tidsålder
 			DifficultyRating.Hard, //Svårighetsgrad
@@ -1251,7 +1251,7 @@ namespace Backend.Database
 			87, // Id
 			"Lord of The Rings", // Kategori
 			"Creation of the Moon and the Sun", // Fråga
-			"", // Trivia
+			"The Sun and Moon are created from the last fruit and flower of the Two Trees respectively", // Trivia
 			null, // WikiUrl
 			Ages.trees, // Tidsålder
 			DifficultyRating.Hard, //Svårighetsgrad
@@ -1266,7 +1266,7 @@ namespace Backend.Database
 			88, // Id
 			"Lord of The Rings", // Kategori
 			"Fëanor is slain", // Fråga
-			"", // Trivia
+			"Fëanor dies fighting a host of Balrogs", // Trivia
 			null, // WikiUrl
 			Ages.trees, // Tidsålder
 			DifficultyRating.Hard, //Svårighetsgrad
@@ -1281,7 +1281,7 @@ namespace Backend.Database
 			89, // Id
 			"Lord of The Rings", // Kategori
 			"The Noldor are banished from Valinor", // Fråga
-			"", // Trivia
+			"Most of the Noldor are subsequently given the chance to repent, except for Fëanor and his sons", // Trivia
 			null, // WikiUrl
 			Ages.trees, // Tidsålder
 			DifficultyRating.Hard, //Svårighetsgrad
@@ -1296,7 +1296,7 @@ namespace Backend.Database
 			90, // Id
 			"Lord of The Rings", // Kategori
 			"Destruction of the Two Trees", // Fråga
-			"", // Trivia
+			"Ungoliant sucks the light out fo the Trees and poisons them in the process", // Trivia
 			null, // WikiUrl
 			Ages.trees, // Tidsålder
 			DifficultyRating.Hard, //Svårighetsgrad
@@ -1326,7 +1326,7 @@ namespace Backend.Database
 			92, // Id
 			"Lord of The Rings", // Kategori
 			"The first kinslaying", // Fråga
-			"", // Trivia
+			"There were a total of three kinslaying among elves during the first age", // Trivia
 			null, // WikiUrl
 			Ages.trees, // Tidsålder
 			DifficultyRating.Hard, //Svårighetsgrad
@@ -1341,7 +1341,7 @@ namespace Backend.Database
 			93, // Id
 			"Lord of The Rings", // Kategori
 			"Fëanor makes the Silmarils", // Fråga
-			"", // Trivia
+			"The Silmarils are imbued with the light of the Two Trees and are said to be the greatest creations by any living", // Trivia
 			null, // WikiUrl
 			Ages.trees, // Tidsålder
 			DifficultyRating.Hard, //Svårighetsgrad
@@ -1356,7 +1356,7 @@ namespace Backend.Database
 			94, // Id
 			"Lord of The Rings", // Kategori
 			"Morgoth is released from the halls of Mandos", // Fråga
-			"", // Trivia
+			"Morgoth promises to play nice (spoiler alert: He doesn't)", // Trivia
 			null, // WikiUrl
 			Ages.trees, // Tidsålder
 			DifficultyRating.Hard, //Svårighetsgrad
@@ -1371,7 +1371,7 @@ namespace Backend.Database
 			95, // Id
 			"Lord of The Rings", // Kategori
 			"Galadriel is born", // Fråga
-			"", // Trivia
+			"The name Galadriel literally means \"maiden crowned with a garland of bright radiance\" as a reference to her golden hair", // Trivia
 			null, // WikiUrl
 			Ages.trees, // Tidsålder
 			DifficultyRating.Hard, //Svårighetsgrad
@@ -1386,7 +1386,7 @@ namespace Backend.Database
 			96, // Id
 			"Lord of The Rings", // Kategori
 			"Birth of Fëanor", // Fråga
-			"", // Trivia
+			"Fëanor is cited as the greatest craftsman and most gifted of all who have ever lived", // Trivia
 			null, // WikiUrl
 			Ages.trees, // Tidsålder
 			DifficultyRating.Extreme, //Svårighetsgrad
@@ -1400,8 +1400,8 @@ namespace Backend.Database
 		new LotrCardModel(
 			97, // Id
 			"Lord of The Rings", // Kategori
-			"Melkor is brought back to Valinor in chains and imprisoned in the Halls of Mandos.", // Fråga
-			"", // Trivia
+			"Morgoth is brought back to Valinor in chains and imprisoned in the Halls of Mandos.", // Fråga
+			"Morgoths original name was Melkor, the name Morgoth (Black Foe of the World) was given to him by Fëanor", // Trivia
 			null, // WikiUrl
 			Ages.trees, // Tidsålder
 			DifficultyRating.Hard, //Svårighetsgrad
@@ -1416,7 +1416,7 @@ namespace Backend.Database
 			98, // Id
 			"Lord of The Rings", // Kategori
 			"Yavanna creates the Two Trees", // Fråga
-			"", // Trivia
+			"Before the Sun and the Moon these two trees shone of silver and gold", // Trivia
 			null, // WikiUrl
 			Ages.trees, // Tidsålder
 			DifficultyRating.Hard, //Svårighetsgrad
@@ -1431,7 +1431,7 @@ namespace Backend.Database
 			99, // Id
 			"Lord of The Rings", // Kategori
 			"Varda creates the first stars", // Fråga
-			"", // Trivia
+			"Varda is most beloved out of all the Valar by the Elves. Many might know her by the name \"Elbereth, Queen of the Stars\"", // Trivia
 			null, // WikiUrl
 			Ages.trees, // Tidsålder
 			DifficultyRating.Hard, //Svårighetsgrad
@@ -1446,7 +1446,7 @@ namespace Backend.Database
 			100, // Id
 			"Lord of The Rings", // Kategori
 			"Music of the Ainur, creation of the material universe", // Fråga
-			"", // Trivia
+			"The universe was sung in to existence by all the Valar. During the music Morgoth rebelled and tried to make his own music", // Trivia
 			null, // WikiUrl
 			Ages.beforeDays, // Tidsålder
 			DifficultyRating.Hard, //Svårighetsgrad
