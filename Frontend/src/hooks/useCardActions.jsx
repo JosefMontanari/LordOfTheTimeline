@@ -5,11 +5,13 @@ import useLocalStorage from "./useLocalStorage";
 // TODO: refaktorera allt som har med kortanimationer till en egen hook
 
 function useCardActions(
+  singlePlayer,
   allCards,
   playerCards,
   setPlayerCards,
   currentCard,
   setCurrentCard,
+  currentPlayer,
   setPlayState,
   setCardPoints,
   setStreakPoints,
@@ -18,7 +20,8 @@ function useCardActions(
   setAddingCardId,
   handleOpenModal,
   usedCards,
-  setUsedCards
+  setUsedCards,
+  setAllCardsAreLocked
 ) {
   const [points, setPoints] = useState(0);
   const [shouldAddNewCard, setShouldAddNewCard] = useState(false);
@@ -35,6 +38,8 @@ function useCardActions(
 
     // Ändra knapparna så vi är i lägg-läge
     setPlayState("placing card");
+
+    if (singlePlayer) setAllCardsAreLocked(false);
   }
 
   function AddPlayerCard() {
@@ -76,13 +81,18 @@ function useCardActions(
       if (playerCards.length >= 10) {
         //TODO: Fler saker som ska göras vid won game?
 
-        //Modal när stäte ändras till won game
-        handleOpenModal("gameWonModal");
-
         // Lås alla kort
         LockInCards();
 
         updateHighScores();
+
+        if (!singlePlayer) {
+          //spara en users cards när de låses in i MP
+          currentPlayer.thisPlayersCards = playerCards;
+        }
+
+        //Modal när stäte ändras till won game
+        handleOpenModal("gameWonModal");
 
         setPlayState("won game");
       } else {
@@ -93,8 +103,8 @@ function useCardActions(
       localStorage.setItem("cardPoints", 0);
     }
 
-    if (setCardPoints) setCardPoints(currentCard, time);
-    if (setStreakPoints) setStreakPoints(playerCards);
+    if (singlePlayer) setCardPoints(currentCard, time);
+    if (singlePlayer) setStreakPoints(playerCards);
 
     // Nollställ Josefs magiska timer
     resetTimer();
@@ -164,10 +174,12 @@ function useCardActions(
     });
     setPlayerCards(newPlayerList);
 
-    if (setTotalPoints) setPoints(setTotalPoints());
+    if (singlePlayer) setPoints(setTotalPoints());
 
     localStorage.setItem("streakMultiplier", JSON.stringify(1));
     localStorage.setItem("cardPoints", 0);
+
+    if (singlePlayer) setAllCardsAreLocked(true);
   }
 
   async function Continue() {
@@ -178,6 +190,17 @@ function useCardActions(
 
     setRemovingCardsId(cardsToRemove);
 
+    // Om det inte ska tas bort kort kör vi ingen setTimeout för animationen
+    if (cardsToRemove.length < 1) {
+      setPlayState("new or lock");
+
+      if (singlePlayer) {
+        setShouldAddNewCard(true);
+      }
+      return;
+    }
+
+    // Ska ta bort kort så timeOut för att hinna med animation
     setTimeout(() => {
       // Ta bort kort som inte är lockedIn
       let newPlayerList = playerCards.filter((c) => c.isLockedIn);
@@ -186,15 +209,15 @@ function useCardActions(
       setRemovingCardsId([]);
 
       // Det här är för att NewCard ska köras efter setPlayerCards har gjort som är asynkron
-      // En if-check for att metoden bara ska köras i singleplayer. Ej definierad i multiplayer
-      if (setCardPoints) {
+      // En if-check for att metoden bara ska köras i singleplayer.
+      if (singlePlayer) {
         setShouldAddNewCard(true);
       }
     }, 500);
   }
 
   useEffect(() => {
-    //Används i Continue()
+    //Används i Continue() för att köra asynkront
     if (shouldAddNewCard) {
       NewCard();
     }
