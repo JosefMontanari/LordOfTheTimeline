@@ -11,13 +11,15 @@ function useLotrGameSetup(
   const [currentCard, setCurrentCard] = useState([]);
   const [usedCards, setUsedCards] = useState([]);
 
+  const address = "localhost";
+
   useEffect(() => {
     if (difficulty === "easy") {
-      fetch("http://localhost:5266/api/Lotr/lotr-hobbit")
+      fetch("http://address:5266/api/Lotr/lotr-hobbit")
         .then((res) => res.json())
         .then((data) => SetUpGame(data));
     } else {
-      fetch("http://localhost:5266/api/Lotr/")
+      fetch("http://address:5266/api/Lotr/")
         .then((res) => res.json())
         .then((data) => SetUpGame(data));
     }

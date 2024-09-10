@@ -63,3 +63,31 @@
 .instructions {
   text-align: left;
 }
+
+.mode-buttons {
+  display: flex;
+  justify-content: space-around; 
+  align-items: center; 
+  margin-bottom: 20px; 
+}
+
+.mode-buttons button {
+  background: none;
+  color: #ffa800;
+  border: 2px solid transparent;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: border 0.3s ease;
+}
+
+.mode-buttons button:hover {
+  border: 2px solid black;
+  background: #ffa800;
+  color: black;
+}
+
+.mode-buttons button.active {
+  border: 2px solid #ffa800;
+  font-weight: bold;
+}
