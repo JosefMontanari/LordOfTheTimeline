@@ -12,6 +12,7 @@ import useCardActions from "../../hooks/useCardActions";
 import MultiplayerModal from "../../Modals/MultiplayerModal/MultiplayerModal";
 import MultiplayerAvatar from "../../components/MultiplayerAvatar/MultiplayerAvatar";
 import GameWonMPModal from "../../Modals/GameWonMPModal/GameWonMPModal";
+import NextPlayerModal from "../../Modals/NextPlayerModal/NextPlayerModal";
 
 function LotrMultiplayerGame({
   allCards,
@@ -121,6 +122,7 @@ function LotrMultiplayerGame({
   useEffect(() => {
     if (!playersAreSet) return;
     setCurrentPlayer(allPlayers[currentPlayerNumber]);
+    handleOpenModal("nextPlayerModal");
   }, [currentPlayerNumber]);
 
   useEffect(() => {
@@ -140,6 +142,12 @@ function LotrMultiplayerGame({
           handleCloseModal={handleCloseModal}
           setAllPlayers={setAllPlayers}
           setPlayersAreSet={setPlayersAreSet}
+        />
+      )}
+      {openModal === "nextPlayerModal" && (
+        <NextPlayerModal
+          handleCloseModal={handleCloseModal}
+          player={currentPlayer}
         />
       )}
       <div className="cards-container button-card-wrapper">
