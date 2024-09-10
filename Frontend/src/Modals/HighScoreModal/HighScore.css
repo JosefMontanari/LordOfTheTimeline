@@ -24,8 +24,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-color: #ffa800;
-  border-style: double;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* Skugga för att ge djup */
+  border: 1px solid #333;
+  border: 1px solid #333;
   gap: 40px;
 }
 
@@ -42,11 +43,36 @@
 }
 
 .title {
-  color: #d5d5d5;
+  color: #ffffff; /* Fallback color */
+  font-size: 2vw;
   font-family: "Lotr-5";
   src: local("RINGM___"), url("./assets/fonts/RINGM___.ttf") format("truetype");
   z-index: 1000;
   margin-top: 15px;
+  background: linear-gradient(
+    45deg,
+    #ffc340,
+    #ff9204,
+    #ffcf40
+  ); /* Metallic gradient */
+  background-size: 200% 200%; /* Size of the gradient background */
+  -webkit-background-clip: text; /* Use WebKit-specific property for text gradient */
+  background-clip: text;
+  color: transparent; /* Text color needs to be transparent for the gradient to show */
+  animation: gradient-shift 3s linear infinite; /* Animation for gradient shift */
+}
+
+/* Keyframes for gradient animation */
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
 }
 
 .h2-title {

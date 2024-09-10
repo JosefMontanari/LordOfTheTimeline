@@ -89,7 +89,7 @@ function useLocalStorage() {
     let player = getLocalStorage("player");
 
     let playerName;
-    player === null ? (playerName = "guest") : (playerName = player.userName);
+    player === null ? (playerName = "Guest") : (playerName = player.userName);
     let score = getLocalStorage("totalPoints");
 
     // Hämta listan med spelare från localStorage
