@@ -23,9 +23,9 @@ builder.Services.AddCors(options =>
 	});
 });
 
-// H�mta connection string
+// Hämta connection string
 var connectionString = builder.Configuration.GetConnectionString("DbConnection");
-// L�gg till context i dependency injection container
+// Lägg till context i dependency injection container
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
 
 
