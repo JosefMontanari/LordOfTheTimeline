@@ -4,8 +4,6 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
-
 // Add services to the container.
 
 builder.Services.AddScoped<LotrCardRepo>();
@@ -25,9 +23,9 @@ builder.Services.AddCors(options =>
 	});
 });
 
-// Hämta connection string
+// Hï¿½mta connection string
 var connectionString = builder.Configuration.GetConnectionString("DbConnection");
-// Lägg till context i dependency injection container
+// Lï¿½gg till context i dependency injection container
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
 
 

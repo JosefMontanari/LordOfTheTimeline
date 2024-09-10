@@ -13,8 +13,11 @@ function useMultiplayerGameSetup(
   const [currentCard, setCurrentCard] = useState([]);
   const [usedCards, setUsedCards] = useState([]);
 
+
+  const address = "localhost";
+
   function StartSetup() {
-    fetch("http://localhost:5266/api/Lotr/")
+    fetch("http://address:5266/api/Lotr/")
       .then((res) => res.json())
       .then((data) => {
         SetUpMPGame(data);
