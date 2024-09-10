@@ -78,7 +78,7 @@ function useCardActions(
     const correct = EvaluateCards();
 
     if (correct) {
-      if (playerCards.length >= 3) {
+      if (playerCards.length >= 10) {
         //TODO: Fler saker som ska göras vid won game?
 
         // Lås alla kort
