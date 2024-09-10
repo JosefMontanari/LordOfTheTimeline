@@ -22,6 +22,7 @@ function GameWonMPModal({ handleCloseModal, NewGame, player, allPlayers }) {
         onClick={(e) => e.stopPropagation()}
       >
         <p className="mp-winner">{`Winner ${player.userName}`}</p>
+        <img className="mp-winner-avatar" src={player.avatar} alt="" />
         <div className="mp-placements-wrapper">
           {sortedAllPlayers.map((p, index) => (
             <>

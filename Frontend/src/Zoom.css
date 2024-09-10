@@ -1,0 +1,55 @@
+@media (max-width: 1600px) {
+  .main-title,
+  .choose-game-container {
+    transform: scale(0.7);
+    transform-origin: 50% 50%;
+  }
+
+  .modal-content {
+    transform: scale(0.8);
+    transform-origin: 50% 50%;
+  }
+
+  .button-card-wrapper {
+    transform: scale(0.83);
+    transform-origin: 50% 50%;
+  }
+
+  .game-title {
+    transform: scale(0.9);
+    transform-origin: 50% 50%;
+  }
+
+  .score-player-container {
+    gap: 5px !important;
+  }
+
+  .main-title {
+    margin-top: 80px !important;
+  }
+
+  .game-title {
+    margin-top: 30px !important;
+    margin-bottom: 0 !important;
+  }
+
+  .lotr-timeline {
+    height: 35px !important;
+    margin-top: 0 !important;
+  }
+
+  .timeline-img {
+    min-width: 100% !important;
+    height: 95%;
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
+  }
+
+  .choose-difficulty-text {
+    font-size: 45px !important;
+  }
+
+  .navbar-link {
+    font-size: 40px !important;
+  }
+}

@@ -69,6 +69,10 @@
   animation: pulse-glow 2s infinite;
 }
 
+.mp-winner-avatar {
+  width: 40%;
+}
+
 .mp-placements-wrapper {
   width: 20%;
   display: flex;
