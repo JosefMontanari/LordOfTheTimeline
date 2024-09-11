@@ -214,7 +214,7 @@ namespace Backend.Database
 			15, // Id
 			"Lord of The Rings", // Kategori
 			"Battle of Five Armies", // Fråga
-			"trivia", // Trivia
+			"The battle is fought between Dwarves, Elves, Men, Eagles, Bats, Wargs, Orcs and of course Beorn", // Trivia
 			null, // WikiUrl
 			Ages.thirdAge, // Tidsålder
 			DifficultyRating.Normal, //Svårighetsgrad
@@ -565,7 +565,7 @@ namespace Backend.Database
 			40, // Id
 			"Lord of The Rings", // Kategori
 			"Minas Tirith is besieged", // Fråga
-			"", // Trivia
+			"The battering ram Grond is named after Morgoths mace", // Trivia
 			null, // WikiUrl
 			Ages.thirdAge, // Tidsålder
 			DifficultyRating.Normal, //Svårighetsgrad
@@ -579,7 +579,7 @@ namespace Backend.Database
 			41, // Id
 			"Lord of The Rings", // Kategori
 			"The hobbits reach Bree", // Fråga
-			"", // Trivia
+			"In the movies, director Peter Jackson can be seen eating a carrot as the Hobbits enter Bree", // Trivia
 			null, // WikiUrl
 			Ages.thirdAge, // Tidsålder
 			DifficultyRating.Normal, //Svårighetsgrad
@@ -594,7 +594,7 @@ namespace Backend.Database
 			42, // Id
 			"Lord of The Rings", // Kategori
 			"The fellowship reaches the gate of Moria", // Fråga
-			"", // Trivia
+			"The door to Moria was constructed by Celebrimbor and Narvi. A co-operation between Elves and Dwarves", // Trivia
 			null, // WikiUrl
 			Ages.thirdAge, // Tidsålder
 			DifficultyRating.Normal, //Svårighetsgrad
@@ -608,7 +608,7 @@ namespace Backend.Database
 			43, // Id
 			"Lord of The Rings", // Kategori
 			"The fellowship reaches Lothlórien", // Fråga
-			"", // Trivia
+			"In the books Gimli is not permitted entry unless blindfolded the way there. Aragorn suggests that the whole company is blindfolded", // Trivia
 			null, // WikiUrl
 			Ages.thirdAge, // Tidsålder
 			DifficultyRating.Normal, //Svårighetsgrad
@@ -622,7 +622,7 @@ namespace Backend.Database
 			44, // Id
 			"Lord of The Rings", // Kategori
 			"The fellowship passes the Argonath", // Fråga
-			"", // Trivia
+			"The two kings depicted in the Argonath are Isildur and Anarion, the sons of Elendil", // Trivia
 			null, // WikiUrl
 			Ages.thirdAge, // Tidsålder
 			DifficultyRating.Normal, //Svårighetsgrad
@@ -636,7 +636,7 @@ namespace Backend.Database
 			45, // Id
 			"Lord of The Rings", // Kategori
 			"Boromir is slain", // Fråga
-			"", // Trivia
+			"Boromir travelled to Rivendell mostly on foot, the journey took him 110 days", // Trivia
 			null, // WikiUrl
 			Ages.thirdAge, // Tidsålder
 			DifficultyRating.Normal, //Svårighetsgrad
@@ -650,7 +650,7 @@ namespace Backend.Database
 			46, // Id
 			"Lord of The Rings", // Kategori
 			"Pippin looks into the Orthanc-stone", // Fråga
-			"", // Trivia
+			"The seven seeing stones are said to have been created by Fëanor, but that isn't confirmed", // Trivia
 			null, // WikiUrl
 			Ages.thirdAge, // Tidsålder
 			DifficultyRating.Hard, //Svårighetsgrad
@@ -664,7 +664,7 @@ namespace Backend.Database
 			47, // Id
 			"Lord of The Rings", // Kategori
 			"Frodo and Sam reach Henneth Annûn", // Fråga
-			"", // Trivia
+			"Henneth Annûn was Sindarin for \"Window of the West\"", // Trivia
 			null, // WikiUrl
 			Ages.thirdAge, // Tidsålder
 			DifficultyRating.Hard, //Svårighetsgrad
@@ -678,7 +678,7 @@ namespace Backend.Database
 			48, // Id
 			"Lord of The Rings", // Kategori
 			"The Dawnless Day", // Fråga
-			"", // Trivia
+			"Sauron sent out fumes to veil the Sun, thus this day was labeled The Dawnless Day", // Trivia
 			null, // WikiUrl
 			Ages.thirdAge, // Tidsålder
 			DifficultyRating.Hard, //Svårighetsgrad
@@ -996,7 +996,7 @@ namespace Backend.Database
 			70, // Id
 			"Lord of The Rings", // Kategori
 			"The Witch King invades Arnor", // Fråga
-			"", // Trivia
+			"Arnor was founded in Second Age 3320 by Elendil, the sister kingdom to the southern realm of Gondor founded by his sons", // Trivia
 			null, // WikiUrl
 			Ages.thirdAge, // Tidsålder
 			DifficultyRating.Hard, //Svårighetsgrad
@@ -1206,7 +1206,7 @@ namespace Backend.Database
 			84, // Id
 			"Lord of The Rings", // Kategori
 			"Elros is crowned the first king of Númenor", // Fråga
-			"", // Trivia
+			"The land was brought up from the sea as a gift to Men from the gods, for helping defeat Morgoth", // Trivia
 			null, // WikiUrl
 			Ages.secondAge, // Tidsålder
 			DifficultyRating.Hard, //Svårighetsgrad
@@ -1311,7 +1311,7 @@ namespace Backend.Database
 			91, // Id
 			"Lord of The Rings", // Kategori
 			"Morgoth steals the three Silmarils", // Fråga
-			"", // Trivia
+			"As Morgoth steals the Silmarils, he murders high king Finwë. Thus the first murder is commited in Valinor", // Trivia
 			null, // WikiUrl
 			Ages.trees, // Tidsålder
 			DifficultyRating.Hard, //Svårighetsgrad
