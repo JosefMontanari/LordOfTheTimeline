@@ -214,7 +214,7 @@ namespace Backend.Database
 			15, // Id
 			"Lord of The Rings", // Kategori
 			"Battle of Five Armies", // Fråga
-			"trivia", // Trivia
+			"The battle is fought between Dwarves, Elves, Men, Eagles, Bats, Wargs, Orcs and of course Beorn", // Trivia
 			null, // WikiUrl
 			Ages.thirdAge, // Tidsålder
 			DifficultyRating.Normal, //Svårighetsgrad
@@ -355,7 +355,7 @@ namespace Backend.Database
 			25, // Id
 			"Lord of The Rings", // Kategori
 			"Gandalf dies adter fighting the Balrog", // Fråga
-			"Gandalf is the second person ever to be resurected after fighting a Balrog, Glorfindel was the first", // Trivia
+			"Gandalf is the second person ever to be ressurected after fighting a Balrog, Glorfindel was the first", // Trivia
 			null, // WikiUrl
 			Ages.thirdAge, // Tidsålder
 			DifficultyRating.Normal, //Svårighetsgrad
@@ -565,7 +565,7 @@ namespace Backend.Database
 			40, // Id
 			"Lord of The Rings", // Kategori
 			"Minas Tirith is besieged", // Fråga
-			"", // Trivia
+			"The battering ram Grond is named after Morgoths mace", // Trivia
 			null, // WikiUrl
 			Ages.thirdAge, // Tidsålder
 			DifficultyRating.Normal, //Svårighetsgrad
@@ -579,7 +579,7 @@ namespace Backend.Database
 			41, // Id
 			"Lord of The Rings", // Kategori
 			"The hobbits reach Bree", // Fråga
-			"", // Trivia
+			"In the movies, director Peter Jackson can be seen eating a carrot as the Hobbits enter Bree", // Trivia
 			null, // WikiUrl
 			Ages.thirdAge, // Tidsålder
 			DifficultyRating.Normal, //Svårighetsgrad
@@ -594,7 +594,7 @@ namespace Backend.Database
 			42, // Id
 			"Lord of The Rings", // Kategori
 			"The fellowship reaches the gate of Moria", // Fråga
-			"", // Trivia
+			"The door to Moria was constructed by Celebrimbor and Narvi. A co-operation between Elves and Dwarves", // Trivia
 			null, // WikiUrl
 			Ages.thirdAge, // Tidsålder
 			DifficultyRating.Normal, //Svårighetsgrad
@@ -608,7 +608,7 @@ namespace Backend.Database
 			43, // Id
 			"Lord of The Rings", // Kategori
 			"The fellowship reaches Lothlórien", // Fråga
-			"", // Trivia
+			"In the books Gimli is not permitted entry unless blindfolded the way there. Aragorn suggests that the whole company is blindfolded", // Trivia
 			null, // WikiUrl
 			Ages.thirdAge, // Tidsålder
 			DifficultyRating.Normal, //Svårighetsgrad
@@ -622,7 +622,7 @@ namespace Backend.Database
 			44, // Id
 			"Lord of The Rings", // Kategori
 			"The fellowship passes the Argonath", // Fråga
-			"", // Trivia
+			"The two kings depicted in the Argonath are Isildur and Anarion, the sons of Elendil", // Trivia
 			null, // WikiUrl
 			Ages.thirdAge, // Tidsålder
 			DifficultyRating.Normal, //Svårighetsgrad
@@ -636,7 +636,7 @@ namespace Backend.Database
 			45, // Id
 			"Lord of The Rings", // Kategori
 			"Boromir is slain", // Fråga
-			"", // Trivia
+			"Boromir travelled to Rivendell mostly on foot, the journey took him 110 days", // Trivia
 			null, // WikiUrl
 			Ages.thirdAge, // Tidsålder
 			DifficultyRating.Normal, //Svårighetsgrad
@@ -650,7 +650,7 @@ namespace Backend.Database
 			46, // Id
 			"Lord of The Rings", // Kategori
 			"Pippin looks into the Orthanc-stone", // Fråga
-			"", // Trivia
+			"The seven seeing stones are said to have been created by Fëanor, but that isn't confirmed", // Trivia
 			null, // WikiUrl
 			Ages.thirdAge, // Tidsålder
 			DifficultyRating.Hard, //Svårighetsgrad
@@ -664,7 +664,7 @@ namespace Backend.Database
 			47, // Id
 			"Lord of The Rings", // Kategori
 			"Frodo and Sam reach Henneth Annûn", // Fråga
-			"", // Trivia
+			"Henneth Annûn was Sindarin for \"Window of the West\"", // Trivia
 			null, // WikiUrl
 			Ages.thirdAge, // Tidsålder
 			DifficultyRating.Hard, //Svårighetsgrad
@@ -678,7 +678,7 @@ namespace Backend.Database
 			48, // Id
 			"Lord of The Rings", // Kategori
 			"The Dawnless Day", // Fråga
-			"", // Trivia
+			"Sauron sent out fumes to veil the Sun, thus this day was labeled The Dawnless Day", // Trivia
 			null, // WikiUrl
 			Ages.thirdAge, // Tidsålder
 			DifficultyRating.Hard, //Svårighetsgrad
@@ -692,7 +692,7 @@ namespace Backend.Database
 			49, // Id
 			"Lord of The Rings", // Kategori
 			"Second assault on Lothlórien", // Fråga
-			"", // Trivia
+			"Not featured in the movies, the war of the ring had several fronts inclduing Lóthlorien", // Trivia
 			null, // WikiUrl
 			Ages.thirdAge, // Tidsålder
 			DifficultyRating.Extreme, //Svårighetsgrad
@@ -706,7 +706,7 @@ namespace Backend.Database
 			50, // Id
 			"Lord of The Rings", // Kategori
 			"Frodo wakes up in Rivendell after recovering from his wound", // Fråga
-			"", // Trivia
+			"Frodo never fully recovered however, the wound pained him until his last days", // Trivia
 			null, // WikiUrl
 			Ages.thirdAge, // Tidsålder
 			DifficultyRating.Normal, //Svårighetsgrad
@@ -720,7 +720,7 @@ namespace Backend.Database
 			51, // Id
 			"Lord of The Rings", // Kategori
 			"Arwen dies in Lothlórien", // Fråga
-			"", // Trivia
+			"Arwen dies of a broken heart, as Aragorn had died a year earlier", // Trivia
 			null, // WikiUrl
 			Ages.fourthAge, // Tidsålder
 			DifficultyRating.Hard, //Svårighetsgrad
@@ -861,7 +861,7 @@ namespace Backend.Database
 			61, // Id
 			"Lord of The Rings", // Kategori
 			"The last debate", // Fråga
-			"", // Trivia
+			"The last debate was held outside of Minas Tirith, as Aragorn had decided not to enter Gondor until being accepted as King", // Trivia
 			null, // WikiUrl
 			Ages.thirdAge, // Tidsålder
 			DifficultyRating.Hard, //Svårighetsgrad
@@ -876,7 +876,7 @@ namespace Backend.Database
 			62, // Id
 			"Lord of The Rings", // Kategori
 			"Gandalf arrives at Helm's Deep", // Fråga
-			"", // Trivia
+			"In the books Gandalf arrives together with Erkenbrand, whereas in the movies he arrives with Éomer", // Trivia
 			null, // WikiUrl
 			Ages.thirdAge, // Tidsålder
 			DifficultyRating.Normal, //Svårighetsgrad
@@ -891,7 +891,7 @@ namespace Backend.Database
 			63, // Id
 			"Lord of The Rings", // Kategori
 			"Gandalf heals Theoden", // Fråga
-			"", // Trivia
+			"fter this, he became known as Théoden Ednew, the Renewed, because he had thrown off the yoke of Saruman.", // Trivia
 			null, // WikiUrl
 			Ages.thirdAge, // Tidsålder
 			DifficultyRating.Normal, //Svårighetsgrad
@@ -906,7 +906,7 @@ namespace Backend.Database
 			64, // Id
 			"Lord of The Rings", // Kategori
 			"The breaking of the Fellowship of The Ring", // Fråga
-			"", // Trivia
+			"Aragorn continued to refer to the company he led as the Fellowship of the Ring even after the original Fellowship broke up.", // Trivia
 			null, // WikiUrl
 			Ages.thirdAge, // Tidsålder
 			DifficultyRating.Normal, //Svårighetsgrad
@@ -921,7 +921,7 @@ namespace Backend.Database
 			65, // Id
 			"Lord of The Rings", // Kategori
 			"Gandalf returns to life", // Fråga
-			"", // Trivia
+			"Gandalf is the second person ever to be ressurected after fighting a Balrog, Glorfindel was the first", // Trivia
 			null, // WikiUrl
 			Ages.thirdAge, // Tidsålder
 			DifficultyRating.Hard, //Svårighetsgrad
@@ -950,8 +950,8 @@ namespace Backend.Database
 		new LotrCardModel(
 			67, // Id
 			"Lord of The Rings", // Kategori
-			"Bildo returns to Bag End and learns he's been pronounced dead", // Fråga
-			"", // Trivia
+			"Bilbo returns to Bag End and learns he's been pronounced dead", // Fråga
+			" Bilbo had to buy back his sold possessions in order to avoid quarreling with the purchasers", // Trivia
 			null, // WikiUrl
 			Ages.thirdAge, // Tidsålder
 			DifficultyRating.Hard, //Svårighetsgrad
@@ -966,7 +966,7 @@ namespace Backend.Database
 			68, // Id
 			"Lord of The Rings", // Kategori
 			"Smaug is killed", // Fråga
-			"", // Trivia
+			"Smaug was considered the last great dragon of Middle-Earth", // Trivia
 			null, // WikiUrl
 			Ages.thirdAge, // Tidsålder
 			DifficultyRating.Normal, //Svårighetsgrad
@@ -981,7 +981,7 @@ namespace Backend.Database
 			69, // Id
 			"Lord of The Rings", // Kategori
 			"Bilbo leaves Bag End with Gandalf and the thirteen dwarves", // Fråga
-			"", // Trivia
+			"Bilbos father was name Bungo Baggins and his mother Belladonna Took, making him half a Took", // Trivia
 			null, // WikiUrl
 			Ages.thirdAge, // Tidsålder
 			DifficultyRating.Hard, //Svårighetsgrad
@@ -996,7 +996,7 @@ namespace Backend.Database
 			70, // Id
 			"Lord of The Rings", // Kategori
 			"The Witch King invades Arnor", // Fråga
-			"", // Trivia
+			"Arnor was founded in Second Age 3320 by Elendil, the sister kingdom to the southern realm of Gondor founded by his sons", // Trivia
 			null, // WikiUrl
 			Ages.thirdAge, // Tidsålder
 			DifficultyRating.Hard, //Svårighetsgrad
@@ -1011,7 +1011,7 @@ namespace Backend.Database
 			71, // Id
 			"Lord of The Rings", // Kategori
 			"Defeat of Sauron and death of Gil-galad and Elendil", // Fråga
-			"", // Trivia
+			"Gil-galad was burnt to death by Saurons scorching touch", // Trivia
 			null, // WikiUrl
 			Ages.secondAge, // Tidsålder
 			DifficultyRating.Hard, //Svårighetsgrad
@@ -1026,7 +1026,7 @@ namespace Backend.Database
 			72, // Id
 			"Lord of The Rings", // Kategori
 			"Battle of Dagorlad and siege of Barad-dûr", // Fråga
-			"", // Trivia
+			"The siege lated for seven years", // Trivia
 			null, // WikiUrl
 			Ages.secondAge, // Tidsålder
 			DifficultyRating.Hard, //Svårighetsgrad
@@ -1041,7 +1041,7 @@ namespace Backend.Database
 			73, // Id
 			"Lord of The Rings", // Kategori
 			"The Three Rings are hidden and the War of the Elves and Sauron begins", // Fråga
-			"", // Trivia
+			"The moment Sauron puts on the One Ring the elven ring-bearers could sense it", // Trivia
 			null, // WikiUrl
 			Ages.secondAge, // Tidsålder
 			DifficultyRating.Hard, //Svårighetsgrad
@@ -1056,7 +1056,7 @@ namespace Backend.Database
 			74, // Id
 			"Lord of The Rings", // Kategori
 			"Elrond founds Rivendell", // Fråga
-			"", // Trivia
+			"The valley of Imladris (within which the Last Homely House was situated) was based upon the landscape of Lauterbrunnen", // Trivia
 			null, // WikiUrl
 			Ages.secondAge, // Tidsålder
 			DifficultyRating.Hard, //Svårighetsgrad
@@ -1071,7 +1071,7 @@ namespace Backend.Database
 			75, // Id
 			"Lord of The Rings", // Kategori
 			"The war of Wrath", // Fråga
-			"", // Trivia
+			"The battle was so intense that it lay waste to all of Beleriand and sunk it under the sea", // Trivia
 			null, // WikiUrl
 			Ages.firstAge, // Tidsålder
 			DifficultyRating.Hard, //Svårighetsgrad
@@ -1086,7 +1086,7 @@ namespace Backend.Database
 			76, // Id
 			"Lord of The Rings", // Kategori
 			"Eärendil arrives in Valinor and asks the Valar to aid in the fight again Morgoth", // Fråga
-			"", // Trivia
+			"The name Eärendil comes from an old English poem", // Trivia
 			null, // WikiUrl
 			Ages.firstAge, // Tidsålder
 			DifficultyRating.Hard, //Svårighetsgrad
@@ -1101,7 +1101,7 @@ namespace Backend.Database
 			77, // Id
 			"Lord of The Rings", // Kategori
 			"Túrin slays Glaurung", // Fråga
-			"", // Trivia
+			"Glaurung is known as tha father of all dragons. He could however not fly", // Trivia
 			null, // WikiUrl
 			Ages.firstAge, // Tidsålder
 			DifficultyRating.Hard, //Svårighetsgrad
@@ -1116,7 +1116,7 @@ namespace Backend.Database
 			78, // Id
 			"Lord of The Rings", // Kategori
 			"Nírnaeth Arnoediad, The Battle of Unnumbered Tears, is fought.", // Fråga
-			"", // Trivia
+			"This battle swayed the war to Morgoths favor, it was a crushing defeat for the Elves and Men of Beleriand", // Trivia
 			null, // WikiUrl
 			Ages.firstAge, // Tidsålder
 			DifficultyRating.Hard, //Svårighetsgrad
@@ -1131,7 +1131,7 @@ namespace Backend.Database
 			79, // Id
 			"Lord of The Rings", // Kategori
 			"Fall of Gondolin", // Fråga
-			"", // Trivia
+			"Like Gandalf, Glorfindel fought a Balrog and won. Glorfindel himself died though, and was later ressurected.", // Trivia
 			null, // WikiUrl
 			Ages.firstAge, // Tidsålder
 			DifficultyRating.Hard, //Svårighetsgrad
@@ -1206,7 +1206,7 @@ namespace Backend.Database
 			84, // Id
 			"Lord of The Rings", // Kategori
 			"Elros is crowned the first king of Númenor", // Fråga
-			"", // Trivia
+			"The land was brought up from the sea as a gift to Men from the gods, for helping defeat Morgoth", // Trivia
 			null, // WikiUrl
 			Ages.secondAge, // Tidsålder
 			DifficultyRating.Hard, //Svårighetsgrad
@@ -1311,7 +1311,7 @@ namespace Backend.Database
 			91, // Id
 			"Lord of The Rings", // Kategori
 			"Morgoth steals the three Silmarils", // Fråga
-			"", // Trivia
+			"As Morgoth steals the Silmarils, he murders high king Finwë. Thus the first murder is commited in Valinor", // Trivia
 			null, // WikiUrl
 			Ages.trees, // Tidsålder
 			DifficultyRating.Hard, //Svårighetsgrad
