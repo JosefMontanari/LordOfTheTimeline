@@ -13,12 +13,20 @@ function useMultiplayerGameSetup(
   const [currentCard, setCurrentCard] = useState([]);
   const [usedCards, setUsedCards] = useState([]);
 
-  function StartSetup() {
-    fetch("http://localhost:5266/api/Lotr/")
-      .then((res) => res.json())
-      .then((data) => {
-        SetUpMPGame(data);
-      });
+  function StartSetup(difficulty) {
+    if (difficulty === "easy") {
+      fetch("http://localhost:5266/api/Lotr/lotr-hobbit")
+        .then((res) => res.json())
+        .then((data) => {
+          SetUpMPGame(data);
+        });
+    } else {
+      fetch("http://localhost:5266/api/Lotr/")
+        .then((res) => res.json())
+        .then((data) => {
+          SetUpMPGame(data);
+        });
+    }
   }
 
   function SetUpMPGame(data) {
@@ -47,11 +55,6 @@ function useMultiplayerGameSetup(
     setPlayerCards(allPlayersCopy[0].thisPlayersCards);
   }
 
-  //Nästa tur
-  //Uppdatera allPlayers
-  //setCurrentPlayer till nästa
-  //setPlayerCards(currentPlayer.thisPlayersCards)
-
   function GetFirstCardMP(cards) {
     //Förbereder första kortet
     let firstCard = cards[Math.floor(Math.random() * cards.length)];
@@ -62,6 +65,22 @@ function useMultiplayerGameSetup(
 
     return firstCard;
   }
+
+  useEffect(() => {
+    // Shufflar om kortleken om alla kort har använts en gång.
+    if (usedCards.length >= allCards.length) {
+      let allPlayerCardIds = [];
+
+      // Går igenom alla spelares kort och lägger de i listan
+      allPlayers.forEach((p) => {
+        const playerCardIds = p.thisPlayersCards.map((card) => card.id);
+        allPlayerCardIds = [...allPlayerCardIds, playerCardIds];
+      });
+      // Flattenar listan av listor till en enda lista
+      allPlayerCardIds = allPlayerCardIds.flat();
+      setUsedCards(allPlayerCardIds);
+    }
+  }, [usedCards]);
 
   return {
     playerCards,

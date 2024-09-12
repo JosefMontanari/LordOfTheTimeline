@@ -22,13 +22,14 @@ function LotrMultiplayerGame({
   handleCloseModal,
 }) {
   const [currentPlayerNumber, setCurrentPlayerNumber] = useState(0);
-  const [playState, setPlayState] = useState("new or lock");
+  const [playState, setPlayState] = useState("initial");
   const [allPlayers, setAllPlayers] = useState([]);
   const [currentPlayer, setCurrentPlayer] = useState({});
   const [removingCardsId, setRemovingCardsId] = useState([]);
   const [addingCardId, setAddingCardId] = useState(null);
   const [playersAreSet, setPlayersAreSet] = useState(false);
   const [allCardsAreLocked, setAllCardsAreLocked] = useState(true);
+  const [difficultySelected, setDifficultySelected] = useState(false);
 
   const {
     playerCards,
@@ -134,6 +135,12 @@ function LotrMultiplayerGame({
     StartSetup();
   }, [playersAreSet]);
 
+  function handleDifficultySelect(difficulty) {
+    StartSetup(difficulty);
+    setDifficultySelected(true);
+    setPlayState("new or lock");
+  }
+
   return (
     <div className="lotr-game-page">
       <LotrGameBackground title="lords of the timeline" />
@@ -151,34 +158,60 @@ function LotrMultiplayerGame({
         />
       )}
       <div className="cards-container button-card-wrapper">
-        {playersAreSet && (
+        {!difficultySelected ? (
           <>
-            {playerCards.map((c) => {
-              const isRemoving = removingCardsId.includes(c.id); // Kontrollera om kortet ska tas bort
-              const isAdding = c.id === addingCardId;
-              if (c.isCurrentlyPlaying === false) {
-                if (c.isLockedIn === false) {
-                  return (
-                    <LotrCardConfirmed
-                      cardData={c}
-                      key={c.id}
-                      isRemoving={isRemoving}
-                    />
-                  );
-                } else {
-                  return <LotrCardLocked cardData={c} key={c.id} />;
-                }
-              } else {
-                return (
-                  <LotrCardPlayable
-                    cardData={c}
-                    key={c.id}
-                    isAdding={isAdding}
-                    addingCardId={addingCardId}
-                  />
-                );
-              }
-            })}
+            <div className="difficulty-container">
+              <h1 className="choose-difficulty-text lotr-font">
+                Choose Difficulty
+              </h1>
+              <div className="difficulty-buttons-container">
+                <button
+                  className="button difficulty-button"
+                  onClick={() => handleDifficultySelect("easy")}
+                >
+                  Normal
+                </button>
+                <button
+                  className="button difficulty-button"
+                  onClick={() => handleDifficultySelect("hard")}
+                >
+                  Hard
+                </button>
+              </div>
+            </div>
+          </>
+        ) : (
+          <>
+            {playersAreSet && (
+              <>
+                {playerCards.map((c) => {
+                  const isRemoving = removingCardsId.includes(c.id); // Kontrollera om kortet ska tas bort
+                  const isAdding = c.id === addingCardId;
+                  if (c.isCurrentlyPlaying === false) {
+                    if (c.isLockedIn === false) {
+                      return (
+                        <LotrCardConfirmed
+                          cardData={c}
+                          key={c.id}
+                          isRemoving={isRemoving}
+                        />
+                      );
+                    } else {
+                      return <LotrCardLocked cardData={c} key={c.id} />;
+                    }
+                  } else {
+                    return (
+                      <LotrCardPlayable
+                        cardData={c}
+                        key={c.id}
+                        isAdding={isAdding}
+                        addingCardId={addingCardId}
+                      />
+                    );
+                  }
+                })}
+              </>
+            )}
           </>
         )}
       </div>
