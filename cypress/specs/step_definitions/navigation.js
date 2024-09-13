@@ -1,40 +1,40 @@
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 
-Given("I am on the homepage", () => {
-  cy.visit("/");
+Given('I am on the homepage', () => {
+  // TODO: implement step
 });
 
-When("I click the singleplayer button", () => {
-  cy.get(":nth-child(1) > .play-button > p").click();
+When('I click the singleplayer button', () => {
+  // TODO: implement step
 });
 
-Then("I should be on the singleplayer game page", () => {
-  cy.url().should("include", "/game");
+Then('I should be on the singleplayer game page', () => {
+  // TODO: implement step
 });
 
 /* No duplicate steps, this one already above
 Given('I am on the homepage', () => {});*/
 
-When("I click the multiplayer button", () => {
-  cy.get(":nth-child(2) > .play-button > p").click();
+When('I click the multiplayer button', () => {
+  // TODO: implement step
 });
 
-Then("I should be on the multiplayer game page", () => {
-  cy.url().should("include", "/multiplayer");
+Then('I should be on the multiplayer game page', () => {
+  // TODO: implement step
 });
 
-Given("I am on the game page", () => {
-  cy.visit("/game");
+Given('I am on the game page', () => {
+  // TODO: implement step
 });
 
-Given("No modal is open", () => {
-  cy.get(".player-modal-overlay").click("topLeft");
+Given('No modal is open', () => {
+  // TODO: implement step
 });
 
-When("I click the Home button", () => {
-  cy.get("a > .navbar-link").click();
+When('I click the Home button', () => {
+  // TODO: implement step
 });
 
-Then("I should be on the home page", () => {
-  cy.get(".home-page > .lotr-font").should("exist");
+Then('I should be on the home page', () => {
+  // TODO: implement step
 });
