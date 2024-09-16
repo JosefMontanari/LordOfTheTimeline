@@ -1,4 +1,4 @@
-.won-modal-overlay {
+.mp-won-modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -11,7 +11,12 @@
   z-index: 1000;
 }
 
-.won-modal-content {
+.mp-won-modal-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
   background-color: #181818;
   padding: 30px;
   opacity: 0.9;
@@ -21,11 +26,11 @@
   text-align: center;
   color: white;
   position: relative;
-  border: 2px solid #333;
+  border: 2px solid #ff8c00;
   box-shadow: 0 0 15px #ff8c00;
 }
 
-.won-modal-content::before {
+.mp-won-modal-content::before {
   content: "";
   position: absolute;
   top: 0;
@@ -50,20 +55,38 @@
   }
 }
 
-.p-won-game-points {
-  padding-bottom: 10%;
-  padding-top: 5%;
-  color: #aaaaaa;
+.mp-winner {
+  text-align: center;
+  gap: 20px;
+  color: #ffa800;
+  font-family: "Libre Baskerville";
   font-size: 24px;
+  margin-bottom: 5px;
+  margin-top: 10px;
+  width: 100%;
+  font-weight: bold;
+  text-shadow: 0 0 4px #ffa800, 0 0 6px #ffa800, 0 0 8px #d4af37;
+  animation: pulse-glow 2s infinite;
 }
 
-.p-highscore-beat {
-  padding-bottom: 10%;
+.mp-winner-avatar {
+  width: 40%;
+}
+
+.mp-placements-wrapper {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   color: #ffa800;
-  text-shadow: 0 0 10px #56431c, 0 0 10px #3a301b, 0 0 10px #28210c;
+  font-family: "Libre Baskerville";
   font-size: 18px;
+  width: 100%;
 }
 
-.s-won-game-points {
-  color: #ffa800;
+.mp-placements {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
 }

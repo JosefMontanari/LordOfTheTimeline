@@ -214,7 +214,7 @@ namespace Backend.Database
 			15, // Id
 			"Lord of The Rings", // Kategori
 			"Battle of Five Armies", // Fråga
-			"trivia", // Trivia
+			"The battle is fought between Dwarves, Elves, Men, Eagles, Bats, Wargs, Orcs and of course Beorn", // Trivia
 			null, // WikiUrl
 			Ages.thirdAge, // Tidsålder
 			DifficultyRating.Normal, //Svårighetsgrad
@@ -354,8 +354,8 @@ namespace Backend.Database
 			new LotrCardModel(
 			25, // Id
 			"Lord of The Rings", // Kategori
-			"Gandalf dies and returns as Gandalf the White", // Fråga
-			"Gandalf is the second person ever to be resurected after figting a Balrog, Glorfindel was the first", // Trivia
+			"Gandalf dies adter fighting the Balrog", // Fråga
+			"Gandalf is the second person ever to be ressurected after fighting a Balrog, Glorfindel was the first", // Trivia
 			null, // WikiUrl
 			Ages.thirdAge, // Tidsålder
 			DifficultyRating.Normal, //Svårighetsgrad
@@ -565,7 +565,7 @@ namespace Backend.Database
 			40, // Id
 			"Lord of The Rings", // Kategori
 			"Minas Tirith is besieged", // Fråga
-			"", // Trivia
+			"The battering ram Grond is named after Morgoths mace", // Trivia
 			null, // WikiUrl
 			Ages.thirdAge, // Tidsålder
 			DifficultyRating.Normal, //Svårighetsgrad
@@ -579,7 +579,7 @@ namespace Backend.Database
 			41, // Id
 			"Lord of The Rings", // Kategori
 			"The hobbits reach Bree", // Fråga
-			"", // Trivia
+			"In the movies, director Peter Jackson can be seen eating a carrot as the Hobbits enter Bree", // Trivia
 			null, // WikiUrl
 			Ages.thirdAge, // Tidsålder
 			DifficultyRating.Normal, //Svårighetsgrad
@@ -594,7 +594,7 @@ namespace Backend.Database
 			42, // Id
 			"Lord of The Rings", // Kategori
 			"The fellowship reaches the gate of Moria", // Fråga
-			"", // Trivia
+			"The door to Moria was constructed by Celebrimbor and Narvi. A co-operation between Elves and Dwarves", // Trivia
 			null, // WikiUrl
 			Ages.thirdAge, // Tidsålder
 			DifficultyRating.Normal, //Svårighetsgrad
@@ -608,7 +608,7 @@ namespace Backend.Database
 			43, // Id
 			"Lord of The Rings", // Kategori
 			"The fellowship reaches Lothlórien", // Fråga
-			"", // Trivia
+			"In the books Gimli is not permitted entry unless blindfolded the way there. Aragorn suggests that the whole company is blindfolded", // Trivia
 			null, // WikiUrl
 			Ages.thirdAge, // Tidsålder
 			DifficultyRating.Normal, //Svårighetsgrad
@@ -622,7 +622,7 @@ namespace Backend.Database
 			44, // Id
 			"Lord of The Rings", // Kategori
 			"The fellowship passes the Argonath", // Fråga
-			"", // Trivia
+			"The two kings depicted in the Argonath are Isildur and Anarion, the sons of Elendil", // Trivia
 			null, // WikiUrl
 			Ages.thirdAge, // Tidsålder
 			DifficultyRating.Normal, //Svårighetsgrad
@@ -636,7 +636,7 @@ namespace Backend.Database
 			45, // Id
 			"Lord of The Rings", // Kategori
 			"Boromir is slain", // Fråga
-			"", // Trivia
+			"Boromir travelled to Rivendell mostly on foot, the journey took him 110 days", // Trivia
 			null, // WikiUrl
 			Ages.thirdAge, // Tidsålder
 			DifficultyRating.Normal, //Svårighetsgrad
@@ -650,7 +650,7 @@ namespace Backend.Database
 			46, // Id
 			"Lord of The Rings", // Kategori
 			"Pippin looks into the Orthanc-stone", // Fråga
-			"", // Trivia
+			"The seven seeing stones are said to have been created by Fëanor, but that isn't confirmed", // Trivia
 			null, // WikiUrl
 			Ages.thirdAge, // Tidsålder
 			DifficultyRating.Hard, //Svårighetsgrad
@@ -664,7 +664,7 @@ namespace Backend.Database
 			47, // Id
 			"Lord of The Rings", // Kategori
 			"Frodo and Sam reach Henneth Annûn", // Fråga
-			"", // Trivia
+			"Henneth Annûn was Sindarin for \"Window of the West\"", // Trivia
 			null, // WikiUrl
 			Ages.thirdAge, // Tidsålder
 			DifficultyRating.Hard, //Svårighetsgrad
@@ -678,7 +678,7 @@ namespace Backend.Database
 			48, // Id
 			"Lord of The Rings", // Kategori
 			"The Dawnless Day", // Fråga
-			"", // Trivia
+			"Sauron sent out fumes to veil the Sun, thus this day was labeled The Dawnless Day", // Trivia
 			null, // WikiUrl
 			Ages.thirdAge, // Tidsålder
 			DifficultyRating.Hard, //Svårighetsgrad
@@ -692,7 +692,7 @@ namespace Backend.Database
 			49, // Id
 			"Lord of The Rings", // Kategori
 			"Second assault on Lothlórien", // Fråga
-			"", // Trivia
+			"Not featured in the movies, the war of the ring had several fronts inclduing Lóthlorien", // Trivia
 			null, // WikiUrl
 			Ages.thirdAge, // Tidsålder
 			DifficultyRating.Extreme, //Svårighetsgrad
@@ -702,11 +702,11 @@ namespace Backend.Database
 			true, // Händer det i Lotr eller the hobbit?
 			false // Är det ett "great happening" som ska vara med i alla quiz?
 		),
-					new LotrCardModel(
+			new LotrCardModel(
 			50, // Id
 			"Lord of The Rings", // Kategori
 			"Frodo wakes up in Rivendell after recovering from his wound", // Fråga
-			"", // Trivia
+			"Frodo never fully recovered however, the wound pained him until his last days", // Trivia
 			null, // WikiUrl
 			Ages.thirdAge, // Tidsålder
 			DifficultyRating.Normal, //Svårighetsgrad
@@ -715,8 +715,748 @@ namespace Backend.Database
 			24, // Dag
 			true, // Händer det i Lotr eller the hobbit?
 			false // Är det ett "great happening" som ska vara med i alla quiz?
-		)
+		),			
+			new LotrCardModel(
+			51, // Id
+			"Lord of The Rings", // Kategori
+			"Arwen dies in Lothlórien", // Fråga
+			"Arwen dies of a broken heart, as Aragorn had died a year earlier", // Trivia
+			null, // WikiUrl
+			Ages.fourthAge, // Tidsålder
+			DifficultyRating.Hard, //Svårighetsgrad
+			121, // År
+			null, // Månad
+			null, // Dag
+			false, // Händer det i Lotr eller the hobbit?
+			null // Är det ett "great happening" som ska vara med i alla quiz?
+		),
+					new LotrCardModel(
+			52, // Id
+			"Lord of The Rings", // Kategori
+			"Samwise Gamgee leaves Middle-earth", // Fråga
+			"As a ringbearer, Sam was also eligible to leave for the undying lands", // Trivia
+			null, // WikiUrl
+			Ages.fourthAge, // Tidsålder
+			DifficultyRating.Normal, //Svårighetsgrad
+			61, // År
+			9, // Månad
+			22, // Dag
+			true, // Händer det i Lotr eller the hobbit?
+			false // Är det ett "great happening" som ska vara med i alla quiz?
+		),
+			new LotrCardModel(
+			53, // Id
+			"Lord of The Rings", // Kategori
+			"Bilbo turns 131 years old", // Fråga
+			"At 131 years old, Bilbo becomes the longest living hobbit in history", // Trivia
+			null, // WikiUrl
+			Ages.thirdAge, // Tidsålder
+			DifficultyRating.Normal, //Svårighetsgrad
+			3021, // År
+			9, // Månad
+			22, // Dag
+			true, // Händer det i Lotr eller the hobbit?
+			false // Är det ett "great happening" som ska vara med i alla quiz?
+		),
+			new LotrCardModel(
+			54, // Id
+			"Lord of The Rings", // Kategori
+			"Elanor, daughter of Samwise is born", // Fråga
+			"The name Elanor comes from a flower in Lothlórien", // Trivia
+			null, // WikiUrl
+			Ages.thirdAge, // Tidsålder
+			DifficultyRating.Hard, //Svårighetsgrad
+			3021, // År
+			3, // Månad
+			25, // Dag
+			true, // Händer det i Lotr eller the hobbit?
+			false // Är det ett "great happening" som ska vara med i alla quiz?
+		),
+			new LotrCardModel(
+			55, // Id
+			"Lord of The Rings", // Kategori
+			"Death of Saruman", // Fråga
+			"In the books, Saruman dies in The Shire after the battle of Bywater", // Trivia
+			null, // WikiUrl
+			Ages.thirdAge, // Tidsålder
+			DifficultyRating.Hard, //Svårighetsgrad
+			3019, // År
+			11, // Månad
+			3, // Dag
+			true, // Händer det i Lotr eller the hobbit?
+			true // Är det ett "great happening" som ska vara med i alla quiz?
+		),
+			new LotrCardModel(
+			56, // Id
+			"Lord of The Rings", // Kategori
+			"Aragorn finds a sapling of the White Tree", // Fråga
+			"Tis tree is the seventh decendant in line from the Great Tree Telperion", // Trivia
+			null, // WikiUrl
+			Ages.thirdAge, // Tidsålder
+			DifficultyRating.Hard, //Svårighetsgrad
+			3019, // År
+			6, // Månad
+			25, // Dag
+			true, // Händer det i Lotr eller the hobbit?
+			true // Är det ett "great happening" som ska vara med i alla quiz?
+		),
+			new LotrCardModel(
+			57, // Id
+			"Lord of The Rings", // Kategori
+			"The sacking of Dol Goldur", // Fråga
+			"Galadriel throws down the walls of Dol Goldur at the end of the siege", // Trivia
+			null, // WikiUrl
+			Ages.thirdAge, // Tidsålder
+			DifficultyRating.Hard, //Svårighetsgrad
+			3019, // År
+			3, // Månad
+			28, // Dag
+			true, // Händer det i Lotr eller the hobbit?
+			false // Är det ett "great happening" som ska vara med i alla quiz?
+		),
+			new LotrCardModel(
+			58, // Id
+			"Lord of The Rings", // Kategori
+			"Sam defeats Shelob", // Fråga
+			"Shelob is the last descendant of Ungoliant, the spider who destroyed the Two Trees of Valinor", // Trivia
+			null, // WikiUrl
+			Ages.thirdAge, // Tidsålder
+			DifficultyRating.Normal, //Svårighetsgrad
+			3019, // År
+			3, // Månad
+			13, // Dag
+			true, // Händer det i Lotr eller the hobbit?
+			true // Är det ett "great happening" som ska vara med i alla quiz?
+		),
+			new LotrCardModel(
+			59, // Id
+			"Lord of The Rings", // Kategori
+			"Awakening of the Elves", // Fråga
+			"The Elves awake at Cuiviénen under a starlit sky as the sun and the moon aren't created yet", // Trivia
+			null, // WikiUrl
+			Ages.trees, // Tidsålder
+			DifficultyRating.Hard, //Svårighetsgrad
+			1050, // År
+			null, // Månad
+			null, // Dag
+			false, // Händer det i Lotr eller the hobbit?
+			null // Är det ett "great happening" som ska vara med i alla quiz?
+		),
+		new LotrCardModel(
+			60, // Id
+			"Lord of The Rings", // Kategori
+			"Fingolfin challenges Morgoth", // Fråga
+			"Fingolfin strikes Morgoth seven times. Morgoth walked with a limp after the duel, and the wounds he received pained him forever", // Trivia
+			null, // WikiUrl
+			Ages.firstAge, // Tidsålder
+			DifficultyRating.Hard, //Svårighetsgrad
+			456, // År
+			null, // Månad
+			null, // Dag
+			false, // Händer det i Lotr eller the hobbit?
+			null // Är det ett "great happening" som ska vara med i alla quiz?
 
+		),
+		new LotrCardModel(
+			61, // Id
+			"Lord of The Rings", // Kategori
+			"The last debate", // Fråga
+			"The last debate was held outside of Minas Tirith, as Aragorn had decided not to enter Gondor until being accepted as King", // Trivia
+			null, // WikiUrl
+			Ages.thirdAge, // Tidsålder
+			DifficultyRating.Hard, //Svårighetsgrad
+			3019, // År
+			3, // Månad
+			16, // Dag
+			true, // Händer det i Lotr eller the hobbit?
+			false // Är det ett "great happening" som ska vara med i alla quiz?
+
+		),
+		new LotrCardModel(
+			62, // Id
+			"Lord of The Rings", // Kategori
+			"Gandalf arrives at Helm's Deep", // Fråga
+			"In the books Gandalf arrives together with Erkenbrand, whereas in the movies he arrives with Éomer", // Trivia
+			null, // WikiUrl
+			Ages.thirdAge, // Tidsålder
+			DifficultyRating.Normal, //Svårighetsgrad
+			3019, // År
+			3, // Månad
+			4, // Dag
+			true, // Händer det i Lotr eller the hobbit?
+			false // Är det ett "great happening" som ska vara med i alla quiz?
+
+		),
+		new LotrCardModel(
+			63, // Id
+			"Lord of The Rings", // Kategori
+			"Gandalf heals Theoden", // Fråga
+			"fter this, he became known as Théoden Ednew, the Renewed, because he had thrown off the yoke of Saruman.", // Trivia
+			null, // WikiUrl
+			Ages.thirdAge, // Tidsålder
+			DifficultyRating.Normal, //Svårighetsgrad
+			3019, // År
+			3, // Månad
+			2, // Dag
+			true, // Händer det i Lotr eller the hobbit?
+			false // Är det ett "great happening" som ska vara med i alla quiz?
+
+		),
+		new LotrCardModel(
+			64, // Id
+			"Lord of The Rings", // Kategori
+			"The breaking of the Fellowship of The Ring", // Fråga
+			"Aragorn continued to refer to the company he led as the Fellowship of the Ring even after the original Fellowship broke up.", // Trivia
+			null, // WikiUrl
+			Ages.thirdAge, // Tidsålder
+			DifficultyRating.Normal, //Svårighetsgrad
+			3019, // År
+			2, // Månad
+			26, // Dag
+			true, // Händer det i Lotr eller the hobbit?
+			false // Är det ett "great happening" som ska vara med i alla quiz?
+
+		),
+		new LotrCardModel(
+			65, // Id
+			"Lord of The Rings", // Kategori
+			"Gandalf returns to life", // Fråga
+			"Gandalf is the second person ever to be ressurected after fighting a Balrog, Glorfindel was the first", // Trivia
+			null, // WikiUrl
+			Ages.thirdAge, // Tidsålder
+			DifficultyRating.Hard, //Svårighetsgrad
+			3019, // År
+			2, // Månad
+			15, // Dag
+			true, // Händer det i Lotr eller the hobbit?
+			false // Är det ett "great happening" som ska vara med i alla quiz?
+
+		),
+		new LotrCardModel(
+			66, // Id
+			"Lord of The Rings", // Kategori
+			"Samwise Gamgee is born", // Fråga
+			"J.R.R. Tolkien took the name from Gamgee Tissue,invented by a Birmingham surgeon", // Trivia
+			null, // WikiUrl
+			Ages.thirdAge, // Tidsålder
+			DifficultyRating.Hard, //Svårighetsgrad
+			2980, // År
+			4, // Månad
+			6, // Dag
+			true, // Händer det i Lotr eller the hobbit?
+			false // Är det ett "great happening" som ska vara med i alla quiz?
+
+		),
+		new LotrCardModel(
+			67, // Id
+			"Lord of The Rings", // Kategori
+			"Bilbo returns to Bag End and learns he's been pronounced dead", // Fråga
+			" Bilbo had to buy back his sold possessions in order to avoid quarreling with the purchasers", // Trivia
+			null, // WikiUrl
+			Ages.thirdAge, // Tidsålder
+			DifficultyRating.Hard, //Svårighetsgrad
+			2942, // År
+			6, // Månad
+			22, // Dag
+			true, // Händer det i Lotr eller the hobbit?
+			false // Är det ett "great happening" som ska vara med i alla quiz?
+
+		),
+		new LotrCardModel(
+			68, // Id
+			"Lord of The Rings", // Kategori
+			"Smaug is killed", // Fråga
+			"Smaug was considered the last great dragon of Middle-Earth", // Trivia
+			null, // WikiUrl
+			Ages.thirdAge, // Tidsålder
+			DifficultyRating.Normal, //Svårighetsgrad
+			2941, // År
+			10, // Månad
+			1, // Dag
+			true, // Händer det i Lotr eller the hobbit?
+			false // Är det ett "great happening" som ska vara med i alla quiz?
+
+		),
+		new LotrCardModel(
+			69, // Id
+			"Lord of The Rings", // Kategori
+			"Bilbo leaves Bag End with Gandalf and the thirteen dwarves", // Fråga
+			"Bilbos father was name Bungo Baggins and his mother Belladonna Took, making him half a Took", // Trivia
+			null, // WikiUrl
+			Ages.thirdAge, // Tidsålder
+			DifficultyRating.Hard, //Svårighetsgrad
+			2941, // År
+			4, // Månad
+			27, // Dag
+			true, // Händer det i Lotr eller the hobbit?
+			false // Är det ett "great happening" som ska vara med i alla quiz?
+
+		),
+		new LotrCardModel(
+			70, // Id
+			"Lord of The Rings", // Kategori
+			"The Witch King invades Arnor", // Fråga
+			"Arnor was founded in Second Age 3320 by Elendil, the sister kingdom to the southern realm of Gondor founded by his sons", // Trivia
+			null, // WikiUrl
+			Ages.thirdAge, // Tidsålder
+			DifficultyRating.Hard, //Svårighetsgrad
+			1409, // År
+			null, // Månad
+			null, // Dag
+			false, // Händer det i Lotr eller the hobbit?
+			null // Är det ett "great happening" som ska vara med i alla quiz?
+
+		),
+		new LotrCardModel(
+			71, // Id
+			"Lord of The Rings", // Kategori
+			"Defeat of Sauron and death of Gil-galad and Elendil", // Fråga
+			"Gil-galad was burnt to death by Saurons scorching touch", // Trivia
+			null, // WikiUrl
+			Ages.secondAge, // Tidsålder
+			DifficultyRating.Hard, //Svårighetsgrad
+			3441, // År
+			null, // Månad
+			null, // Dag
+			false, // Händer det i Lotr eller the hobbit?
+			null // Är det ett "great happening" som ska vara med i alla quiz?
+
+		),
+		new LotrCardModel(
+			72, // Id
+			"Lord of The Rings", // Kategori
+			"Battle of Dagorlad and siege of Barad-dûr", // Fråga
+			"The siege lated for seven years", // Trivia
+			null, // WikiUrl
+			Ages.secondAge, // Tidsålder
+			DifficultyRating.Hard, //Svårighetsgrad
+			3434, // År
+			null, // Månad
+			null, // Dag
+			false, // Händer det i Lotr eller the hobbit?
+			null // Är det ett "great happening" som ska vara med i alla quiz?
+
+		),
+		new LotrCardModel(
+			73, // Id
+			"Lord of The Rings", // Kategori
+			"The Three Rings are hidden and the War of the Elves and Sauron begins", // Fråga
+			"The moment Sauron puts on the One Ring the elven ring-bearers could sense it", // Trivia
+			null, // WikiUrl
+			Ages.secondAge, // Tidsålder
+			DifficultyRating.Hard, //Svårighetsgrad
+			1693, // År
+			null, // Månad
+			null, // Dag
+			false, // Händer det i Lotr eller the hobbit?
+			null // Är det ett "great happening" som ska vara med i alla quiz?
+
+		),
+		new LotrCardModel(
+			74, // Id
+			"Lord of The Rings", // Kategori
+			"Elrond founds Rivendell", // Fråga
+			"The valley of Imladris (within which the Last Homely House was situated) was based upon the landscape of Lauterbrunnen", // Trivia
+			null, // WikiUrl
+			Ages.secondAge, // Tidsålder
+			DifficultyRating.Hard, //Svårighetsgrad
+			1697, // År
+			null, // Månad
+			null, // Dag
+			false, // Händer det i Lotr eller the hobbit?
+			null // Är det ett "great happening" som ska vara med i alla quiz?
+
+		),
+		new LotrCardModel(
+			75, // Id
+			"Lord of The Rings", // Kategori
+			"The war of Wrath", // Fråga
+			"The battle was so intense that it lay waste to all of Beleriand and sunk it under the sea", // Trivia
+			null, // WikiUrl
+			Ages.firstAge, // Tidsålder
+			DifficultyRating.Hard, //Svårighetsgrad
+			545, // År
+			null, // Månad
+			null, // Dag
+			false, // Händer det i Lotr eller the hobbit?
+			null // Är det ett "great happening" som ska vara med i alla quiz?
+
+		),
+		new LotrCardModel(
+			76, // Id
+			"Lord of The Rings", // Kategori
+			"Eärendil arrives in Valinor and asks the Valar to aid in the fight again Morgoth", // Fråga
+			"The name Eärendil comes from an old English poem", // Trivia
+			null, // WikiUrl
+			Ages.firstAge, // Tidsålder
+			DifficultyRating.Hard, //Svårighetsgrad
+			542, // År
+			null, // Månad
+			null, // Dag
+			false, // Händer det i Lotr eller the hobbit?
+			null // Är det ett "great happening" som ska vara med i alla quiz?
+
+		),
+		new LotrCardModel(
+			77, // Id
+			"Lord of The Rings", // Kategori
+			"Túrin slays Glaurung", // Fråga
+			"Glaurung is known as tha father of all dragons. He could however not fly", // Trivia
+			null, // WikiUrl
+			Ages.firstAge, // Tidsålder
+			DifficultyRating.Hard, //Svårighetsgrad
+			499, // År
+			null, // Månad
+			null, // Dag
+			false, // Händer det i Lotr eller the hobbit?
+			null // Är det ett "great happening" som ska vara med i alla quiz?
+
+		),
+		new LotrCardModel(
+			78, // Id
+			"Lord of The Rings", // Kategori
+			"Nírnaeth Arnoediad, The Battle of Unnumbered Tears, is fought.", // Fråga
+			"This battle swayed the war to Morgoths favor, it was a crushing defeat for the Elves and Men of Beleriand", // Trivia
+			null, // WikiUrl
+			Ages.firstAge, // Tidsålder
+			DifficultyRating.Hard, //Svårighetsgrad
+			472, // År
+			null, // Månad
+			null, // Dag
+			false, // Händer det i Lotr eller the hobbit?
+			null // Är det ett "great happening" som ska vara med i alla quiz?
+
+		),
+		new LotrCardModel(
+			79, // Id
+			"Lord of The Rings", // Kategori
+			"Fall of Gondolin", // Fråga
+			"Like Gandalf, Glorfindel fought a Balrog and won. Glorfindel himself died though, and was later ressurected.", // Trivia
+			null, // WikiUrl
+			Ages.firstAge, // Tidsålder
+			DifficultyRating.Hard, //Svårighetsgrad
+			510, // År
+			null, // Månad
+			null, // Dag
+			false, // Händer det i Lotr eller the hobbit?
+			null // Är det ett "great happening" som ska vara med i alla quiz?
+
+		),
+		new LotrCardModel(
+			80, // Id
+			"Lord of The Rings", // Kategori
+			"Awakening of Men", // Fråga
+			"Men awake as the sun rises for the first time", // Trivia
+			null, // WikiUrl
+			Ages.firstAge, // Tidsålder
+			DifficultyRating.Hard, //Svårighetsgrad
+			1, // År
+			null, // Månad
+			null, // Dag
+			false, // Händer det i Lotr eller the hobbit?
+			null // Är det ett "great happening" som ska vara med i alla quiz?
+
+		),
+		new LotrCardModel(
+			81, // Id
+			"Lord of The Rings", // Kategori
+			"Beren and Lúthien retrieve a Silmaril from Morgoths crown", // Fråga
+			"Beren tries to take more than one Silmaril but is  in the attempt", // Trivia
+			null, // WikiUrl
+			Ages.firstAge, // Tidsålder
+			DifficultyRating.Hard, //Svårighetsgrad
+			466, // År
+			null, // Månad
+			null, // Dag
+			false, // Händer det i Lotr eller the hobbit?
+			null // Är det ett "great happening" som ska vara med i alla quiz?
+
+		),
+		new LotrCardModel(
+			82, // Id
+			"Lord of The Rings", // Kategori
+			"Dagor Bragollach, Battle of the Sudden Flame", // Fråga
+			"This is the first battle were dragons were used", // Trivia
+			null, // WikiUrl
+			Ages.firstAge, // Tidsålder
+			DifficultyRating.Hard, //Svårighetsgrad
+			455, // År
+			null, // Månad
+			null, // Dag
+			false, // Händer det i Lotr eller the hobbit?
+			null // Är det ett "great happening" som ska vara med i alla quiz?
+
+		),
+		new LotrCardModel(
+			83, // Id
+			"Lord of The Rings", // Kategori
+			"Fingon rescues Maedhros from Thangorodrim", // Fråga
+			"Meadhros was the oldest of Fëanors seven sons", // Trivia
+			null, // WikiUrl
+			Ages.firstAge, // Tidsålder
+			DifficultyRating.Hard, //Svårighetsgrad
+			5, // År
+			null, // Månad
+			null, // Dag
+			false, // Händer det i Lotr eller the hobbit?
+			null // Är det ett "great happening" som ska vara med i alla quiz?
+
+		),
+		new LotrCardModel(
+			84, // Id
+			"Lord of The Rings", // Kategori
+			"Elros is crowned the first king of Númenor", // Fråga
+			"The land was brought up from the sea as a gift to Men from the gods, for helping defeat Morgoth", // Trivia
+			null, // WikiUrl
+			Ages.secondAge, // Tidsålder
+			DifficultyRating.Hard, //Svårighetsgrad
+			32, // År
+			null, // Månad
+			null, // Dag
+			false, // Händer det i Lotr eller the hobbit?
+			null // Är det ett "great happening" som ska vara med i alla quiz?
+
+		),
+		new LotrCardModel(
+			85, // Id
+			"Lord of The Rings", // Kategori
+			"Lúthien dies", // Fråga
+			"Beren and Lúthien were both revived and given mortal life, their ultimate deaths are not recorded", // Trivia
+			null, // WikiUrl
+			Ages.firstAge, // Tidsålder
+			DifficultyRating.Hard, //Svårighetsgrad
+			467, // År
+			null, // Månad
+			null, // Dag
+			false, // Händer det i Lotr eller the hobbit?
+			null // Är det ett "great happening" som ska vara med i alla quiz?
+
+		),
+		new LotrCardModel(
+			86, // Id
+			"Lord of The Rings", // Kategori
+			"Elrond and Elros are born", // Fråga
+			"Elrond chooses and elven life and Elros the life of a man", // Trivia
+			null, // WikiUrl
+			Ages.firstAge, // Tidsålder
+			DifficultyRating.Hard, //Svårighetsgrad
+			532, // År
+			null, // Månad
+			null, // Dag
+			false, // Händer det i Lotr eller the hobbit?
+			null // Är det ett "great happening" som ska vara med i alla quiz?
+
+		),
+		new LotrCardModel(
+			87, // Id
+			"Lord of The Rings", // Kategori
+			"Creation of the Moon and the Sun", // Fråga
+			"The Sun and Moon are created from the last fruit and flower of the Two Trees respectively", // Trivia
+			null, // WikiUrl
+			Ages.trees, // Tidsålder
+			DifficultyRating.Hard, //Svårighetsgrad
+			1500, // År
+			null, // Månad
+			null, // Dag
+			false, // Händer det i Lotr eller the hobbit?
+			null // Är det ett "great happening" som ska vara med i alla quiz?
+
+		),
+		new LotrCardModel(
+			88, // Id
+			"Lord of The Rings", // Kategori
+			"Fëanor is slain", // Fråga
+			"Fëanor dies fighting a host of Balrogs", // Trivia
+			null, // WikiUrl
+			Ages.trees, // Tidsålder
+			DifficultyRating.Hard, //Svårighetsgrad
+			1497, // År
+			null, // Månad
+			null, // Dag
+			false, // Händer det i Lotr eller the hobbit?
+			null // Är det ett "great happening" som ska vara med i alla quiz?
+
+		),
+		new LotrCardModel(
+			89, // Id
+			"Lord of The Rings", // Kategori
+			"The Noldor are banished from Valinor", // Fråga
+			"Most of the Noldor are subsequently given the chance to repent, except for Fëanor and his sons", // Trivia
+			null, // WikiUrl
+			Ages.trees, // Tidsålder
+			DifficultyRating.Hard, //Svårighetsgrad
+			1496, // År
+			null, // Månad
+			null, // Dag
+			false, // Händer det i Lotr eller the hobbit?
+			null // Är det ett "great happening" som ska vara med i alla quiz?
+
+		),
+		new LotrCardModel(
+			90, // Id
+			"Lord of The Rings", // Kategori
+			"Destruction of the Two Trees", // Fråga
+			"Ungoliant sucks the light out fo the Trees and poisons them in the process", // Trivia
+			null, // WikiUrl
+			Ages.trees, // Tidsålder
+			DifficultyRating.Hard, //Svårighetsgrad
+			1495, // År
+			null, // Månad
+			null, // Dag
+			false, // Händer det i Lotr eller the hobbit?
+			null // Är det ett "great happening" som ska vara med i alla quiz?
+
+		),
+		new LotrCardModel(
+			91, // Id
+			"Lord of The Rings", // Kategori
+			"Morgoth steals the three Silmarils", // Fråga
+			"As Morgoth steals the Silmarils, he murders high king Finwë. Thus the first murder is commited in Valinor", // Trivia
+			null, // WikiUrl
+			Ages.trees, // Tidsålder
+			DifficultyRating.Hard, //Svårighetsgrad
+			1495, // År
+			null, // Månad
+			null, // Dag
+			false, // Händer det i Lotr eller the hobbit?
+			null // Är det ett "great happening" som ska vara med i alla quiz?
+
+		),
+		new LotrCardModel(
+			92, // Id
+			"Lord of The Rings", // Kategori
+			"The first kinslaying", // Fråga
+			"There were a total of three kinslaying among elves during the first age", // Trivia
+			null, // WikiUrl
+			Ages.trees, // Tidsålder
+			DifficultyRating.Hard, //Svårighetsgrad
+			1495, // År
+			null, // Månad
+			null, // Dag
+			false, // Händer det i Lotr eller the hobbit?
+			null // Är det ett "great happening" som ska vara med i alla quiz?
+
+		),
+		new LotrCardModel(
+			93, // Id
+			"Lord of The Rings", // Kategori
+			"Fëanor makes the Silmarils", // Fråga
+			"The Silmarils are imbued with the light of the Two Trees and are said to be the greatest creations by any living", // Trivia
+			null, // WikiUrl
+			Ages.trees, // Tidsålder
+			DifficultyRating.Hard, //Svårighetsgrad
+			1450, // År
+			null, // Månad
+			null, // Dag
+			false, // Händer det i Lotr eller the hobbit?
+			null // Är det ett "great happening" som ska vara med i alla quiz?
+
+		),
+		new LotrCardModel(
+			94, // Id
+			"Lord of The Rings", // Kategori
+			"Morgoth is released from the halls of Mandos", // Fråga
+			"Morgoth promises to play nice (spoiler alert: He doesn't)", // Trivia
+			null, // WikiUrl
+			Ages.trees, // Tidsålder
+			DifficultyRating.Hard, //Svårighetsgrad
+			1400, // År
+			null, // Månad
+			null, // Dag
+			false, // Händer det i Lotr eller the hobbit?
+			null // Är det ett "great happening" som ska vara med i alla quiz?
+
+		),
+		new LotrCardModel(
+			95, // Id
+			"Lord of The Rings", // Kategori
+			"Galadriel is born", // Fråga
+			"The name Galadriel literally means \"maiden crowned with a garland of bright radiance\" as a reference to her golden hair", // Trivia
+			null, // WikiUrl
+			Ages.trees, // Tidsålder
+			DifficultyRating.Hard, //Svårighetsgrad
+			1362, // År
+			null, // Månad
+			null, // Dag
+			false, // Händer det i Lotr eller the hobbit?
+			null // Är det ett "great happening" som ska vara med i alla quiz?
+
+		),
+		new LotrCardModel(
+			96, // Id
+			"Lord of The Rings", // Kategori
+			"Birth of Fëanor", // Fråga
+			"Fëanor is cited as the greatest craftsman and most gifted of all who have ever lived", // Trivia
+			null, // WikiUrl
+			Ages.trees, // Tidsålder
+			DifficultyRating.Extreme, //Svårighetsgrad
+			1169, // År
+			null, // Månad
+			null, // Dag
+			false, // Händer det i Lotr eller the hobbit?
+			null // Är det ett "great happening" som ska vara med i alla quiz?
+
+		),
+		new LotrCardModel(
+			97, // Id
+			"Lord of The Rings", // Kategori
+			"Morgoth is brought back to Valinor in chains and imprisoned in the Halls of Mandos.", // Fråga
+			"Morgoths original name was Melkor, the name Morgoth (Black Foe of the World) was given to him by Fëanor", // Trivia
+			null, // WikiUrl
+			Ages.trees, // Tidsålder
+			DifficultyRating.Hard, //Svårighetsgrad
+			1100, // År
+			null, // Månad
+			null, // Dag
+			false, // Händer det i Lotr eller the hobbit?
+			null // Är det ett "great happening" som ska vara med i alla quiz?
+
+		),
+		new LotrCardModel(
+			98, // Id
+			"Lord of The Rings", // Kategori
+			"Yavanna creates the Two Trees", // Fråga
+			"Before the Sun and the Moon these two trees shone of silver and gold", // Trivia
+			null, // WikiUrl
+			Ages.trees, // Tidsålder
+			DifficultyRating.Hard, //Svårighetsgrad
+			1, // År
+			null, // Månad
+			null, // Dag
+			false, // Händer det i Lotr eller the hobbit?
+			null // Är det ett "great happening" som ska vara med i alla quiz?
+
+		),
+		new LotrCardModel(
+			99, // Id
+			"Lord of The Rings", // Kategori
+			"Varda creates the first stars", // Fråga
+			"Varda is most beloved out of all the Valar by the Elves. Many might know her by the name \"Elbereth, Queen of the Stars\"", // Trivia
+			null, // WikiUrl
+			Ages.trees, // Tidsålder
+			DifficultyRating.Hard, //Svårighetsgrad
+			1000, // År
+			null, // Månad
+			null, // Dag
+			false, // Händer det i Lotr eller the hobbit?
+			null // Är det ett "great happening" som ska vara med i alla quiz?
+
+		),
+		new LotrCardModel(
+			100, // Id
+			"Lord of The Rings", // Kategori
+			"Music of the Ainur, creation of the material universe", // Fråga
+			"The universe was sung in to existence by all the Valar. During the music Morgoth rebelled and tried to make his own music", // Trivia
+			null, // WikiUrl
+			Ages.beforeDays, // Tidsålder
+			DifficultyRating.Hard, //Svårighetsgrad
+			0, // År
+			null, // Månad
+			null, // Dag
+			false, // Händer det i Lotr eller the hobbit?
+			null // Är det ett "great happening" som ska vara med i alla quiz?
+
+		)
 		);
 		}
 	}

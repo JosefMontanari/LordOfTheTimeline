@@ -4,6 +4,7 @@ using Backend.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Backend.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240905095909_seed 10 more cards")]
+    partial class seed10morecards
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -300,7 +303,7 @@ namespace Backend.Migrations
                             Month = 11,
                             Question = "Battle of Five Armies",
                             TimeValue = 42941.323m,
-                            Trivia = "The battle is fought between Dwarves, Elves, Men, Eagles, Bats, Wargs, Orcs and of course Beorn",
+                            Trivia = "trivia",
                             Year = 2941
                         },
                         new
@@ -442,9 +445,9 @@ namespace Backend.Migrations
                             IsGreatHappening = true,
                             IsLotrOrTheHobbit = true,
                             Month = 1,
-                            Question = "Gandalf dies adter fighting the Balrog",
+                            Question = "Gandalf dies and returns as Gandalf the White",
                             TimeValue = 43019.025m,
-                            Trivia = "Gandalf is the second person ever to be ressurected after fighting a Balrog, Glorfindel was the first",
+                            Trivia = "Gandalf is the second person ever to be resurected after figting a Balrog, Glorfindel was the first",
                             Year = 3019
                         },
                         new
@@ -645,7 +648,7 @@ namespace Backend.Migrations
                             Month = 3,
                             Question = "Minas Tirith is besieged",
                             TimeValue = 43019.074m,
-                            Trivia = "The battering ram Grond is named after Morgoths mace",
+                            Trivia = "",
                             Year = 3019
                         },
                         new
@@ -660,7 +663,7 @@ namespace Backend.Migrations
                             Month = 9,
                             Question = "The hobbits reach Bree",
                             TimeValue = 43018.269m,
-                            Trivia = "In the movies, director Peter Jackson can be seen eating a carrot as the Hobbits enter Bree",
+                            Trivia = "",
                             Year = 3018
                         },
                         new
@@ -675,7 +678,7 @@ namespace Backend.Migrations
                             Month = 1,
                             Question = "The fellowship reaches the gate of Moria",
                             TimeValue = 43019.013m,
-                            Trivia = "The door to Moria was constructed by Celebrimbor and Narvi. A co-operation between Elves and Dwarves",
+                            Trivia = "",
                             Year = 3019
                         },
                         new
@@ -690,7 +693,7 @@ namespace Backend.Migrations
                             Month = 2,
                             Question = "The fellowship reaches Lothlórien",
                             TimeValue = 43019.045m,
-                            Trivia = "In the books Gimli is not permitted entry unless blindfolded the way there. Aragorn suggests that the whole company is blindfolded",
+                            Trivia = "",
                             Year = 3019
                         },
                         new
@@ -705,7 +708,7 @@ namespace Backend.Migrations
                             Month = 2,
                             Question = "The fellowship passes the Argonath",
                             TimeValue = 43019.055m,
-                            Trivia = "The two kings depicted in the Argonath are Isildur and Anarion, the sons of Elendil",
+                            Trivia = "",
                             Year = 3019
                         },
                         new
@@ -720,7 +723,7 @@ namespace Backend.Migrations
                             Month = 2,
                             Question = "Boromir is slain",
                             TimeValue = 43019.056m,
-                            Trivia = "Boromir travelled to Rivendell mostly on foot, the journey took him 110 days",
+                            Trivia = "",
                             Year = 3019
                         },
                         new
@@ -735,7 +738,7 @@ namespace Backend.Migrations
                             Month = 3,
                             Question = "Pippin looks into the Orthanc-stone",
                             TimeValue = 43019.065m,
-                            Trivia = "The seven seeing stones are said to have been created by Fëanor, but that isn't confirmed",
+                            Trivia = "",
                             Year = 3019
                         },
                         new
@@ -750,7 +753,7 @@ namespace Backend.Migrations
                             Month = 3,
                             Question = "Frodo and Sam reach Henneth Annûn",
                             TimeValue = 43019.067m,
-                            Trivia = "Henneth Annûn was Sindarin for \"Window of the West\"",
+                            Trivia = "",
                             Year = 3019
                         },
                         new
@@ -765,7 +768,7 @@ namespace Backend.Migrations
                             Month = 3,
                             Question = "The Dawnless Day",
                             TimeValue = 43019.07m,
-                            Trivia = "Sauron sent out fumes to veil the Sun, thus this day was labeled The Dawnless Day",
+                            Trivia = "",
                             Year = 3019
                         },
                         new
@@ -780,7 +783,7 @@ namespace Backend.Migrations
                             Month = 3,
                             Question = "Second assault on Lothlórien",
                             TimeValue = 43019.075m,
-                            Trivia = "Not featured in the movies, the war of the ring had several fronts inclduing Lóthlorien",
+                            Trivia = "",
                             Year = 3019
                         },
                         new
@@ -795,7 +798,7 @@ namespace Backend.Migrations
                             Month = 10,
                             Question = "Frodo wakes up in Rivendell after recovering from his wound",
                             TimeValue = 43018.294m,
-                            Trivia = "Frodo never fully recovered however, the wound pained him until his last days",
+                            Trivia = "",
                             Year = 3018
                         },
                         new
@@ -807,7 +810,7 @@ namespace Backend.Migrations
                             IsLotrOrTheHobbit = false,
                             Question = "Arwen dies in Lothlórien",
                             TimeValue = 50121m,
-                            Trivia = "Arwen dies of a broken heart, as Aragorn had died a year earlier",
+                            Trivia = "",
                             Year = 121
                         },
                         new
@@ -909,9 +912,9 @@ namespace Backend.Migrations
                             Difficulty = 2,
                             IsGreatHappening = true,
                             IsLotrOrTheHobbit = true,
-                            Month = 3,
+                            Month = 6,
                             Question = "Sam defeats Shelob",
-                            TimeValue = 43019.073m,
+                            TimeValue = 43019.163m,
                             Trivia = "Shelob is the last descendant of Ungoliant, the spider who destroyed the Two Trees of Valinor",
                             Year = 3019
                         },
@@ -938,513 +941,6 @@ namespace Backend.Migrations
                             TimeValue = 20456m,
                             Trivia = "Fingolfin strikes Morgoth seven times. Morgoth walked with a limp after the duel, and the wounds he received pained him forever",
                             Year = 456
-                        },
-                        new
-                        {
-                            Id = 61,
-                            Age = 40000,
-                            Category = "Lord of The Rings",
-                            Day = 16,
-                            Difficulty = 3,
-                            IsGreatHappening = false,
-                            IsLotrOrTheHobbit = true,
-                            Month = 3,
-                            Question = "The last debate",
-                            TimeValue = 43019.076m,
-                            Trivia = "The last debate was held outside of Minas Tirith, as Aragorn had decided not to enter Gondor until being accepted as King",
-                            Year = 3019
-                        },
-                        new
-                        {
-                            Id = 62,
-                            Age = 40000,
-                            Category = "Lord of The Rings",
-                            Day = 4,
-                            Difficulty = 2,
-                            IsGreatHappening = false,
-                            IsLotrOrTheHobbit = true,
-                            Month = 3,
-                            Question = "Gandalf arrives at Helm's Deep",
-                            TimeValue = 43019.064m,
-                            Trivia = "In the books Gandalf arrives together with Erkenbrand, whereas in the movies he arrives with Éomer",
-                            Year = 3019
-                        },
-                        new
-                        {
-                            Id = 63,
-                            Age = 40000,
-                            Category = "Lord of The Rings",
-                            Day = 2,
-                            Difficulty = 2,
-                            IsGreatHappening = false,
-                            IsLotrOrTheHobbit = true,
-                            Month = 3,
-                            Question = "Gandalf heals Theoden",
-                            TimeValue = 43019.062m,
-                            Trivia = "fter this, he became known as Théoden Ednew, the Renewed, because he had thrown off the yoke of Saruman.",
-                            Year = 3019
-                        },
-                        new
-                        {
-                            Id = 64,
-                            Age = 40000,
-                            Category = "Lord of The Rings",
-                            Day = 26,
-                            Difficulty = 2,
-                            IsGreatHappening = false,
-                            IsLotrOrTheHobbit = true,
-                            Month = 2,
-                            Question = "The breaking of the Fellowship of The Ring",
-                            TimeValue = 43019.056m,
-                            Trivia = "Aragorn continued to refer to the company he led as the Fellowship of the Ring even after the original Fellowship broke up.",
-                            Year = 3019
-                        },
-                        new
-                        {
-                            Id = 65,
-                            Age = 40000,
-                            Category = "Lord of The Rings",
-                            Day = 15,
-                            Difficulty = 3,
-                            IsGreatHappening = false,
-                            IsLotrOrTheHobbit = true,
-                            Month = 2,
-                            Question = "Gandalf returns to life",
-                            TimeValue = 43019.045m,
-                            Trivia = "Gandalf is the second person ever to be ressurected after fighting a Balrog, Glorfindel was the first",
-                            Year = 3019
-                        },
-                        new
-                        {
-                            Id = 66,
-                            Age = 40000,
-                            Category = "Lord of The Rings",
-                            Day = 6,
-                            Difficulty = 3,
-                            IsGreatHappening = false,
-                            IsLotrOrTheHobbit = true,
-                            Month = 4,
-                            Question = "Samwise Gamgee is born",
-                            TimeValue = 42980.096m,
-                            Trivia = "J.R.R. Tolkien took the name from Gamgee Tissue,invented by a Birmingham surgeon",
-                            Year = 2980
-                        },
-                        new
-                        {
-                            Id = 67,
-                            Age = 40000,
-                            Category = "Lord of The Rings",
-                            Day = 22,
-                            Difficulty = 3,
-                            IsGreatHappening = false,
-                            IsLotrOrTheHobbit = true,
-                            Month = 6,
-                            Question = "Bilbo returns to Bag End and learns he's been pronounced dead",
-                            TimeValue = 42942.172m,
-                            Trivia = " Bilbo had to buy back his sold possessions in order to avoid quarreling with the purchasers",
-                            Year = 2942
-                        },
-                        new
-                        {
-                            Id = 68,
-                            Age = 40000,
-                            Category = "Lord of The Rings",
-                            Day = 1,
-                            Difficulty = 2,
-                            IsGreatHappening = false,
-                            IsLotrOrTheHobbit = true,
-                            Month = 10,
-                            Question = "Smaug is killed",
-                            TimeValue = 42941.271m,
-                            Trivia = "Smaug was considered the last great dragon of Middle-Earth",
-                            Year = 2941
-                        },
-                        new
-                        {
-                            Id = 69,
-                            Age = 40000,
-                            Category = "Lord of The Rings",
-                            Day = 27,
-                            Difficulty = 3,
-                            IsGreatHappening = false,
-                            IsLotrOrTheHobbit = true,
-                            Month = 4,
-                            Question = "Bilbo leaves Bag End with Gandalf and the thirteen dwarves",
-                            TimeValue = 42941.117m,
-                            Trivia = "Bilbos father was name Bungo Baggins and his mother Belladonna Took, making him half a Took",
-                            Year = 2941
-                        },
-                        new
-                        {
-                            Id = 70,
-                            Age = 40000,
-                            Category = "Lord of The Rings",
-                            Difficulty = 3,
-                            IsLotrOrTheHobbit = false,
-                            Question = "The Witch King invades Arnor",
-                            TimeValue = 41409m,
-                            Trivia = "Arnor was founded in Second Age 3320 by Elendil, the sister kingdom to the southern realm of Gondor founded by his sons",
-                            Year = 1409
-                        },
-                        new
-                        {
-                            Id = 71,
-                            Age = 30000,
-                            Category = "Lord of The Rings",
-                            Difficulty = 3,
-                            IsLotrOrTheHobbit = false,
-                            Question = "Defeat of Sauron and death of Gil-galad and Elendil",
-                            TimeValue = 33441m,
-                            Trivia = "Gil-galad was burnt to death by Saurons scorching touch",
-                            Year = 3441
-                        },
-                        new
-                        {
-                            Id = 72,
-                            Age = 30000,
-                            Category = "Lord of The Rings",
-                            Difficulty = 3,
-                            IsLotrOrTheHobbit = false,
-                            Question = "Battle of Dagorlad and siege of Barad-dûr",
-                            TimeValue = 33434m,
-                            Trivia = "The siege lated for seven years",
-                            Year = 3434
-                        },
-                        new
-                        {
-                            Id = 73,
-                            Age = 30000,
-                            Category = "Lord of The Rings",
-                            Difficulty = 3,
-                            IsLotrOrTheHobbit = false,
-                            Question = "The Three Rings are hidden and the War of the Elves and Sauron begins",
-                            TimeValue = 31693m,
-                            Trivia = "The moment Sauron puts on the One Ring the elven ring-bearers could sense it",
-                            Year = 1693
-                        },
-                        new
-                        {
-                            Id = 74,
-                            Age = 30000,
-                            Category = "Lord of The Rings",
-                            Difficulty = 3,
-                            IsLotrOrTheHobbit = false,
-                            Question = "Elrond founds Rivendell",
-                            TimeValue = 31697m,
-                            Trivia = "The valley of Imladris (within which the Last Homely House was situated) was based upon the landscape of Lauterbrunnen",
-                            Year = 1697
-                        },
-                        new
-                        {
-                            Id = 75,
-                            Age = 20000,
-                            Category = "Lord of The Rings",
-                            Difficulty = 3,
-                            IsLotrOrTheHobbit = false,
-                            Question = "The war of Wrath",
-                            TimeValue = 20545m,
-                            Trivia = "The battle was so intense that it lay waste to all of Beleriand and sunk it under the sea",
-                            Year = 545
-                        },
-                        new
-                        {
-                            Id = 76,
-                            Age = 20000,
-                            Category = "Lord of The Rings",
-                            Difficulty = 3,
-                            IsLotrOrTheHobbit = false,
-                            Question = "Eärendil arrives in Valinor and asks the Valar to aid in the fight again Morgoth",
-                            TimeValue = 20542m,
-                            Trivia = "The name Eärendil comes from an old English poem",
-                            Year = 542
-                        },
-                        new
-                        {
-                            Id = 77,
-                            Age = 20000,
-                            Category = "Lord of The Rings",
-                            Difficulty = 3,
-                            IsLotrOrTheHobbit = false,
-                            Question = "Túrin slays Glaurung",
-                            TimeValue = 20499m,
-                            Trivia = "Glaurung is known as tha father of all dragons. He could however not fly",
-                            Year = 499
-                        },
-                        new
-                        {
-                            Id = 78,
-                            Age = 20000,
-                            Category = "Lord of The Rings",
-                            Difficulty = 3,
-                            IsLotrOrTheHobbit = false,
-                            Question = "Nírnaeth Arnoediad, The Battle of Unnumbered Tears, is fought.",
-                            TimeValue = 20472m,
-                            Trivia = "This battle swayed the war to Morgoths favor, it was a crushing defeat for the Elves and Men of Beleriand",
-                            Year = 472
-                        },
-                        new
-                        {
-                            Id = 79,
-                            Age = 20000,
-                            Category = "Lord of The Rings",
-                            Difficulty = 3,
-                            IsLotrOrTheHobbit = false,
-                            Question = "Fall of Gondolin",
-                            TimeValue = 20510m,
-                            Trivia = "Like Gandalf, Glorfindel fought a Balrog and won. Glorfindel himself died though, and was later ressurected.",
-                            Year = 510
-                        },
-                        new
-                        {
-                            Id = 80,
-                            Age = 20000,
-                            Category = "Lord of The Rings",
-                            Difficulty = 3,
-                            IsLotrOrTheHobbit = false,
-                            Question = "Awakening of Men",
-                            TimeValue = 20001m,
-                            Trivia = "Men awake as the sun rises for the first time",
-                            Year = 1
-                        },
-                        new
-                        {
-                            Id = 81,
-                            Age = 20000,
-                            Category = "Lord of The Rings",
-                            Difficulty = 3,
-                            IsLotrOrTheHobbit = false,
-                            Question = "Beren and Lúthien retrieve a Silmaril from Morgoths crown",
-                            TimeValue = 20466m,
-                            Trivia = "Beren tries to take more than one Silmaril but is  in the attempt",
-                            Year = 466
-                        },
-                        new
-                        {
-                            Id = 82,
-                            Age = 20000,
-                            Category = "Lord of The Rings",
-                            Difficulty = 3,
-                            IsLotrOrTheHobbit = false,
-                            Question = "Dagor Bragollach, Battle of the Sudden Flame",
-                            TimeValue = 20455m,
-                            Trivia = "This is the first battle were dragons were used",
-                            Year = 455
-                        },
-                        new
-                        {
-                            Id = 83,
-                            Age = 20000,
-                            Category = "Lord of The Rings",
-                            Difficulty = 3,
-                            IsLotrOrTheHobbit = false,
-                            Question = "Fingon rescues Maedhros from Thangorodrim",
-                            TimeValue = 20005m,
-                            Trivia = "Meadhros was the oldest of Fëanors seven sons",
-                            Year = 5
-                        },
-                        new
-                        {
-                            Id = 84,
-                            Age = 30000,
-                            Category = "Lord of The Rings",
-                            Difficulty = 3,
-                            IsLotrOrTheHobbit = false,
-                            Question = "Elros is crowned the first king of Númenor",
-                            TimeValue = 30032m,
-                            Trivia = "The land was brought up from the sea as a gift to Men from the gods, for helping defeat Morgoth",
-                            Year = 32
-                        },
-                        new
-                        {
-                            Id = 85,
-                            Age = 20000,
-                            Category = "Lord of The Rings",
-                            Difficulty = 3,
-                            IsLotrOrTheHobbit = false,
-                            Question = "Lúthien dies",
-                            TimeValue = 20467m,
-                            Trivia = "Beren and Lúthien were both revived and given mortal life, their ultimate deaths are not recorded",
-                            Year = 467
-                        },
-                        new
-                        {
-                            Id = 86,
-                            Age = 20000,
-                            Category = "Lord of The Rings",
-                            Difficulty = 3,
-                            IsLotrOrTheHobbit = false,
-                            Question = "Elrond and Elros are born",
-                            TimeValue = 20532m,
-                            Trivia = "Elrond chooses and elven life and Elros the life of a man",
-                            Year = 532
-                        },
-                        new
-                        {
-                            Id = 87,
-                            Age = 10000,
-                            Category = "Lord of The Rings",
-                            Difficulty = 3,
-                            IsLotrOrTheHobbit = false,
-                            Question = "Creation of the Moon and the Sun",
-                            TimeValue = 11500m,
-                            Trivia = "The Sun and Moon are created from the last fruit and flower of the Two Trees respectively",
-                            Year = 1500
-                        },
-                        new
-                        {
-                            Id = 88,
-                            Age = 10000,
-                            Category = "Lord of The Rings",
-                            Difficulty = 3,
-                            IsLotrOrTheHobbit = false,
-                            Question = "Fëanor is slain",
-                            TimeValue = 11497m,
-                            Trivia = "Fëanor dies fighting a host of Balrogs",
-                            Year = 1497
-                        },
-                        new
-                        {
-                            Id = 89,
-                            Age = 10000,
-                            Category = "Lord of The Rings",
-                            Difficulty = 3,
-                            IsLotrOrTheHobbit = false,
-                            Question = "The Noldor are banished from Valinor",
-                            TimeValue = 11496m,
-                            Trivia = "Most of the Noldor are subsequently given the chance to repent, except for Fëanor and his sons",
-                            Year = 1496
-                        },
-                        new
-                        {
-                            Id = 90,
-                            Age = 10000,
-                            Category = "Lord of The Rings",
-                            Difficulty = 3,
-                            IsLotrOrTheHobbit = false,
-                            Question = "Destruction of the Two Trees",
-                            TimeValue = 11495m,
-                            Trivia = "Ungoliant sucks the light out fo the Trees and poisons them in the process",
-                            Year = 1495
-                        },
-                        new
-                        {
-                            Id = 91,
-                            Age = 10000,
-                            Category = "Lord of The Rings",
-                            Difficulty = 3,
-                            IsLotrOrTheHobbit = false,
-                            Question = "Morgoth steals the three Silmarils",
-                            TimeValue = 11495m,
-                            Trivia = "As Morgoth steals the Silmarils, he murders high king Finwë. Thus the first murder is commited in Valinor",
-                            Year = 1495
-                        },
-                        new
-                        {
-                            Id = 92,
-                            Age = 10000,
-                            Category = "Lord of The Rings",
-                            Difficulty = 3,
-                            IsLotrOrTheHobbit = false,
-                            Question = "The first kinslaying",
-                            TimeValue = 11495m,
-                            Trivia = "There were a total of three kinslaying among elves during the first age",
-                            Year = 1495
-                        },
-                        new
-                        {
-                            Id = 93,
-                            Age = 10000,
-                            Category = "Lord of The Rings",
-                            Difficulty = 3,
-                            IsLotrOrTheHobbit = false,
-                            Question = "Fëanor makes the Silmarils",
-                            TimeValue = 11450m,
-                            Trivia = "The Silmarils are imbued with the light of the Two Trees and are said to be the greatest creations by any living",
-                            Year = 1450
-                        },
-                        new
-                        {
-                            Id = 94,
-                            Age = 10000,
-                            Category = "Lord of The Rings",
-                            Difficulty = 3,
-                            IsLotrOrTheHobbit = false,
-                            Question = "Morgoth is released from the halls of Mandos",
-                            TimeValue = 11400m,
-                            Trivia = "Morgoth promises to play nice (spoiler alert: He doesn't)",
-                            Year = 1400
-                        },
-                        new
-                        {
-                            Id = 95,
-                            Age = 10000,
-                            Category = "Lord of The Rings",
-                            Difficulty = 3,
-                            IsLotrOrTheHobbit = false,
-                            Question = "Galadriel is born",
-                            TimeValue = 11362m,
-                            Trivia = "The name Galadriel literally means \"maiden crowned with a garland of bright radiance\" as a reference to her golden hair",
-                            Year = 1362
-                        },
-                        new
-                        {
-                            Id = 96,
-                            Age = 10000,
-                            Category = "Lord of The Rings",
-                            Difficulty = 4,
-                            IsLotrOrTheHobbit = false,
-                            Question = "Birth of Fëanor",
-                            TimeValue = 11169m,
-                            Trivia = "Fëanor is cited as the greatest craftsman and most gifted of all who have ever lived",
-                            Year = 1169
-                        },
-                        new
-                        {
-                            Id = 97,
-                            Age = 10000,
-                            Category = "Lord of The Rings",
-                            Difficulty = 3,
-                            IsLotrOrTheHobbit = false,
-                            Question = "Morgoth is brought back to Valinor in chains and imprisoned in the Halls of Mandos.",
-                            TimeValue = 11100m,
-                            Trivia = "Morgoths original name was Melkor, the name Morgoth (Black Foe of the World) was given to him by Fëanor",
-                            Year = 1100
-                        },
-                        new
-                        {
-                            Id = 98,
-                            Age = 10000,
-                            Category = "Lord of The Rings",
-                            Difficulty = 3,
-                            IsLotrOrTheHobbit = false,
-                            Question = "Yavanna creates the Two Trees",
-                            TimeValue = 10001m,
-                            Trivia = "Before the Sun and the Moon these two trees shone of silver and gold",
-                            Year = 1
-                        },
-                        new
-                        {
-                            Id = 99,
-                            Age = 10000,
-                            Category = "Lord of The Rings",
-                            Difficulty = 3,
-                            IsLotrOrTheHobbit = false,
-                            Question = "Varda creates the first stars",
-                            TimeValue = 11000m,
-                            Trivia = "Varda is most beloved out of all the Valar by the Elves. Many might know her by the name \"Elbereth, Queen of the Stars\"",
-                            Year = 1000
-                        },
-                        new
-                        {
-                            Id = 100,
-                            Age = 0,
-                            Category = "Lord of The Rings",
-                            Difficulty = 3,
-                            IsLotrOrTheHobbit = false,
-                            Question = "Music of the Ainur, creation of the material universe",
-                            TimeValue = 0m,
-                            Trivia = "The universe was sung in to existence by all the Valar. During the music Morgoth rebelled and tried to make his own music",
-                            Year = 0
                         });
                 });
 #pragma warning restore 612, 618

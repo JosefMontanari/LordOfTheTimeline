@@ -4,6 +4,7 @@ using Backend.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Backend.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240910071809_added up to 100 cards")]
+    partial class addedupto100cards
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -300,7 +303,7 @@ namespace Backend.Migrations
                             Month = 11,
                             Question = "Battle of Five Armies",
                             TimeValue = 42941.323m,
-                            Trivia = "The battle is fought between Dwarves, Elves, Men, Eagles, Bats, Wargs, Orcs and of course Beorn",
+                            Trivia = "trivia",
                             Year = 2941
                         },
                         new
@@ -444,7 +447,7 @@ namespace Backend.Migrations
                             Month = 1,
                             Question = "Gandalf dies adter fighting the Balrog",
                             TimeValue = 43019.025m,
-                            Trivia = "Gandalf is the second person ever to be ressurected after fighting a Balrog, Glorfindel was the first",
+                            Trivia = "Gandalf is the second person ever to be resurected after fighting a Balrog, Glorfindel was the first",
                             Year = 3019
                         },
                         new
@@ -645,7 +648,7 @@ namespace Backend.Migrations
                             Month = 3,
                             Question = "Minas Tirith is besieged",
                             TimeValue = 43019.074m,
-                            Trivia = "The battering ram Grond is named after Morgoths mace",
+                            Trivia = "",
                             Year = 3019
                         },
                         new
@@ -660,7 +663,7 @@ namespace Backend.Migrations
                             Month = 9,
                             Question = "The hobbits reach Bree",
                             TimeValue = 43018.269m,
-                            Trivia = "In the movies, director Peter Jackson can be seen eating a carrot as the Hobbits enter Bree",
+                            Trivia = "",
                             Year = 3018
                         },
                         new
@@ -675,7 +678,7 @@ namespace Backend.Migrations
                             Month = 1,
                             Question = "The fellowship reaches the gate of Moria",
                             TimeValue = 43019.013m,
-                            Trivia = "The door to Moria was constructed by Celebrimbor and Narvi. A co-operation between Elves and Dwarves",
+                            Trivia = "",
                             Year = 3019
                         },
                         new
@@ -690,7 +693,7 @@ namespace Backend.Migrations
                             Month = 2,
                             Question = "The fellowship reaches Lothlórien",
                             TimeValue = 43019.045m,
-                            Trivia = "In the books Gimli is not permitted entry unless blindfolded the way there. Aragorn suggests that the whole company is blindfolded",
+                            Trivia = "",
                             Year = 3019
                         },
                         new
@@ -705,7 +708,7 @@ namespace Backend.Migrations
                             Month = 2,
                             Question = "The fellowship passes the Argonath",
                             TimeValue = 43019.055m,
-                            Trivia = "The two kings depicted in the Argonath are Isildur and Anarion, the sons of Elendil",
+                            Trivia = "",
                             Year = 3019
                         },
                         new
@@ -720,7 +723,7 @@ namespace Backend.Migrations
                             Month = 2,
                             Question = "Boromir is slain",
                             TimeValue = 43019.056m,
-                            Trivia = "Boromir travelled to Rivendell mostly on foot, the journey took him 110 days",
+                            Trivia = "",
                             Year = 3019
                         },
                         new
@@ -735,7 +738,7 @@ namespace Backend.Migrations
                             Month = 3,
                             Question = "Pippin looks into the Orthanc-stone",
                             TimeValue = 43019.065m,
-                            Trivia = "The seven seeing stones are said to have been created by Fëanor, but that isn't confirmed",
+                            Trivia = "",
                             Year = 3019
                         },
                         new
@@ -750,7 +753,7 @@ namespace Backend.Migrations
                             Month = 3,
                             Question = "Frodo and Sam reach Henneth Annûn",
                             TimeValue = 43019.067m,
-                            Trivia = "Henneth Annûn was Sindarin for \"Window of the West\"",
+                            Trivia = "",
                             Year = 3019
                         },
                         new
@@ -765,7 +768,7 @@ namespace Backend.Migrations
                             Month = 3,
                             Question = "The Dawnless Day",
                             TimeValue = 43019.07m,
-                            Trivia = "Sauron sent out fumes to veil the Sun, thus this day was labeled The Dawnless Day",
+                            Trivia = "",
                             Year = 3019
                         },
                         new
@@ -780,7 +783,7 @@ namespace Backend.Migrations
                             Month = 3,
                             Question = "Second assault on Lothlórien",
                             TimeValue = 43019.075m,
-                            Trivia = "Not featured in the movies, the war of the ring had several fronts inclduing Lóthlorien",
+                            Trivia = "",
                             Year = 3019
                         },
                         new
@@ -795,7 +798,7 @@ namespace Backend.Migrations
                             Month = 10,
                             Question = "Frodo wakes up in Rivendell after recovering from his wound",
                             TimeValue = 43018.294m,
-                            Trivia = "Frodo never fully recovered however, the wound pained him until his last days",
+                            Trivia = "",
                             Year = 3018
                         },
                         new
@@ -807,7 +810,7 @@ namespace Backend.Migrations
                             IsLotrOrTheHobbit = false,
                             Question = "Arwen dies in Lothlórien",
                             TimeValue = 50121m,
-                            Trivia = "Arwen dies of a broken heart, as Aragorn had died a year earlier",
+                            Trivia = "",
                             Year = 121
                         },
                         new
@@ -951,7 +954,7 @@ namespace Backend.Migrations
                             Month = 3,
                             Question = "The last debate",
                             TimeValue = 43019.076m,
-                            Trivia = "The last debate was held outside of Minas Tirith, as Aragorn had decided not to enter Gondor until being accepted as King",
+                            Trivia = "",
                             Year = 3019
                         },
                         new
@@ -966,7 +969,7 @@ namespace Backend.Migrations
                             Month = 3,
                             Question = "Gandalf arrives at Helm's Deep",
                             TimeValue = 43019.064m,
-                            Trivia = "In the books Gandalf arrives together with Erkenbrand, whereas in the movies he arrives with Éomer",
+                            Trivia = "",
                             Year = 3019
                         },
                         new
@@ -981,7 +984,7 @@ namespace Backend.Migrations
                             Month = 3,
                             Question = "Gandalf heals Theoden",
                             TimeValue = 43019.062m,
-                            Trivia = "fter this, he became known as Théoden Ednew, the Renewed, because he had thrown off the yoke of Saruman.",
+                            Trivia = "",
                             Year = 3019
                         },
                         new
@@ -996,7 +999,7 @@ namespace Backend.Migrations
                             Month = 2,
                             Question = "The breaking of the Fellowship of The Ring",
                             TimeValue = 43019.056m,
-                            Trivia = "Aragorn continued to refer to the company he led as the Fellowship of the Ring even after the original Fellowship broke up.",
+                            Trivia = "",
                             Year = 3019
                         },
                         new
@@ -1011,7 +1014,7 @@ namespace Backend.Migrations
                             Month = 2,
                             Question = "Gandalf returns to life",
                             TimeValue = 43019.045m,
-                            Trivia = "Gandalf is the second person ever to be ressurected after fighting a Balrog, Glorfindel was the first",
+                            Trivia = "",
                             Year = 3019
                         },
                         new
@@ -1039,9 +1042,9 @@ namespace Backend.Migrations
                             IsGreatHappening = false,
                             IsLotrOrTheHobbit = true,
                             Month = 6,
-                            Question = "Bilbo returns to Bag End and learns he's been pronounced dead",
+                            Question = "Bildo returns to Bag End and learns he's been pronounced dead",
                             TimeValue = 42942.172m,
-                            Trivia = " Bilbo had to buy back his sold possessions in order to avoid quarreling with the purchasers",
+                            Trivia = "",
                             Year = 2942
                         },
                         new
@@ -1056,7 +1059,7 @@ namespace Backend.Migrations
                             Month = 10,
                             Question = "Smaug is killed",
                             TimeValue = 42941.271m,
-                            Trivia = "Smaug was considered the last great dragon of Middle-Earth",
+                            Trivia = "",
                             Year = 2941
                         },
                         new
@@ -1071,7 +1074,7 @@ namespace Backend.Migrations
                             Month = 4,
                             Question = "Bilbo leaves Bag End with Gandalf and the thirteen dwarves",
                             TimeValue = 42941.117m,
-                            Trivia = "Bilbos father was name Bungo Baggins and his mother Belladonna Took, making him half a Took",
+                            Trivia = "",
                             Year = 2941
                         },
                         new
@@ -1083,7 +1086,7 @@ namespace Backend.Migrations
                             IsLotrOrTheHobbit = false,
                             Question = "The Witch King invades Arnor",
                             TimeValue = 41409m,
-                            Trivia = "Arnor was founded in Second Age 3320 by Elendil, the sister kingdom to the southern realm of Gondor founded by his sons",
+                            Trivia = "",
                             Year = 1409
                         },
                         new
@@ -1095,7 +1098,7 @@ namespace Backend.Migrations
                             IsLotrOrTheHobbit = false,
                             Question = "Defeat of Sauron and death of Gil-galad and Elendil",
                             TimeValue = 33441m,
-                            Trivia = "Gil-galad was burnt to death by Saurons scorching touch",
+                            Trivia = "",
                             Year = 3441
                         },
                         new
@@ -1107,7 +1110,7 @@ namespace Backend.Migrations
                             IsLotrOrTheHobbit = false,
                             Question = "Battle of Dagorlad and siege of Barad-dûr",
                             TimeValue = 33434m,
-                            Trivia = "The siege lated for seven years",
+                            Trivia = "",
                             Year = 3434
                         },
                         new
@@ -1119,7 +1122,7 @@ namespace Backend.Migrations
                             IsLotrOrTheHobbit = false,
                             Question = "The Three Rings are hidden and the War of the Elves and Sauron begins",
                             TimeValue = 31693m,
-                            Trivia = "The moment Sauron puts on the One Ring the elven ring-bearers could sense it",
+                            Trivia = "",
                             Year = 1693
                         },
                         new
@@ -1131,7 +1134,7 @@ namespace Backend.Migrations
                             IsLotrOrTheHobbit = false,
                             Question = "Elrond founds Rivendell",
                             TimeValue = 31697m,
-                            Trivia = "The valley of Imladris (within which the Last Homely House was situated) was based upon the landscape of Lauterbrunnen",
+                            Trivia = "",
                             Year = 1697
                         },
                         new
@@ -1143,7 +1146,7 @@ namespace Backend.Migrations
                             IsLotrOrTheHobbit = false,
                             Question = "The war of Wrath",
                             TimeValue = 20545m,
-                            Trivia = "The battle was so intense that it lay waste to all of Beleriand and sunk it under the sea",
+                            Trivia = "",
                             Year = 545
                         },
                         new
@@ -1155,7 +1158,7 @@ namespace Backend.Migrations
                             IsLotrOrTheHobbit = false,
                             Question = "Eärendil arrives in Valinor and asks the Valar to aid in the fight again Morgoth",
                             TimeValue = 20542m,
-                            Trivia = "The name Eärendil comes from an old English poem",
+                            Trivia = "",
                             Year = 542
                         },
                         new
@@ -1167,7 +1170,7 @@ namespace Backend.Migrations
                             IsLotrOrTheHobbit = false,
                             Question = "Túrin slays Glaurung",
                             TimeValue = 20499m,
-                            Trivia = "Glaurung is known as tha father of all dragons. He could however not fly",
+                            Trivia = "",
                             Year = 499
                         },
                         new
@@ -1179,7 +1182,7 @@ namespace Backend.Migrations
                             IsLotrOrTheHobbit = false,
                             Question = "Nírnaeth Arnoediad, The Battle of Unnumbered Tears, is fought.",
                             TimeValue = 20472m,
-                            Trivia = "This battle swayed the war to Morgoths favor, it was a crushing defeat for the Elves and Men of Beleriand",
+                            Trivia = "",
                             Year = 472
                         },
                         new
@@ -1191,7 +1194,7 @@ namespace Backend.Migrations
                             IsLotrOrTheHobbit = false,
                             Question = "Fall of Gondolin",
                             TimeValue = 20510m,
-                            Trivia = "Like Gandalf, Glorfindel fought a Balrog and won. Glorfindel himself died though, and was later ressurected.",
+                            Trivia = "",
                             Year = 510
                         },
                         new
@@ -1251,7 +1254,7 @@ namespace Backend.Migrations
                             IsLotrOrTheHobbit = false,
                             Question = "Elros is crowned the first king of Númenor",
                             TimeValue = 30032m,
-                            Trivia = "The land was brought up from the sea as a gift to Men from the gods, for helping defeat Morgoth",
+                            Trivia = "",
                             Year = 32
                         },
                         new
@@ -1335,7 +1338,7 @@ namespace Backend.Migrations
                             IsLotrOrTheHobbit = false,
                             Question = "Morgoth steals the three Silmarils",
                             TimeValue = 11495m,
-                            Trivia = "As Morgoth steals the Silmarils, he murders high king Finwë. Thus the first murder is commited in Valinor",
+                            Trivia = "",
                             Year = 1495
                         },
                         new

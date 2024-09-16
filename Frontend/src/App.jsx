@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import "./App.css";
+import "./Zoom.css";
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./Pages/Home/Home";
 import LotrGame from "./Pages/LotrGame/LotrGame";
+import LotrMultiplayerGame from "./Pages/LotrMultiplayerGame/LotrMultiplayerGame";
+
 function App() {
   const [allCards, setAllCards] = useState([]);
   const [openModal, setOpenModal] = useState(null);
@@ -30,6 +33,18 @@ function App() {
             path="/game"
             element={
               <LotrGame
+                allCards={allCards}
+                setAllCards={setAllCards}
+                openModal={openModal}
+                handleOpenModal={handleOpenModal}
+                handleCloseModal={handleCloseModal}
+              />
+            }
+          />
+          <Route
+            path="/multiplayer"
+            element={
+              <LotrMultiplayerGame
                 allCards={allCards}
                 setAllCards={setAllCards}
                 openModal={openModal}

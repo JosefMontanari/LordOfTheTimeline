@@ -14,7 +14,7 @@ function useLocalStorage() {
 
     if (card.isCorrect) {
       points += 1000 * (1 + card.difficulty / 10);
-      let timeBonus;
+      let timeBonus = 0;
       if (time < 5000) {
         timeBonus = Math.floor((5000 - time) / 10);
       }
@@ -89,7 +89,7 @@ function useLocalStorage() {
     let player = getLocalStorage("player");
 
     let playerName;
-    player === null ? (playerName = "guest") : (playerName = player.userName);
+    player === null ? (playerName = "Guest") : (playerName = player.userName);
     let score = getLocalStorage("totalPoints");
 
     // Hämta listan med spelare från localStorage

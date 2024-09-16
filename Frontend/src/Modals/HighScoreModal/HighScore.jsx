@@ -21,7 +21,7 @@ function HighScore({ handleCloseModal }) {
         onClick={(e) => e.stopPropagation()}
       >
         <h1 className="title">High Score</h1>
-        <img src={timeFrame} alt="" className="frame" />
+        {/* <img src={timeFrame} alt="" className="frame" /> */}
         <div className="high-score">
           {highScores.length < 1 ? (
             <>
@@ -29,7 +29,6 @@ function HighScore({ handleCloseModal }) {
             </>
           ) : (
             <>
-
               <div className="p-name-score">
                 <p>NAME</p>
                 <p>SCORE</p>
@@ -43,10 +42,11 @@ function HighScore({ handleCloseModal }) {
                       : "p-highscore-name-small"
                   }`}
                 >
-                  <p>{h.userName}:</p>
+                  <p>
+                    {index + 1}. {h.userName}
+                  </p>
                   <p>{h.highScore}</p>
                 </div>
-
               ))}
             </>
           )}
